@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://ohdiln5ileer"]
+[gd_scene load_steps=63 format=3 uid="uid://ohdiln5ileer"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_qfc5t"]
 [ext_resource type="Texture2D" uid="uid://cdmkijs3iqdsd" path="res://Sprites/01-King Human/Door In (78x58).png" id="2_osp6s"]
@@ -397,6 +397,14 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_vju1q"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xy2bc"]
+_data = {
+"new_animation": SubResource("Animation_vju1q")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_qfc5t")
 
@@ -407,10 +415,16 @@ zoom = Vector2(4, 4)
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_nawam")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Pivot" type="Node2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
-position = Vector2(7, -2)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
+position = Vector2(7, -3)
 sprite_frames = SubResource("SpriteFrames_1hbxr")
-animation = &"ground"
+animation = &"hit"
 autoplay = "idle"
+frame_progress = 0.420372
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xy2bc")
+}
