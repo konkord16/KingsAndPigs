@@ -2,15 +2,33 @@ class_name BaseEntity
 extends CharacterBody2D
 
 @export var flipped : bool # For if the asset is drawn the wrong way
+enum {	
+	MOVE,
+	ATTACK,	
+	DEAD,
+}
+var current_state = MOVE
+var dead : bool = false
 const GRAVITY = 20
 var grounded : bool = true
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 
 
-func gravity():
+func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += GRAVITY
+	move_and_slide()
+	match current_state:
+		MOVE:
+			animate()
+					
+		ATTACK:
+			attack()
+		DEAD:
+			die()
+			# Additional behaviour when a player dies
+
 
 func animate():
 	if velocity.x > 0:
@@ -33,9 +51,20 @@ func animate():
 		animation_player.play("ground")	
 	grounded = is_on_floor()
 	
+	
 func attack():
-	print("trying to attack")
+	velocity = Vector2.ZERO
 	animation_player.play("attack")
 	await animation_player.animation_finished
+	current_state = MOVE
+	
+	
 func take_damage():
+	# Play animation, take damage,knockback, modify healthbar and die if 0 hp
 	pass
+	
+	
+func die():
+	dead = true
+	animation_player.play("dead")
+	# Add death particles, remove the body, offer restart

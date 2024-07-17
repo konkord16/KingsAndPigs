@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://ohdiln5ileer"]
+[gd_scene load_steps=7 format=3 uid="uid://ohdiln5ileer"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qfc5t"]
 [ext_resource type="Texture2D" uid="uid://ct5ek15q0e3a4" path="res://Sprites/02-KingHuman.png" id="2_teahl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nawam"]
 size = Vector2(20, 24.5)
+
+[sub_resource type="Animation" id="Animation_vxsae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5ffld"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [55, 56, 57]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0qbv"]
+_data = {
+"RESET": SubResource("Animation_vxsae"),
+"attack": SubResource("Animation_5ffld")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qfc5t")
@@ -20,6 +57,8 @@ shape = SubResource("RectangleShape2D_nawam")
 texture = ExtResource("2_teahl")
 hframes = 11
 vframes = 10
-frame = 22
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c0qbv")
+}
