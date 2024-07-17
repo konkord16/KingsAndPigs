@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ohdiln5ileer"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_qfc5t"]
+[ext_resource type="Texture2D" uid="uid://ct5ek15q0e3a4" path="res://Sprites/02-KingHuman.png" id="2_teahl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nawam"]
+size = Vector2(20, 24.5)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_qfc5t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_nawam")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_teahl")
+hframes = 11
+vframes = 10
+frame = 22
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
