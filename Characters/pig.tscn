@@ -166,15 +166,12 @@ script = ExtResource("1_sbh1h")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_2b53f")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_1d38k")
-}
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1uq6v")
 hframes = 11
 vframes = 8
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1d38k")
+}
