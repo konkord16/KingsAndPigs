@@ -1,6 +1,7 @@
 class_name BaseEntity
 extends CharacterBody2D
 
+
 @export var flipped : bool # For if the asset is drawn the wrong way
 enum {	
 	MOVE,
@@ -8,14 +9,14 @@ enum {
 	DEAD,
 }
 var current_state = MOVE
-var dead : bool = false
 const GRAVITY = 20
 var grounded : bool = true
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
+	
 	if not is_on_floor():
 		velocity.y += GRAVITY
 	move_and_slide()
@@ -24,9 +25,14 @@ func _physics_process(delta):
 			animate()
 					
 		ATTACK:
-			attack()
+			velocity = Vector2.ZERO
+			animation_player.play("attack")		
+			await animation_player.animation_finished	
+			current_state = MOVE
+	
 		DEAD:
-			die()
+			animation_player.play("dead")
+			# Add death particles, remove the body
 			# Additional behaviour when a player dies
 
 
@@ -34,7 +40,7 @@ func animate():
 	if velocity.x > 0:
 		sprite.scale.x = -1 if flipped else 1
 	elif velocity.x < 0:                                                        
-		sprite.scale.x = -1 if not flipped else 1
+		sprite.scale.x = 1 if flipped else -1
 		
 	if not velocity:
 		animation_player.play("idle")
@@ -49,22 +55,9 @@ func animate():
 			
 	if is_on_floor() and not grounded:
 		animation_player.play("ground")	
-	grounded = is_on_floor()
-	
-	
-func attack():
-	velocity = Vector2.ZERO
-	animation_player.play("attack")
-	await animation_player.animation_finished
-	current_state = MOVE
-	
+	grounded = is_on_floor()	
+
 	
 func take_damage():
 	# Play animation, take damage,knockback, modify healthbar and die if 0 hp
 	pass
-	
-	
-func die():
-	dead = true
-	animation_player.play("dead")
-	# Add death particles, remove the body, offer restart
