@@ -20,7 +20,7 @@ func _ready():
 
 func _replace_tiles_with_scene(scene_dictionary: Dictionary = TILE_SCENES):
 	for key in scene_dictionary.keys():
-		for tile_pos in get_used_cells_by_id(search_layer, 5, key):
+		for tile_pos in get_used_cells_by_id(search_layer, 2, key):
 				var object_scene = scene_dictionary[key]
 				_replace_tile_with_object(tile_pos, object_scene)
 				
