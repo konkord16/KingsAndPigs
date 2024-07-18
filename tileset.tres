@@ -1,0 +1,22 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b2tf14hpdwr0"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1moba"]
+tile_data = PackedInt32Array(0, 458754, 1, 65536, 196610, 2, 1, 131074, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_uf3ee"]
+tile_data = PackedInt32Array(0, 131074, 3, 1, 524290, 1, 65537, 65538, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_62ny6"]
+tile_data = PackedInt32Array(0, 196610, 2, 65536, 458754, 2, 65537, 131074, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_jfbwe"]
+tile_data = PackedInt32Array(0, 131074, 1, 1, 196610, 1, 65537, 196610, 2)
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+pattern_0 = SubResource("TileMapPattern_1moba")
+pattern_1 = SubResource("TileMapPattern_uf3ee")
+pattern_2 = SubResource("TileMapPattern_62ny6")
+pattern_3 = SubResource("TileMapPattern_jfbwe")

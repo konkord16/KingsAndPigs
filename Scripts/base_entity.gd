@@ -7,6 +7,7 @@ enum {
 	MOVE,
 	ATTACK,	
 	DEAD,
+	CUTSCENE,
 }
 var current_state = MOVE
 const GRAVITY = 20
@@ -34,7 +35,7 @@ func _physics_process(_delta):
 			animation_player.play("dead")
 			# Add death particles, remove the body
 			# Additional behaviour when a player dies
-
+		
 
 func animate():
 	if velocity.x > 0:

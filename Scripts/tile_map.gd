@@ -1,13 +1,13 @@
 extends TileMap
 
 @export var TILE_SCENES: Dictionary = {
-	Vector2(0,0): preload("res://Characters/player.tscn"),
-	Vector2(1,0): preload("res://Characters/pig.tscn"),
-	#Vector2(2,0): preload("res://Characters/crate.tscn"),
-	#Vector2(3,0): preload("res://Characters/bomb.tscn"),
-	#Vector2(4,0): preload("res://Characters/crate_pig.tscn"),
-	#Vector2(5,0): preload("res://Characters/cannon.tscn"),
-	#Vector2(6,0): preload("res://Characters/king.tscn"),
+	Vector2(0,0): preload("res://Scenes/player.tscn"),
+	Vector2(1,0): preload("res://Scenes/pig.tscn"),
+	#Vector2(2,0): preload("res://Scenes/crate.tscn"),
+	#Vector2(3,0): preload("res://Scenes/bomb.tscn"),
+	#Vector2(4,0): preload("res://Scenes/crate_pig.tscn"),
+	#Vector2(5,0): preload("res://Scenes/cannon.tscn"),
+	#Vector2(6,0): preload("res://Scenes/pig_king.tscn"),
 }
 @onready var half_cell_size := tile_set.tile_size * 0.5
 
@@ -33,7 +33,7 @@ func _replace_tile_with_object(tile_pos: Vector2, object_scene: PackedScene, par
 	#Spawn the object	
 	if object_scene:
 		var obj = object_scene.instantiate()
-		var ob_pos = map_to_local(tile_pos) - half_cell_size 
+		var ob_pos = map_to_local(tile_pos)# - half_cell_size 
 		
 		parent.add_child(obj)
 		obj.global_position = to_global(ob_pos)
