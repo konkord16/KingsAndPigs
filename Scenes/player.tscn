@@ -196,6 +196,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 script = ExtResource("1_xmujv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
