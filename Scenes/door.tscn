@@ -43,7 +43,7 @@ region = Rect2(184, 0, 46, 56)
 [sub_resource type="SpriteFrames" id="SpriteFrames_0453t"]
 animations = [{
 "frames": [{
-"duration": 3.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_30erd")
 }, {
 "duration": 1.0,
@@ -77,7 +77,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wpqcy")
 }, {
-"duration": 3.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_8guxi")
 }],
 "loop": false,
@@ -86,6 +86,7 @@ animations = [{
 }]
 
 [node name="Door" type="Area2D" groups=["door"]]
+collision_mask = 2
 script = ExtResource("1_wc4yn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

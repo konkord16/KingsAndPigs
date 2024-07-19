@@ -1,15 +1,16 @@
 extends BaseEntity
 
-var enterable_door = null
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
+var enterable_door = null
+
 func _ready():
 	current_state = CUTSCENE
 	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
-		animation_player.play("wake_up")
+		animator.play("wake_up")
 	else:
-		animation_player.play("door_out")
-	await animation_player.animation_finished
+		animator.play("door_out")
+	await animator.animation_finished
 	current_state = MOVE
 
 func _physics_process(_delta):
@@ -35,5 +36,9 @@ func _physics_process(_delta):
 			current_state = CUTSCENE
 			velocity = Vector2.ZERO
 			global_position = enterable_door.global_position
-			animation_player.play("door_in")
+			animator.play("door_in")
 	super(_delta)
+	
+
+func _on_hitbox_body_entered(body):
+		body.take_damage()
