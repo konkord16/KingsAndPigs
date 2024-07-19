@@ -43,7 +43,7 @@ region = Rect2(184, 0, 46, 56)
 [sub_resource type="SpriteFrames" id="SpriteFrames_0453t"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_30erd")
 }, {
 "duration": 1.0,
@@ -95,7 +95,7 @@ shape = SubResource("RectangleShape2D_gpgxi")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_0453t")
-animation = &"opening"
+animation = &"closing"
 autoplay = "idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

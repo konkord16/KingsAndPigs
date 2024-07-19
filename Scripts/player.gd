@@ -3,9 +3,16 @@ extends BaseEntity
 var enterable_door = null
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
+func _ready():
+	current_state = CUTSCENE
+	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
+		animation_player.play("wake_up")
+	else:
+		animation_player.play("door_out")
+	await animation_player.animation_finished
+	current_state = MOVE
 
 func _physics_process(_delta):
-	print(enterable_door)
 	# Taking input
 	if current_state == MOVE:		
 		if is_on_floor():
@@ -23,7 +30,7 @@ func _physics_process(_delta):
 		if Input.is_action_just_pressed("attack") and is_on_floor():
 			current_state = ATTACK
 			
-		if Input.is_action_just_pressed("up") and enterable_door:
+		if Input.is_action_just_pressed("up") and enterable_door and enterable_door.destination:
 			enterable_door.enter()
 			current_state = CUTSCENE
 			velocity = Vector2.ZERO

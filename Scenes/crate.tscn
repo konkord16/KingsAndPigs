@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2kup1ikh5sob"]
+
+[ext_resource type="Texture2D" uid="uid://qbg0q03sj0v0" path="res://Sprites/08-Box/Idle.png" id="1_cp6bc"]
+
+[node name="Crate" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cp6bc")

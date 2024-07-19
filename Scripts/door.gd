@@ -1,16 +1,20 @@
 extends Area2D
 
 @onready var sprite = $AnimatedSprite
-@export var scene : String
+@export var destination : String
+@export_enum("open", "closed") var init_state
+
+func _ready():
+	if init_state == 0:		
+		sprite.play("closing")
 
 func enter():
 	sprite.play("opening")
-	await sprite.animation_finished
-	
+	await sprite.animation_finished	
 	sprite.play("closing")
 	await sprite.animation_finished
 	sprite.play("idle")	
-	get_tree().change_scene_to_file("res://Levels/" + scene + ".tscn")
+	get_tree().change_scene_to_file("res://Levels/" + destination + ".tscn")
 
 
 func _on_body_entered(body):
