@@ -37,7 +37,6 @@ func _physics_process(_delta):
 		DEAD:
 			velocity = Vector2.ZERO
 			animator.play("dead")
-			# Add death particles, remove the body
 			# Additional behaviour when a player dies
 		
 
@@ -64,12 +63,13 @@ func animate():
 
 	
 func take_damage():
-	current_state = CUTSCENE
-	hp -= 1
-	animator.play("hit")
-	await animator.animation_finished	
-	if hp <= 0:
-		current_state = DEAD
-	else:
-		current_state = MOVE
-	# Play animation, take damage,knockback, modify healthbar and die if 0 hp
+	if current_state != DEAD:			
+		current_state = CUTSCENE
+		velocity = Vector2.ZERO
+		hp -= 1
+		animator.play("hit")
+		await animator.animation_finished	
+		if hp <= 0:
+			current_state = DEAD
+		else:
+			current_state = MOVE

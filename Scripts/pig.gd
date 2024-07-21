@@ -1,10 +1,10 @@
 extends BaseEntity
 
-var speed = 50.0
+const SPEED = 50.0
 const JUMP_VELOCITY = -300.0
 const SEARCH_RANGE = Vector2(50, 50)
 var direction = 1
-var player
+var player : CharacterBody2D
 
 func _ready():
 	await get_tree().physics_frame
@@ -24,7 +24,7 @@ func _physics_process(_delta):
 			direction *= -1	
 			
 		if current_state == MOVE: # Move if supposed to
-			velocity.x = direction * speed
+			velocity.x = direction * SPEED
 			
 	super(_delta)
 

@@ -41,4 +41,5 @@ func _physics_process(_delta):
 	
 
 func _on_hitbox_body_entered(body):
-		body.take_damage()
+		if body.has_method("take_damage"):			
+			body.take_damage()

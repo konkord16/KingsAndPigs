@@ -15,7 +15,7 @@ layer_0/tile_data = PackedInt32Array(-589865, 131072, 2, -524329, 131072, 2, -45
 layer_1/name = "Decorations"
 layer_1/tile_data = PackedInt32Array(-196640, 196609, 1, -65564, 131073, 1, -262164, 196609, 1, -196628, 131073, 1, -131092, 131073, 1, -65556, 131073, 1, -262163, 196609, 1, -196627, 262145, 1, -131091, 262145, 1, -65555, 262145, 1)
 layer_2/name = "Scenes"
-layer_2/tile_data = PackedInt32Array(-65559, 2, 131072, -262178, 2, 65536)
+layer_2/tile_data = PackedInt32Array(-65559, 2, 131072, -262178, 2, 65536, -262179, 2, 196608)
 layer_3/name = "Secrets"
 layer_3/tile_data = PackedInt32Array()
 
