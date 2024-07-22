@@ -190,6 +190,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D/Attack range:monitoring")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_v25ua"]
 resource_name = "fall"
@@ -302,7 +314,7 @@ _data = {
 offsets = PackedFloat32Array(0.0163934, 0.590164)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.137255)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_wcqhi"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yt7yw"]
 gradient = SubResource("Gradient_t8xxx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rnod4"]
@@ -317,7 +329,7 @@ initial_velocity_max = 40.0
 gravity = Vector3(0, 0, 0)
 scale_over_velocity_min = 1.0
 scale_over_velocity_max = 1.0
-color_ramp = SubResource("GradientTexture1D_wcqhi")
+color_ramp = SubResource("GradientTexture1D_yt7yw")
 
 [node name="Pig" type="CharacterBody2D"]
 z_index = 2
@@ -362,6 +374,7 @@ libraries = {
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_rnod4")
 texture = ExtResource("3_2wevc")
+one_shot = true
 explosiveness = 0.5
 
 [connection signal="body_entered" from="Sprite2D/Attack range" to="." method="_on_attack_range_body_entered"]
