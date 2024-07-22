@@ -3,7 +3,7 @@ extends CharacterBody2D
 var force
 
 func _ready():
-	velocity.x = force
+	velocity.x = clamp(force, -10 , 10)
 
 func _physics_process(delta):
 	velocity.y += .1

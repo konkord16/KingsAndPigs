@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://jm1v7bd88m5u"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://jm1v7bd88m5u"]
 
 [ext_resource type="Texture2D" uid="uid://dpu1jb32s17q2" path="res://Sprites/14-TileSets/Terrain (32x32).png" id="1_hbfsf"]
 [ext_resource type="Texture2D" uid="uid://dryry1se4xi51" path="res://Sprites/14-TileSets/Decorations (32x32).png" id="2_vgtcd"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cun3g41hjlqs7" path="res://Scenes/pig.tscn" id="4_sqjxk"]
 [ext_resource type="PackedScene" uid="uid://c2kup1ikh5sob" path="res://Scenes/crate.tscn" id="5_1fqgw"]
 [ext_resource type="PackedScene" uid="uid://my5d3gww0jpu" path="res://Scenes/pig_and_cannon.tscn" id="6_oouy7"]
+[ext_resource type="PackedScene" uid="uid://tkts4exkdquw" path="res://Scenes/door.tscn" id="7_ypiin"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1moba"]
 tile_data = PackedInt32Array(0, 458754, 1, 65536, 196610, 2, 1, 131074, 3)
@@ -417,11 +418,12 @@ scenes/1/scene = ExtResource("3_vevom")
 scenes/2/scene = ExtResource("4_sqjxk")
 scenes/3/scene = ExtResource("5_1fqgw")
 scenes/4/scene = ExtResource("6_oouy7")
+scenes/5/scene = ExtResource("7_ypiin")
 
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 6
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_438gk")
 sources/1 = SubResource("TileSetAtlasSource_7dyrn")
 sources/2 = SubResource("TileSetScenesCollectionSource_68xsr")

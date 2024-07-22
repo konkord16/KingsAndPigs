@@ -21,5 +21,4 @@ layer_3/tile_data = PackedInt32Array()
 
 [node name="Door" parent="." instance=ExtResource("5_e6ag4")]
 position = Vector2(-526, -177)
-destination = "level1"
 init_state = 1

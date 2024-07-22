@@ -11,6 +11,8 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")	
 
 func _physics_process(_delta):
+	print(velocity.x)
+	print(get_last_motion())
 	if current_state == MOVE:				
 		if $Sprite2D/WallRay.get_collider() is TileMap: # Turn around if sees wall
 			direction *= -1	

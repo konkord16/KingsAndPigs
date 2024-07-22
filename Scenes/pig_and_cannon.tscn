@@ -1,7 +1,70 @@
-[gd_scene load_steps=9 format=3 uid="uid://my5d3gww0jpu"]
+[gd_scene load_steps=10 format=3 uid="uid://my5d3gww0jpu"]
 
 [ext_resource type="Script" path="res://Scripts/cannon.gd" id="1_1n7f5"]
 [ext_resource type="Texture2D" uid="uid://chexplfvb6ukn" path="res://Sprites/10-Cannon and Pig.png" id="2_t2u1f"]
+
+[sub_resource type="Animation" id="Animation_2c7ob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Cannon/CannonSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Pig/PigSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [54]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Pig:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Cannon/CannonSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/Pig/PigSprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_pvtl8"]
 resource_name = "idle"
@@ -32,33 +95,6 @@ tracks/1/keys = {
 "values": [54, 55, 56, 57, 58, 59]
 }
 
-[sub_resource type="Animation" id="Animation_2c7ob"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/Cannon/CannonSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/Pig/PigSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [54]
-}
-
 [sub_resource type="Animation" id="Animation_ivqcw"]
 resource_name = "shoot"
 length = 1.3
@@ -69,10 +105,10 @@ tracks/0/path = NodePath("Pivot/Pig/PigSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"times": PackedFloat32Array(-0.3, 0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 14, 18, 19, 20, 24, 25, 26]
+"values": [14, 12, 13, 18, 19, 20, 24, 25, 26]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -81,10 +117,10 @@ tracks/1/path = NodePath("Pivot/Cannon/CannonSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.00916686, 0.9, 1, 1.1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 6, 7, 8, 9]
+"values": [6, 7, 8, 9]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -101,11 +137,63 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_7hdeh"]
+resource_name = "turn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Pig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(24, 7), Vector2(-24, 7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Cannon/CannonSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Pig/PigSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41, 36, 54]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Pig/PigSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(-1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0j3rl"]
 _data = {
 "RESET": SubResource("Animation_2c7ob"),
 "idle": SubResource("Animation_pvtl8"),
-"shoot": SubResource("Animation_ivqcw")
+"shoot": SubResource("Animation_ivqcw"),
+"turn": SubResource("Animation_7hdeh")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ses3h"]
@@ -115,7 +203,6 @@ size = Vector2(10, 12)
 size = Vector2(12, 14.5)
 
 [node name="PigAndCannon" type="Node2D"]
-position = Vector2(0, -15)
 script = ExtResource("1_1n7f5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -124,11 +211,10 @@ libraries = {
 }
 
 [node name="Pivot" type="Node2D" parent="."]
-position = Vector2(0, 15)
-scale = Vector2(-1, 1)
 
 [node name="Pig" type="StaticBody2D" parent="Pivot"]
-position = Vector2(25, -8)
+z_index = 1
+position = Vector2(24, 7)
 collision_layer = 4
 collision_mask = 0
 
@@ -142,7 +228,6 @@ frame = 54
 shape = SubResource("RectangleShape2D_ses3h")
 
 [node name="Cannon" type="StaticBody2D" parent="Pivot"]
-position = Vector2(0, -15)
 collision_layer = 4
 collision_mask = 0
 
@@ -156,3 +241,8 @@ vframes = 10
 z_index = 1
 position = Vector2(0, 7.75)
 shape = SubResource("RectangleShape2D_r6flb")
+
+[node name="RayCast" type="RayCast2D" parent="."]
+position = Vector2(3, 8)
+target_position = Vector2(50, 0)
+collision_mask = 2
