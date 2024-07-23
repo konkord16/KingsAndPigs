@@ -48,10 +48,10 @@ func _physics_process(delta):
 			await animator.animation_finished
 			current_state = IDLE
 
-func shoot():	 
-	
-	force = target.x / abs(target.y) * 1.5
-	if target.y < -5:
+func shoot():		
+	print(target.x)
+	force = target.x / sqrt(2 * abs(target.y) / 0.1)
+	if target.y < -5 or sign(target.x) == direction:
 		force = 10 * -direction
 	var ball_inst = cannon_ball.instantiate()
 	ball_inst.force = force

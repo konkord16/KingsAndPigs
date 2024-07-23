@@ -6,7 +6,7 @@ func _ready():
 	velocity.x = clamp(force, -10 , 10)
 
 func _physics_process(delta):
-	velocity.y += .1
+	velocity.y += 0.1
 	var collision = move_and_collide(velocity)
 	if collision:
 		var collider = collision.get_collider() 

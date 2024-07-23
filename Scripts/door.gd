@@ -2,15 +2,15 @@ extends Area2D
 
 @onready var sprite = $AnimatedSprite
 var destination : int
-@export_enum("opening", "closing") var init_state
 
 func _ready():
 	await get_tree().physics_frame
-	for body in get_overlapping_bodies():
-		if body.is_in_group("player"):		
-			sprite.play("closing")
-		else:
-			destination = get_tree().current_scene.scene_file_path.to_int() + 1
+	if has_overlapping_bodies():		
+		for body in get_overlapping_bodies():
+			if body.is_in_group("player"):		
+				sprite.play("closing")
+	else:
+		destination = get_tree().current_scene.scene_file_path.to_int() + 1
 
 func enter():
 	sprite.play("opening")
