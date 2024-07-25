@@ -1,7 +1,6 @@
 class_name BaseEntity
 extends CharacterBody2D
 
-
 @export var flipped : bool # For if the asset is drawn the wrong way
 enum {	
 	MOVE,
@@ -11,26 +10,24 @@ enum {
 }
 const GRAVITY = 20
 var current_state = MOVE
-var grounded : bool = true
-var hp : int = 3
-
+var grounded := true
+var hp := 3
 @onready var animator : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var particles : GPUParticles2D = $GPUParticles2D
 
 
-func _physics_process(_delta):
-	
+func _physics_process(_delta):	
 	if not is_on_floor():
 		velocity.y += GRAVITY
 	move_and_slide()
 	match current_state:
 		MOVE:
 			animate()
-					
+			
 		ATTACK:
 			velocity = Vector2.ZERO
-			animator.play("attack")		
+			animator.play("attack")
 			await animator.animation_finished	
 			current_state = MOVE
 	
@@ -48,7 +45,7 @@ func animate():
 		
 	if not velocity:
 		animator.play("idle")
-	elif not velocity.y and get_last_motion():
+	elif not velocity.y:
 		animator.play("run")
 	
 	if not is_on_floor():
@@ -56,14 +53,14 @@ func animate():
 			animator.play("jump")
 		elif velocity.y >= 0:
 			animator.play("fall")
-			
+
 	if is_on_floor() and not grounded:
 		animator.play("ground")	
 	grounded = is_on_floor()	
 
 	
 func take_damage():
-	if current_state != DEAD:			
+	if current_state not in [DEAD, CUTSCENE]:			
 		current_state = CUTSCENE
 		velocity = Vector2.ZERO
 		hp -= 1

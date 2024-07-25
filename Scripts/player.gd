@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -300.0
 var enterable_door = null
 
 func _ready():
-	hp = 100
+	hp = Score.hp
 	current_state = CUTSCENE
 	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
 		animator.play("wake_up")
@@ -13,6 +13,7 @@ func _ready():
 		animator.play("door_out")
 	await animator.animation_finished
 	current_state = MOVE
+	
 
 func _physics_process(_delta):
 	# Taking input
@@ -39,8 +40,8 @@ func _physics_process(_delta):
 			global_position = enterable_door.global_position
 			animator.play("door_in")
 	super(_delta)
-	
+
 
 func _on_hitbox_body_entered(body):
-		if body.has_method("take_damage"):			
+		if body.has_method("take_damage"):
 			body.take_damage()

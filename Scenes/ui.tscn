@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://cjw45eq3jqrkd"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_skwlp"]
+[ext_resource type="Texture2D" uid="uid://4hwpyklvhoyb" path="res://Sprites/12-Live and Coins/Live Bar.png" id="2_dut1r"]
+[ext_resource type="Texture2D" uid="uid://c872mhkiikq44" path="res://Sprites/12-Live and Coins/Small Heart Idle (18x14).png" id="3_l245e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nmv7"]
+atlas = ExtResource("3_l245e")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46jr5"]
+atlas = ExtResource("3_l245e")
+region = Rect2(18, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpchk"]
+atlas = ExtResource("3_l245e")
+region = Rect2(36, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv51l"]
+atlas = ExtResource("3_l245e")
+region = Rect2(54, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8wc2"]
+atlas = ExtResource("3_l245e")
+region = Rect2(72, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_386wp"]
+atlas = ExtResource("3_l245e")
+region = Rect2(90, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww16u"]
+atlas = ExtResource("3_l245e")
+region = Rect2(108, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d287"]
+atlas = ExtResource("3_l245e")
+region = Rect2(126, 0, 18, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgyih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nmv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46jr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpchk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv51l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8wc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_386wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww16u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d287")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_skwlp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 264.0
+offset_bottom = 136.0
+texture = ExtResource("2_dut1r")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect/TextureProgressBar"]
+position = Vector2(80, 68)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hgyih")
+animation = &"idle"
+frame_progress = 0.936221
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="TextureRect/TextureProgressBar"]
+position = Vector2(124, 68)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hgyih")
+animation = &"idle"
+frame_progress = 0.348612
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="TextureRect/TextureProgressBar"]
+position = Vector2(168, 68)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hgyih")
+animation = &"idle"
+frame_progress = 0.38668
