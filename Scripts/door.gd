@@ -5,6 +5,7 @@ var destination : int
 
 func _ready():
 	await get_tree().physics_frame
+	await get_tree().physics_frame	
 	if has_overlapping_bodies():		
 		for body in get_overlapping_bodies():
 			if body.is_in_group("player"):		

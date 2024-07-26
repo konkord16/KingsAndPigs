@@ -1,110 +1,149 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjw45eq3jqrkd"]
+[gd_scene load_steps=20 format=3 uid="uid://cjw45eq3jqrkd"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_skwlp"]
 [ext_resource type="Texture2D" uid="uid://4hwpyklvhoyb" path="res://Sprites/12-Live and Coins/Live Bar.png" id="2_dut1r"]
-[ext_resource type="Texture2D" uid="uid://c872mhkiikq44" path="res://Sprites/12-Live and Coins/Small Heart Idle (18x14).png" id="3_l245e"]
+[ext_resource type="Texture2D" uid="uid://drlje0rdsldy4" path="res://Sprites/12-Live and Coins/Sprite-0001.png" id="3_xgvyb"]
+[ext_resource type="Texture2D" uid="uid://dmcewompk4736" path="res://Sprites/12-Live and Coins/Sprite-0004.png" id="4_i7oyk"]
+[ext_resource type="Texture2D" uid="uid://7ypycn72w3s4" path="res://Sprites/12-Live and Coins/Sprite-0005.png" id="5_nnr7m"]
+[ext_resource type="Texture2D" uid="uid://c2g34r4hedcx4" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)1.png" id="5_qxs38"]
+[ext_resource type="Texture2D" uid="uid://b40cdcs8r4efl" path="res://Sprites/12-Live and Coins/Sprite-0006.png" id="6_ckkd7"]
+[ext_resource type="Texture2D" uid="uid://sng48mhd8vkw" path="res://Sprites/12-Live and Coins/Sprite-0007.png" id="7_2fm5w"]
+[ext_resource type="Texture2D" uid="uid://bvl7fyuxgg0a4" path="res://Sprites/12-Live and Coins/Sprite-0008.png" id="8_ubtmf"]
+[ext_resource type="Texture2D" uid="uid://c836k42xlytw1" path="res://Sprites/12-Live and Coins/Small Heart Hit (18x14).png" id="9_wcsso"]
+[ext_resource type="Texture2D" uid="uid://dhvvmqb3ia4js" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)6.png" id="11_hs88l"]
+[ext_resource type="Texture2D" uid="uid://ckcu4h45gm2xw" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)7.png" id="12_2y6w6"]
+[ext_resource type="Texture2D" uid="uid://ce7eghdv2ahfe" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)8.png" id="13_ypc8f"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1nmv7"]
-atlas = ExtResource("3_l245e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar7y6"]
+atlas = ExtResource("9_wcsso")
 region = Rect2(0, 0, 18, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_46jr5"]
-atlas = ExtResource("3_l245e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_26hfm"]
+atlas = ExtResource("9_wcsso")
 region = Rect2(18, 0, 18, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mpchk"]
-atlas = ExtResource("3_l245e")
-region = Rect2(36, 0, 18, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jv51l"]
-atlas = ExtResource("3_l245e")
-region = Rect2(54, 0, 18, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q8wc2"]
-atlas = ExtResource("3_l245e")
-region = Rect2(72, 0, 18, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_386wp"]
-atlas = ExtResource("3_l245e")
-region = Rect2(90, 0, 18, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ww16u"]
-atlas = ExtResource("3_l245e")
-region = Rect2(108, 0, 18, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2d287"]
-atlas = ExtResource("3_l245e")
-region = Rect2(126, 0, 18, 14)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hgyih"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rngme"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1nmv7")
+"texture": SubResource("AtlasTexture_ar7y6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_46jr5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mpchk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jv51l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q8wc2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_386wp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ww16u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2d287")
+"texture": SubResource("AtlasTexture_26hfm")
 }],
-"loop": true,
-"name": &"idle",
+"loop": false,
+"name": &"break",
 "speed": 5.0
 }]
 
-[node name="Control" type="Control"]
+[sub_resource type="Animation" id="Animation_r0idk"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureProgressBar:texture_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_xgvyb"), ExtResource("4_i7oyk"), ExtResource("5_nnr7m"), ExtResource("6_ckkd7"), ExtResource("7_2fm5w"), ExtResource("8_ubtmf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Diamonds:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_qxs38"), ExtResource("11_hs88l"), ExtResource("12_2y6w6"), ExtResource("13_ypc8f"), ExtResource("5_qxs38")]
+}
+
+[sub_resource type="Animation" id="Animation_08afc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureProgressBar:texture_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_xgvyb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Diamonds:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_qxs38")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmi8x"]
+_data = {
+"RESET": SubResource("Animation_08afc"),
+"idle": SubResource("Animation_r0idk")
+}
+
+[node name="UI" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+scale = Vector2(3, 3)
 script = ExtResource("1_skwlp")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Healthbar" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 264.0
-offset_bottom = 136.0
+offset_right = 66.0
+offset_bottom = 34.0
 texture = ExtResource("2_dut1r")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="TextureRect"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Healthbar"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 54.0
+offset_bottom = 24.0
+max_value = 3.0
+value = 3.0
+texture_progress = ExtResource("3_xgvyb")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect/TextureProgressBar"]
-position = Vector2(80, 68)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_hgyih")
-animation = &"idle"
-frame_progress = 0.936221
+[node name="Heart" type="AnimatedSprite2D" parent="Healthbar"]
+visible = false
+position = Vector2(44, 17.3333)
+sprite_frames = SubResource("SpriteFrames_rngme")
+animation = &"break"
+frame_progress = 0.915278
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="TextureRect/TextureProgressBar"]
-position = Vector2(124, 68)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_hgyih")
-animation = &"idle"
-frame_progress = 0.348612
+[node name="Diamonds" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 35.0
+offset_top = -32.0
+offset_right = 131.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_qxs38")
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="TextureRect/TextureProgressBar"]
-position = Vector2(168, 68)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_hgyih")
-animation = &"idle"
-frame_progress = 0.38668
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Healthbar")
+libraries = {
+"": SubResource("AnimationLibrary_gmi8x")
+}
+autoplay = "idle"

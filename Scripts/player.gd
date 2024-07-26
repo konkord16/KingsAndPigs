@@ -1,11 +1,12 @@
 extends BaseEntity
 
+@onready var ui = $Camera2D/CanvasLayer/UI
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 var enterable_door = null
 
+
 func _ready():
-	hp = Score.hp
 	current_state = CUTSCENE
 	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
 		animator.play("wake_up")

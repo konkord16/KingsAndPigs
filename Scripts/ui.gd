@@ -1,11 +1,20 @@
 extends Control
 
+@onready var bar = $Healthbar/TextureProgressBar
+@onready var heart = $Healthbar/Heart
+@onready var player : BaseEntity = owner
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	bar.value = player.hp
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func update():
+	if bar.value > player.hp:
+		heartbreak()
+	bar.value = player.hp
+	
+func heartbreak():
+	heart.position.x = (66 + bar.value * 33) / 4
+	heart.visible = true
+	heart.play("break")
+	await heart.animation_finished
+	heart.visible = false

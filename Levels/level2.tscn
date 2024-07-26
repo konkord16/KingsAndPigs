@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://45o0mb0cg1e2"]
+[gd_scene load_steps=2 format=3 uid="uid://45o0mb0cg1e2"]
+
+[ext_resource type="TileSet" uid="uid://jm1v7bd88m5u" path="res://tileset.tres" id="1_pi775"]
 
 [node name="TileMap" type="TileMap"]
+position = Vector2(-10, -76)
+tile_set = ExtResource("1_pi775")
 format = 2
+layer_0/tile_data = PackedInt32Array(131070, 327680, 5, 131071, 327680, 5, 65536, 327680, 5, 65537, 327680, 5, 65538, 327680, 5, 65539, 327680, 5, 65540, 327680, 5, 65541, 327680, 5, 65542, 327680, 5, 65543, 327680, 5, 131069, 327680, 5, 131068, 327680, 5, 131067, 327680, 5, 131066, 327680, 5, 131065, 327680, 5, 65534, 2, 65536, 1, 2, 327680)

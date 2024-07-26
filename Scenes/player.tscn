@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://ohdiln5ileer"]
+[gd_scene load_steps=23 format=3 uid="uid://ohdiln5ileer"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_xmujv"]
 [ext_resource type="Texture2D" uid="uid://ct5ek15q0e3a4" path="res://Sprites/02-KingHuman.png" id="2_k7t6g"]
+[ext_resource type="PackedScene" uid="uid://cjw45eq3jqrkd" path="res://Scenes/ui.tscn" id="2_ljdp2"]
 [ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="3_3r6od"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nawam"]
@@ -267,6 +268,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D/CanvasLayer/UI")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"update"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_4jqop"]
 resource_name = "idle"
@@ -373,10 +388,12 @@ script = ExtResource("1_xmujv")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -20)
 zoom = Vector2(4, 4)
-limit_bottom = -16
 position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = 10
+
+[node name="UI" parent="Camera2D/CanvasLayer" instance=ExtResource("2_ljdp2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
