@@ -31,9 +31,9 @@ shape = SubResource("RectangleShape2D_8ekb6")
 [connection signal="body_entered" from="TileMap/Door" to="TileMap/Door" method="_on_body_entered"]
 [connection signal="body_exited" from="TileMap/Door" to="TileMap/Door" method="_on_body_exited"]
 [connection signal="body_entered" from="TileMap/Collectible" to="TileMap/Collectible" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@229286" to="TileMap/@Area2D@229286" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@229287" to="TileMap/@Area2D@229287" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@229297" to="TileMap/@Area2D@229297" method="_on_body_entered"]
-[connection signal="body_exited" from="TileMap/@Area2D@229297" to="TileMap/@Area2D@229297" method="_on_body_exited"]
+[connection signal="body_entered" from="TileMap/@Area2D@42204" to="TileMap/@Area2D@42204" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@42205" to="TileMap/@Area2D@42205" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@42215" to="TileMap/@Area2D@42215" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMap/@Area2D@42215" to="TileMap/@Area2D@42215" method="_on_body_exited"]
 
 [editable path="TileMap/Secrets"]
