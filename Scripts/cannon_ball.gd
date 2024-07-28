@@ -13,11 +13,11 @@ func _physics_process(delta):
 	if collision:
 		var collider = collision.get_collider() 
 		if collider.is_in_group("player"):
-			collider.take_damage()
+			collider.take_damage(1)
 		await despawn()
 		
 
-func take_damage():
+func take_damage(amount):
 	velocity = velocity.rotated(PI)
 	
 

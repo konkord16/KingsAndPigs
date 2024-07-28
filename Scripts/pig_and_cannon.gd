@@ -1,9 +1,5 @@
 extends StaticBody2D
 
-@onready var animator : AnimationPlayer = $AnimationPlayer
-@onready var cannon_ball : PackedScene = preload("res://Scenes/cannon_ball.tscn")
-@onready var ray_cast : RayCast2D = $RayCast
-@onready var direction : int = $Cannon/CannonSprite.scale.x
 enum {
 	IDLE,
 	SHOOT,
@@ -15,6 +11,10 @@ var current_state = IDLE
 var player : BaseEntity
 var target : Vector2
 var hp : int = 1
+@onready var animator : AnimationPlayer = $AnimationPlayer
+@onready var cannon_ball : PackedScene = preload("res://Scenes/cannon_ball.tscn")
+@onready var ray_cast : RayCast2D = $RayCast
+@onready var direction : int = $Cannon/CannonSprite.scale.x
 
 func _ready():
 	await get_tree().physics_frame
@@ -59,7 +59,7 @@ func shoot():
 	add_child(ball_inst)
 	
 
-func take_damage():
+func take_damage(amount):
 	if current_state != DEAD:			
 		current_state = HIT
 		hp -= 1

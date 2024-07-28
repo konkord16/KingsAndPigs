@@ -1,7 +1,7 @@
 extends Area2D
 
-@onready var sprite = $AnimatedSprite
 var destination : int
+@onready var sprite = $AnimatedSprite
 
 func _ready():
 	await get_tree().physics_frame

@@ -1,0 +1,170 @@
+[gd_scene load_steps=9 format=3 uid="uid://45o0mb0cg1e2"]
+
+[ext_resource type="TileSet" uid="uid://jm1v7bd88m5u" path="res://tileset.tres" id="1_j3f5b"]
+[ext_resource type="PackedScene" uid="uid://dkdst64ub354v" path="res://Scenes/secret_map.tscn" id="2_hvr6b"]
+[ext_resource type="PackedScene" uid="uid://cun3g41hjlqs7" path="res://Scenes/pig.tscn" id="3_wjkpd"]
+[ext_resource type="PackedScene" uid="uid://ohdiln5ileer" path="res://Scenes/player.tscn" id="4_iidi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p58ex"]
+size = Vector2(528.991, 152.032)
+
+[sub_resource type="Animation" id="Animation_fsa2u"]
+resource_name = "cutscene"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pig:current_state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pig/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["idle", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pig:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.35, 1.85, 1.95),
+"transitions": PackedFloat32Array(3.03143, 2.82843, 2.82843, 1, 1),
+"update": 0,
+"values": [Vector2(57.0009, -14.9966), Vector2(57.002, -32.9966), Vector2(57.002, -32.9966), Vector2(57.0005, -7.99655), Vector2(-47.0034, 55.9972)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pig")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["hi"],
+"method": &"say"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Player:taking_input")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_j5sqi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(57.0009, -14.9966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fvhic"]
+_data = {
+"RESET": SubResource("Animation_j5sqi"),
+"cutscene": SubResource("Animation_fsa2u")
+}
+
+[node name="TileMap" type="TileMap"]
+rotation = -6.04942e-05
+tile_set = ExtResource("1_j3f5b")
+rendering_quadrant_size = 32
+format = 2
+layer_0/name = "Walls"
+layer_0/tile_data = PackedInt32Array(-655354, 327680, 5, -589818, 327680, 5, -524282, 327680, 5, -458746, 327680, 5, -393210, 327680, 5, -327674, 327680, 5, -262138, 327680, 5, -196602, 327680, 5, -131066, 327680, 5, -655353, 327680, 5, -131065, 327680, 5, -655352, 327680, 5, -131064, 327680, 5, -655351, 327680, 5, -131063, 327680, 5, -655350, 327680, 5, -131062, 327680, 5, -65526, 327680, 5, -655349, 327680, 5, -65525, 327680, 5, -655348, 327680, 5, -65524, 327680, 5, -655347, 327680, 5, -65523, 327680, 5, -655346, 327680, 5, -65522, 327680, 5, -655345, 327680, 5, -65521, 327680, 5, -655344, 327680, 5, -65520, 327680, 5, -655343, 327680, 5, -65519, 327680, 5, -655342, 327680, 5, -65518, 327680, 5, -655341, 327680, 5, -65517, 327680, 5, -655340, 327680, 5, -65516, 327680, 5, -655339, 327680, 5, -65515, 327680, 5, -655338, 327680, 5, -65514, 327680, 5, -655337, 327680, 5, -65513, 327680, 5, -655336, 327680, 5, -65512, 327680, 5, -655335, 327680, 5, -65511, 327680, 5, -655334, 327680, 5, -65510, 327680, 5, -655333, 327680, 5, -65509, 327680, 5, -655332, 327680, 5, -65508, 327680, 5, -655331, 327680, 5, -589795, 327680, 5, -524259, 327680, 5, -458723, 327680, 5, -393187, 327680, 5, -327651, 327680, 5, -262115, 327680, 5, -196579, 327680, 5, -131043, 327680, 5, -65507, 327680, 5, -589827, 327680, 5, -524291, 327680, 5, -458755, 327680, 5, -393219, 327680, 5, -327683, 327680, 5, -262147, 327680, 5, -196611, 327680, 5, -131075, 327680, 5, -65539, 327680, 5, -3, 327680, 5, -2, 327680, 5, -1, 327680, 5, -65536, 327680, 5, -65533, 327680, 5, -65532, 327680, 5, -65531, 327680, 5, -65530, 327680, 5, 131073, 327680, 5, 131074, 327680, 5, 196607, 327680, 5, 131072, 327680, 5, 131075, 327680, 5, 131076, 327680, 5, 131077, 327680, 5, 131078, 327680, 5, 131079, 327680, 5, 131080, 327680, 5, 131081, 327680, 5, 131082, 327680, 5, 131083, 327680, 5, 131084, 327680, 5, 65548, 327680, 5, 12, 327680, 5, 65544, 327680, 5, 65545, 327680, 5, 65546, 327680, 5, 65547, 327680, 5, 10, 327680, 5, 11, 327680, 5, 9, 327680, 5, -65529, 327680, 5, 196606, 327680, 5, 196605, 327680, 5, 65533, 327680, 5, 131069, 327680, 5)
+layer_1/name = "Decorations"
+layer_1/tile_data = PackedInt32Array(-131070, 196609, 1, -393214, 196609, 1, -589820, 2, 262144, -589826, 196609, 2, -655361, 2, 262144, -589825, 262145, 2, -589824, 196609, 1, -720895, 196609, 1, -458751, 196609, 1, -524286, 196609, 1, -786429, 196609, 1, -327677, 196609, 1, -720892, 131073, 2, -524284, 131073, 2, -720891, 196609, 2, -524283, 196609, 2, -131068, 2, 327680, -131071, 196609, 1, -196606, 196609, 1, -262143, 196609, 1, -65535, 196609, 1, -65534, 196609, 1, 1, 196609, 1, 2, 196609, 1, 65538, 196609, 1, 65537, 196609, 1)
+layer_2/name = "Scenes"
+layer_2/tile_data = PackedInt32Array()
+
+[node name="Secrets" parent="." instance=ExtResource("2_hvr6b")]
+visible = false
+z_index = 1
+layer_0/tile_data = PackedInt32Array(-2, 131072, 1, -1, 131072, 1, -65536, 131072, 1, -65535, 131072, 1, -65534, 131072, 1, -65533, 131072, 1, -65532, 131072, 1, -65531, 131072, 1, 65533, 131072, 2, 65534, 131072, 2, 65535, 131072, 2, 0, 131072, 2, 1, 131072, 2, 2, 131072, 2, 3, 131072, 2, 4, 131072, 2, 5, 131072, 2, 6, 131072, 2, 7, 131072, 2, 8, 131072, 2, 9, 131072, 2, 10, 131072, 2, 11, 131072, 2, 12, 131072, 2, 13, 131072, 2, 65549, 131072, 2, 65548, 131072, 2, 131084, 131072, 2, 131083, 131072, 2, 131082, 131072, 2, 131081, 131072, 2, 131080, 131072, 2, 131079, 131072, 2, 131078, 131072, 2, 131077, 131072, 2, 131076, 131072, 2, 131075, 131072, 2, 65539, 131072, 2, 65538, 131072, 2, 65537, 131072, 2, 65536, 131072, 2, 131071, 131072, 2, 131070, 131072, 2, 131069, 131072, 2, 131068, 131072, 2, 65540, 131072, 2, 65541, 131072, 2, 65542, 131072, 2, 65543, 131072, 2, 65544, 131072, 2, 65545, 131072, 2, 65546, 131072, 2, 65547, 131072, 2, 131074, 131072, 2, 131073, 131072, 2, 131072, 131072, 2, 196607, 131072, 2, 196606, 131072, 2, 262142, 131072, 2, 262141, 131072, 2, 262143, 131072, 2, 196605, 131072, 2, 196604, 131072, 2, 196603, 131072, 2, 196602, 131072, 2, 131085, 131072, 2, 131086, 131072, 2, 196622, 131072, 2, 196621, 131072, 2, 196620, 131072, 2, 262156, 131072, 2, 262155, 131072, 2, 262154, 131072, 2, 262153, 131072, 2, 262152, 131072, 2, 262151, 131072, 2, 262150, 131072, 2, 196614, 131072, 2, 196615, 131072, 2, 196616, 131072, 2, 196617, 131072, 2, 196618, 131072, 2, 196619, 131072, 2, 196613, 131072, 2, 196612, 131072, 2, 196611, 131072, 2, 196610, 131072, 2, 196609, 131072, 2, 196608, 131072, 2, 262140, 131072, 2, 262139, 131072, 2, 262149, 131072, 2, 262148, 131072, 2, 262147, 131072, 2, 262146, 131072, 2, 262145, 131072, 2, 262144, 131072, 2, 327679, 131072, 2, 327678, 131072, 2, 327677, 131072, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Secrets/Area2D" index="0"]
+position = Vector2(169.497, 49.0103)
+shape = SubResource("RectangleShape2D_p58ex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fvhic")
+}
+autoplay = "cutscene"
+
+[node name="Pig" parent="." instance=ExtResource("3_wjkpd")]
+z_index = 0
+position = Vector2(57.0009, -14.9966)
+current_state = 3
+
+[node name="Sprite2D" parent="Pig" index="1"]
+scale = Vector2(-1, 1)
+
+[node name="Player" parent="." instance=ExtResource("4_iidi2")]
+position = Vector2(144.978, -48.372)
+taking_input = false
+current_state = 3
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+
+[editable path="Secrets"]
+[editable path="Pig"]
+[editable path="Player"]

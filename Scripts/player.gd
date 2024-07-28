@@ -1,48 +1,56 @@
 extends BaseEntity
 
-@onready var ui = $Camera2D/CanvasLayer/UI
+@export var taking_input := true
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
-var enterable_door = null
+const BOMB = preload("res://Scenes/bomb.tscn")
+var bombs := 1
+var enterable_door : Area2D = null
+@onready var ui : Control = $Camera2D/CanvasLayer/UI
 
-
-func _ready():
-	current_state = CUTSCENE
+func _ready() -> void:
+	current_state = State.CUTSCENE
 	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
 		animator.play("wake_up")
 	else:
 		animator.play("door_out")
 	await animator.animation_finished
-	current_state = MOVE
-	
+	current_state = State.MOVE
 
-func _physics_process(_delta):
+func _physics_process(delta: float) -> void:
 	# Taking input
-	if current_state == MOVE:		
+	if current_state == State.MOVE and taking_input == true:		
 		if is_on_floor():
 			if Input.is_action_pressed("jump"):
 				velocity.y = JUMP_VELOCITY
 			elif Input.is_action_pressed("down"):
 				global_position.y += 1
 
-		var direction = Input.get_axis("left", "right")
+		var direction := Input.get_axis("left", "right")
 		if direction:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = 0
 		
 		if Input.is_action_just_pressed("attack") and is_on_floor():
-			current_state = ATTACK
+			current_state = State.ATTACK
 			
 		if Input.is_action_just_pressed("up") and enterable_door and enterable_door.destination:
 			enterable_door.enter()
-			current_state = CUTSCENE
+			current_state = State.CUTSCENE
 			velocity = Vector2.ZERO
 			global_position = enterable_door.global_position
 			animator.play("door_in")
-	super(_delta)
+			
+		if Input.is_action_just_pressed("bomb"):
+			if bombs > 0:
+				bombs -= 1
+				ui.update()
+				var inst_bomb = BOMB.instantiate()
+				inst_bomb.global_position = global_position + Vector2(0, 0)
+				call_deferred("add_sibling", inst_bomb)
+	super(delta)
 
-
-func _on_hitbox_body_entered(body):
+func _on_hitbox_body_entered(body : Node2D) -> void:
 		if body.has_method("take_damage"):
-			body.take_damage()
+			body.take_damage(1)

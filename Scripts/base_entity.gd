@@ -2,42 +2,41 @@ class_name BaseEntity
 extends CharacterBody2D
 
 @export var flipped : bool # For if the asset is drawn the wrong way
-enum {	
+@export var current_state : = State.MOVE
+enum State{
 	MOVE,
-	ATTACK,	
+	ATTACK,
 	DEAD,
 	CUTSCENE,
 }
 const GRAVITY = 20
-var current_state = MOVE
 var grounded := true
 var hp := 3
 @onready var animator : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var particles : GPUParticles2D = $GPUParticles2D
+@onready var speech: AnimatedSprite2D = $Speech
 
-
-func _physics_process(_delta):	
+func _physics_process(_delta : float) -> void:	
 	if not is_on_floor():
 		velocity.y += GRAVITY
 	move_and_slide()
 	match current_state:
-		MOVE:
+		State.MOVE:
 			animate()
-			
-		ATTACK:
-			velocity = Vector2.ZERO
+
+		State.ATTACK:
+			velocity.x = 0
 			animator.play("attack")
 			await animator.animation_finished	
-			current_state = MOVE
-	
-		DEAD:
-			velocity = Vector2.ZERO
-			animator.play("dead")
-			# Additional behaviour when a player dies
-		
+			current_state = State.MOVE
 
-func animate():
+		State.DEAD:
+			animator.play("dead")
+			# Additional behaviour when a player dies	
+	velocity.x = 0
+
+func animate() -> void:
 	if velocity.x > 0:
 		sprite.scale.x = -1 if flipped else 1
 	elif velocity.x < 0:                                                        
@@ -47,7 +46,7 @@ func animate():
 		animator.play("idle")
 	elif not velocity.y:
 		animator.play("run")
-	
+
 	if not is_on_floor():
 		if velocity.y < 0:
 			animator.play("jump")
@@ -59,14 +58,19 @@ func animate():
 	grounded = is_on_floor()	
 
 	
-func take_damage():
-	if current_state not in [DEAD, CUTSCENE]:			
-		current_state = CUTSCENE
-		velocity = Vector2.ZERO
-		hp -= 1
+func take_damage(amount) -> void:
+	if not current_state in [State.DEAD, State.CUTSCENE]:			
+		current_state = State.CUTSCENE
+		hp -= amount
 		animator.play("hit")
 		await animator.animation_finished	
 		if hp <= 0:
-			current_state = DEAD
+			current_state = State.DEAD
 		else:
-			current_state = MOVE
+			current_state = State.MOVE
+
+func say(phrase : String) -> void:	
+	speech.visible = true
+	speech.play(phrase)
+	await speech.animation_finished
+	speech.visible = false

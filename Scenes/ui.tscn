@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjw45eq3jqrkd"]
+[gd_scene load_steps=23 format=3 uid="uid://cjw45eq3jqrkd"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_skwlp"]
 [ext_resource type="Texture2D" uid="uid://4hwpyklvhoyb" path="res://Sprites/12-Live and Coins/Live Bar.png" id="2_dut1r"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dhvvmqb3ia4js" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)6.png" id="11_hs88l"]
 [ext_resource type="Texture2D" uid="uid://ckcu4h45gm2xw" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)7.png" id="12_2y6w6"]
 [ext_resource type="Texture2D" uid="uid://ce7eghdv2ahfe" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)8.png" id="13_ypc8f"]
+[ext_resource type="Texture2D" uid="uid://bf4ynkhuwwgs" path="res://Sprites/09-Bomb/Bomb Off.png" id="15_4h1kl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ar7y6"]
 atlas = ExtResource("9_wcsso")
@@ -98,6 +99,12 @@ _data = {
 "idle": SubResource("Animation_r0idk")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_drpvy"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
 [node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -158,3 +165,13 @@ libraries = {
 "": SubResource("AnimationLibrary_gmi8x")
 }
 autoplay = "idle"
+
+[node name="Bomb" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_drpvy")
+layout_mode = 0
+offset_left = 100.333
+offset_top = -4.66667
+offset_right = 175.333
+offset_bottom = 76.3333
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_4h1kl")
