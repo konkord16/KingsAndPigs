@@ -1,9 +1,9 @@
 extends Area2D
 
 var destination : int
-@onready var sprite = $AnimatedSprite
+@onready var sprite : AnimatedSprite2D= $AnimatedSprite
 
-func _ready():
+func _ready() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame	
 	if has_overlapping_bodies():		
@@ -14,7 +14,7 @@ func _ready():
 		destination = get_tree().current_scene.scene_file_path.to_int() + 1
 
 
-func enter():
+func enter() -> void:
 	sprite.play("opening")
 	await sprite.animation_finished	
 	sprite.play("closing")
@@ -23,11 +23,11 @@ func enter():
 	get_tree().change_scene_to_file("res://Levels/level" + str(destination) + ".tscn")
 
 
-func _on_body_entered(body):
+func _on_body_entered(body : Node2D) -> void:
 	if body.is_in_group("player"):
 		body.enterable_door = self
 
 
-func _on_body_exited(body):
+func _on_body_exited(body : Node2D) -> void:
 	if body.is_in_group("player"):
 		body.enterable_door = null

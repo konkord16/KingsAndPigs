@@ -561,6 +561,7 @@ position = Vector2(-10, 3)
 shape = SubResource("RectangleShape2D_ori34")
 
 [node name="WallRay" type="RayCast2D" parent="Sprite2D"]
+unique_name_in_owner = true
 position = Vector2(-1, 0)
 target_position = Vector2(-13, 0)
 collision_mask = 7

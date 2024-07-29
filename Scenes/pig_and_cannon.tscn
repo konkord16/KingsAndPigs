@@ -408,7 +408,7 @@ libraries = {
 [node name="RayCast" type="RayCast2D" parent="."]
 position = Vector2(3, 8)
 target_position = Vector2(50, 0)
-collision_mask = 2
+collision_mask = 3
 
 [node name="Pig" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -433,6 +433,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CannonSprite" type="Sprite2D" parent="Cannon"]
+unique_name_in_owner = true
 position = Vector2(0, 7)
 texture = ExtResource("2_t2u1f")
 hframes = 6

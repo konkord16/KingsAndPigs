@@ -58,7 +58,7 @@ func animate() -> void:
 	grounded = is_on_floor()	
 
 	
-func take_damage(amount) -> void:
+func take_damage(amount : int) -> void:
 	if not current_state in [State.DEAD, State.CUTSCENE]:			
 		current_state = State.CUTSCENE
 		hp -= amount

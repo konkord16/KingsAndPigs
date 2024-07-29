@@ -195,6 +195,7 @@ script = ExtResource("1_mw70f")
 shape = SubResource("CircleShape2D_j1jv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_do4kc")
 animation = &"heart"
 

@@ -8,6 +8,33 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p58ex"]
 size = Vector2(528.991, 152.032)
 
+[sub_resource type="Animation" id="Animation_j5sqi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pig:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(57.0009, -14.9966)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_fsa2u"]
 resource_name = "cutscene"
 length = 2.0
@@ -89,33 +116,6 @@ tracks/5/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_j5sqi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pig:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(57.0009, -14.9966)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player/Sprite2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fvhic"]
 _data = {
 "RESET": SubResource("Animation_j5sqi"),
@@ -161,9 +161,6 @@ scale = Vector2(-1, 1)
 position = Vector2(144.978, -48.372)
 taking_input = false
 current_state = 3
-
-[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
 
 [editable path="Secrets"]
 [editable path="Pig"]

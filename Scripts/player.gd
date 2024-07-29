@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			if bombs > 0:
 				bombs -= 1
 				ui.update()
-				var inst_bomb = BOMB.instantiate()
+				var inst_bomb : Area2D = BOMB.instantiate()
 				inst_bomb.global_position = global_position + Vector2(0, 0)
 				call_deferred("add_sibling", inst_bomb)
 	super(delta)

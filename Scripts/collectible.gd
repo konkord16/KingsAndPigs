@@ -4,13 +4,13 @@ enum types{
 	heart,
 	diamond
 }
-var type = types.keys().pick_random()
+var type : String = types.keys().pick_random()
 
-func _ready():
+func _ready() -> void:
 	$AnimatedSprite2D.play(str(type))	
 
 
-func _on_body_entered(body):
+func _on_body_entered(body : Node2D) -> void:
 	if body.is_in_group("player"):
 		if types[type] == types.heart:
 			body.hp = clamp(body.hp + 1, 0, 3)
