@@ -11,7 +11,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
 
-func _physics_process(_delta : float) -> void:
+func _process(_delta : float) -> void:
 	if current_state == State.MOVE:
 		if %WallRay.is_colliding() and not %WallRay.get_collider() is BaseEntity : # Turn around if sees wall
 			direction *= -1	
@@ -28,7 +28,6 @@ func _physics_process(_delta : float) -> void:
 					velocity.y = JUMP_VELOCITY		
 		
 		velocity.x = direction * speed
-	super(_delta)
 
 
 func _on_attack_range_body_entered(body : Node2D) -> void:

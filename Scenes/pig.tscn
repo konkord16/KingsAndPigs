@@ -83,7 +83,19 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [15]
+"values": [13]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_lattq"]
@@ -202,6 +214,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_v25ua"]
@@ -461,7 +485,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rv3g4")
 }, {
-"duration": 2.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_6utov")
 }, {
 "duration": 1.0,
@@ -472,7 +496,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"boom",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -481,7 +505,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dmc7t")
 }, {
-"duration": 2.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_c4h1k")
 }, {
 "duration": 1.0,
@@ -492,7 +516,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dead",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -501,7 +525,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y744f")
 }, {
-"duration": 2.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_n1m01")
 }, {
 "duration": 1.0,
@@ -512,7 +536,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hello",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -521,7 +545,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f6qkb")
 }, {
-"duration": 2.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_ojhdv")
 }, {
 "duration": 1.0,
@@ -532,7 +556,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hi",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -541,7 +565,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d0l6j")
 }, {
-"duration": 2.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_380qv")
 }, {
 "duration": 1.0,
@@ -552,7 +576,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"loser",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -561,7 +585,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fv8xb")
 }, {
-"duration": 3.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_2bcp2")
 }, {
 "duration": 1.0,
@@ -570,18 +594,18 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p25sf")
 }],
-"loop": true,
+"loop": false,
 "name": &"price",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Pig" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 4
-collision_mask = 15
+collision_mask = 13
+platform_floor_layers = 4294967041
 script = ExtResource("1_nxdjc")
 flipped = true
-current_state = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -623,7 +647,6 @@ explosiveness = 0.5
 visible = false
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_6fweb")
-animation = &"price"
-frame_progress = 0.284535
+animation = &"boom"
 
 [connection signal="body_entered" from="Sprite2D/Attack range" to="." method="_on_attack_range_body_entered"]

@@ -5,13 +5,12 @@ extends BaseEntity
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 const BOMB = preload("res://Scenes/bomb.tscn")
-static var diamonds := 0
-var bombs := 1
+static var diamonds := 10
+static var bombs := 0
 var enterable_door : Area2D = null
 @onready var ui : Control = $Camera2D/CanvasLayer/UI
 
-func _ready() -> void:
-	
+func _ready() -> void:	
 	current_state = State.CUTSCENE
 	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
 		animator.play("wake_up")
@@ -20,7 +19,7 @@ func _ready() -> void:
 	await animator.animation_finished
 	current_state = State.MOVE
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	# Taking input
 	if current_state == State.MOVE and taking_input == true:		
 		if is_on_floor():
@@ -52,7 +51,7 @@ func _physics_process(delta: float) -> void:
 				var inst_bomb : Area2D = BOMB.instantiate()
 				inst_bomb.global_position = global_position + Vector2(0, 0)
 				call_deferred("add_sibling", inst_bomb)
-	super(delta)
+	
 
 func _on_hitbox_body_entered(body : Node2D) -> void:
 		if body.has_method("take_damage"):

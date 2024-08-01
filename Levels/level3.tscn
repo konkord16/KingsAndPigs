@@ -127,9 +127,12 @@ tracks/0/path = NodePath("Pig")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["price"],
+"method": &"say"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fvhic"]
@@ -179,7 +182,6 @@ scale = Vector2(-1, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_iidi2")]
 position = Vector2(144.978, -48.372)
-taking_input = false
 current_state = 3
 
 [node name="BombDisplay" type="Sprite2D" parent="."]
@@ -189,12 +191,15 @@ texture = ExtResource("5_qc43f")
 
 [node name="ShopArea" type="Area2D" parent="."]
 position = Vector2(-30.0033, 53.9982)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopArea"]
 position = Vector2(2.00109, -21.0024)
 shape = SubResource("RectangleShape2D_sg2rl")
 
 [connection signal="body_entered" from="ShopArea" to="AnimationPlayer" method="_on_shop_area_body_entered"]
+[connection signal="body_exited" from="ShopArea" to="AnimationPlayer" method="_on_shop_area_body_exited"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
 

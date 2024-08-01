@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ohdiln5ileer"]
+[gd_scene load_steps=55 format=3 uid="uid://ohdiln5ileer"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_xmujv"]
 [ext_resource type="Texture2D" uid="uid://ct5ek15q0e3a4" path="res://Sprites/02-KingHuman.png" id="2_k7t6g"]
@@ -125,10 +125,10 @@ tracks/1/path = NodePath("GPUParticles2D:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -142,36 +142,25 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/3/type = "method"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".")
+tracks/3/path = NodePath("CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D/Hitbox:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Hitbox:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -479,7 +468,27 @@ region = Rect2(288, 192, 96, 96)
 atlas = ExtResource("5_6n5vc")
 region = Rect2(384, 192, 96, 96)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wgokk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujcws"]
+atlas = ExtResource("5_6n5vc")
+region = Rect2(0, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv8xb"]
+atlas = ExtResource("5_6n5vc")
+region = Rect2(96, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bcp2"]
+atlas = ExtResource("5_6n5vc")
+region = Rect2(192, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yglqp"]
+atlas = ExtResource("5_6n5vc")
+region = Rect2(288, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p25sf"]
+atlas = ExtResource("5_6n5vc")
+region = Rect2(384, 480, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83iia"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -488,7 +497,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rv3g4")
 }, {
-"duration": 3.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_6utov")
 }, {
 "duration": 1.0,
@@ -497,9 +506,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1rok0")
 }],
-"loop": true,
+"loop": false,
 "name": &"boom",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -508,7 +517,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dmc7t")
 }, {
-"duration": 3.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_c4h1k")
 }, {
 "duration": 1.0,
@@ -519,7 +528,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dead",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -528,7 +537,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y744f")
 }, {
-"duration": 3.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_n1m01")
 }, {
 "duration": 1.0,
@@ -537,9 +546,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fyrwq")
 }],
-"loop": true,
+"loop": false,
 "name": &"hello",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -548,7 +557,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f6qkb")
 }, {
-"duration": 3.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_ojhdv")
 }, {
 "duration": 1.0,
@@ -557,9 +566,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yn6yg")
 }],
-"loop": true,
+"loop": false,
 "name": &"hi",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -568,7 +577,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d0l6j")
 }, {
-"duration": 3.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_380qv")
 }, {
 "duration": 1.0,
@@ -577,28 +586,37 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6cdut")
 }],
-"loop": true,
+"loop": false,
 "name": &"loser",
-"speed": 5.0
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujcws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv8xb")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_2bcp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yglqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p25sf")
+}],
+"loop": false,
+"name": &"price",
+"speed": 10.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 5
 collision_layer = 2
-collision_mask = 13
+collision_mask = 9
 platform_floor_layers = 4294967041
 script = ExtResource("1_xmujv")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -20)
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-layer = 10
-
-[node name="UI" parent="Camera2D/CanvasLayer" instance=ExtResource("2_ljdp2")]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
@@ -631,10 +649,21 @@ texture = ExtResource("3_3r6od")
 one_shot = true
 explosiveness = 0.5
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -20)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = 10
+
+[node name="UI" parent="Camera2D/CanvasLayer" instance=ExtResource("2_ljdp2")]
+visible = false
+
 [node name="Speech" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(0, -15)
-sprite_frames = SubResource("SpriteFrames_wgokk")
-animation = &"loser"
+sprite_frames = SubResource("SpriteFrames_83iia")
+animation = &"boom"
 
 [connection signal="body_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]
