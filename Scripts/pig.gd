@@ -1,6 +1,6 @@
 extends BaseEntity
 
-var speed = 50.0
+var speed := 50.0
 const JUMP_VELOCITY = -280.0
 const SEARCH_RANGE = Vector2(50, 50)
 var direction := 1
