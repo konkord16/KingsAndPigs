@@ -1,12 +1,19 @@
 extends Area2D
 
+var rng := RandomNumberGenerator.new()
 enum types{
 	heart,
-	diamond
+	diamond,
 }
-var type : String = types.keys().pick_random()
+
+var type : String
 
 func _ready() -> void:
+	rng.randomize()
+	if rng.randf() >= 0.75:
+		type = "heart"
+	else:
+		type = "diamond"
 	$AnimatedSprite2D.play(str(type))	
 
 
@@ -15,7 +22,7 @@ func _on_body_entered(body : Node2D) -> void:
 		if types[type] == types.heart:
 			body.hp = clamp(body.hp + 1, 0, 3)
 		elif types[type] == types.diamond:
-			Score.diamonds += 1
+			body.diamonds += 1
 		body.ui.update()
 		$AnimatedSprite2D.play(str(type) + "_hit")
 		$CollisionShape2D.set_deferred("disabled", true)

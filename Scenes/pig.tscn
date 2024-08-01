@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cun3g41hjlqs7"]
+[gd_scene load_steps=51 format=3 uid="uid://cun3g41hjlqs7"]
 
 [ext_resource type="Script" path="res://Scripts/pig.gd" id="1_nxdjc"]
 [ext_resource type="Texture2D" uid="uid://b20ikg73yopid" path="res://Sprites/03-Pig.png" id="2_055hd"]
@@ -432,6 +432,26 @@ region = Rect2(288, 192, 96, 96)
 atlas = ExtResource("4_q44bj")
 region = Rect2(384, 192, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujcws"]
+atlas = ExtResource("4_q44bj")
+region = Rect2(0, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv8xb"]
+atlas = ExtResource("4_q44bj")
+region = Rect2(96, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bcp2"]
+atlas = ExtResource("4_q44bj")
+region = Rect2(192, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yglqp"]
+atlas = ExtResource("4_q44bj")
+region = Rect2(288, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p25sf"]
+atlas = ExtResource("4_q44bj")
+region = Rect2(384, 480, 96, 96)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6fweb"]
 animations = [{
 "frames": [{
@@ -533,6 +553,26 @@ animations = [{
 "loop": false,
 "name": &"loser",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujcws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv8xb")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_2bcp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yglqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p25sf")
+}],
+"loop": true,
+"name": &"price",
+"speed": 5.0
 }]
 
 [node name="Pig" type="CharacterBody2D"]
@@ -541,6 +581,7 @@ collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_nxdjc")
 flipped = true
+current_state = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -582,6 +623,7 @@ explosiveness = 0.5
 visible = false
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_6fweb")
-animation = &"boom"
+animation = &"price"
+frame_progress = 0.284535
 
 [connection signal="body_entered" from="Sprite2D/Attack range" to="." method="_on_attack_range_body_entered"]

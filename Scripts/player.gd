@@ -1,14 +1,17 @@
+class_name Player
 extends BaseEntity
 
 @export var taking_input := true
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 const BOMB = preload("res://Scenes/bomb.tscn")
+static var diamonds := 0
 var bombs := 1
 var enterable_door : Area2D = null
 @onready var ui : Control = $Camera2D/CanvasLayer/UI
 
 func _ready() -> void:
+	
 	current_state = State.CUTSCENE
 	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
 		animator.play("wake_up")

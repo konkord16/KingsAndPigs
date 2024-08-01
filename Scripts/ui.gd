@@ -13,7 +13,7 @@ func update() -> void:
 	if bar.value > player.hp:
 		heartbreak()
 	bar.value = player.hp
-	label.text = str(Score.diamonds)
+	label.text = str(player.diamonds)
 	if player.bombs:
 		$Bomb.visible = true
 	else:
