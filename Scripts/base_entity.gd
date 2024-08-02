@@ -33,7 +33,8 @@ func _physics_process(_delta : float) -> void:
 
 		State.DEAD:
 			animator.play("dead")
-			# Additional behaviour when a player dies	
+			if self is Player:
+				pass
 	velocity.x = 0
 
 func animate() -> void:
