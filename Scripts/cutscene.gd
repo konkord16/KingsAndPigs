@@ -1,11 +1,15 @@
 extends AnimationPlayer
 
+var has_bomb := true
 var shopping_player : Player = null
 
 func _on_shop_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		play("enter_shop")
-		shopping_player = body
+		if has_bomb:
+			play("enter_shop")
+			shopping_player = body
+		else:
+			$"../Pig".say("hello")
 
 func _on_shop_area_body_exited(body: Node2D) -> void:
 	if body is Player:	
@@ -17,4 +21,5 @@ func _unhandled_input(event: InputEvent) -> void:
 			Player.diamonds -= 10
 			Player.bombs += 1
 			shopping_player.ui.update()
-			$"../BombDisplay".visible = false
+			%BombDisplay.visible = false
+			has_bomb = false

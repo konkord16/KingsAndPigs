@@ -29,11 +29,12 @@ func _physics_process(delta : float) -> void:
 		
 	match current_state:
 		State.IDLE:
-			animator.play("idle")
-			if sign(target.x) != direction:
-				current_state =  State.TURN
-			elif ray_cast.is_colliding() and ray_cast.get_collider().is_in_group("player") and player.hp > 0 and target.y >= -10 :
-				current_state =  State.SHOOT
+			animator.play("idle")			
+			if ray_cast.is_colliding() and ray_cast.get_collider().is_in_group("player"):
+				if sign(target.x) != direction:
+					current_state =  State.TURN
+				elif player.hp > 0 and target.y >= -10:
+					current_state =  State.SHOOT
 
 		State.SHOOT:
 			animator.play("shoot")			
@@ -42,10 +43,7 @@ func _physics_process(delta : float) -> void:
 			
 		State.TURN:
 			if animator.current_animation == "idle":
-				if direction == -1:
-					animator.play("turn_right")
-				else:
-					animator.play("turn_left")
+				animator.play("turn_right")	if direction == -1  else animator.play("turn_left")				
 			await animator.animation_finished
 			current_state = State.IDLE
 			

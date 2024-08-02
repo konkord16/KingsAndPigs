@@ -8,6 +8,7 @@ const BOMB = preload("res://Scenes/bomb.tscn")
 static var diamonds := 10
 static var bombs := 0
 var enterable_door : Area2D = null
+@onready var camera : Camera2D = $Camera2D
 @onready var ui : Control = $Camera2D/CanvasLayer/UI
 
 func _ready() -> void:	
