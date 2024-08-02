@@ -34,7 +34,7 @@ func _physics_process(_delta : float) -> void:
 		State.DEAD:
 			animator.play("dead")
 			if self is Player:
-				pass
+				get_tree().change_scene_to_file("res://Scenes/die_menu.tscn")
 	velocity.x = 0
 
 func animate() -> void:
