@@ -32,25 +32,26 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.999
 anchor_bottom = 1.0
-offset_left = -3.18219e-05
-offset_top = 182.0
-offset_right = 1.15186
-offset_bottom = 183.0
+offset_left = -0.000331879
+offset_top = 75.0
+offset_right = 1.15149
+offset_bottom = 76.0
 alignment = 1
 
 [node name="Button" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-keep_pressed_outside = true
+theme_override_font_sizes/font_size = 33
 text = "START BEATING PIGS"
 
 [node name="exit" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 26
 text = "EXIT (NOT RECOMENDED)"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(564, 284)
-scale = Vector2(7.55037, 15.75)
+position = Vector2(576, 158.438)
+scale = Vector2(8.59702, 11.9375)
 texture = ExtResource("2_scr1n")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
