@@ -6,12 +6,12 @@ const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 const BOMB = preload("res://Scenes/bomb.tscn")
 static var diamonds := 10
-static var bombs := 0
+static var bombs := 5
 var enterable_door : Area2D = null
 @onready var camera : Camera2D = $Camera2D
 @onready var ui : Control = $Camera2D/CanvasLayer/UI
 
-func _ready() -> void:	
+func _ready() -> void:
 	current_state = State.CUTSCENE
 	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
 		animator.play("wake_up")
@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# Taking input
-	if current_state == State.MOVE and taking_input == true:		
+	if current_state == State.MOVE and taking_input == true:
 		if is_on_floor():
 			if Input.is_action_pressed("jump"):
 				velocity.y = JUMP_VELOCITY
@@ -49,8 +49,8 @@ func _process(delta: float) -> void:
 			if bombs > 0:
 				bombs -= 1
 				ui.update()
-				var inst_bomb : Area2D = BOMB.instantiate()
-				inst_bomb.global_position = global_position + Vector2(0, 0)
+				var inst_bomb : CharacterBody2D = BOMB.instantiate()
+				inst_bomb.global_position = global_position + Vector2(0, 9)
 				call_deferred("add_sibling", inst_bomb)
 	
 

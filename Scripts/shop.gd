@@ -1,17 +1,17 @@
-extends AnimationPlayer
+extends Area2D
 
 var has_bomb := true
 var shopping_player : Player = null
 
-func _on_shop_area_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if has_bomb:
-			play("enter_shop")
+			%Shopkeeper.say("price")
 			shopping_player = body
 		else:
-			$"../Pig".say("hello")
+			%Shopkeeper.say("hello")
 
-func _on_shop_area_body_exited(body: Node2D) -> void:
+func _on_body_exited(body: Node2D) -> void:
 	if body is Player:	
 		shopping_player = null
 

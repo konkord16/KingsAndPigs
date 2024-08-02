@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgfktn6wurhle"]
 
-[ext_resource type="TileSet" uid="uid://jm1v7bd88m5u" path="res://tileset.tres" id="1_65soi"]
+[ext_resource type="TileSet" uid="uid://b7ybl8r184ub7" path="res://tileset.tres" id="1_65soi"]
 [ext_resource type="PackedScene" uid="uid://dkdst64ub354v" path="res://Scenes/secret_map.tscn" id="2_ba11k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ekb6"]

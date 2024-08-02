@@ -28,14 +28,14 @@ func _physics_process(_delta : float) -> void:
 		State.ATTACK:
 			velocity.x = 0
 			animator.play("attack")
-			await animator.animation_finished	
+			await animator.animation_finished
 			current_state = State.MOVE
 
 		State.DEAD:
 			animator.play("dead")
 			await animator.animation_finished
 			if self is Player and is_inside_tree():
-				get_tree().change_scene_to_file("res://Scenes/die_menu.tscn")
+				get_tree().change_scene_to_file("res://Levels/death_menu.tscn")
 	velocity.x = 0
 
 func animate() -> void:

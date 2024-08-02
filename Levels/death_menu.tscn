@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://c0ky1iuj7vj72"]
 
-[ext_resource type="Script" path="res://Scripts/die_menu.gd" id="1_26wmj"]
+[ext_resource type="Script" path="res://Scripts/death_menu.gd" id="1_26wmj"]
 
-[node name="DieMenu" type="Control"]
+[node name="DeathMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +39,7 @@ text = "RESTART
 [node name="exit" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
-text = "EXIT"
+text = "TO MENU"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
