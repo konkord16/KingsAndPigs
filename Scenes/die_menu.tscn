@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://1fvla73bxsvy"]
+[gd_scene load_steps=2 format=3 uid="uid://c0ky1iuj7vj72"]
 
 [ext_resource type="Script" path="res://Scripts/die_menu.gd" id="1_26wmj"]
 
@@ -40,3 +40,6 @@ text = "RESTART
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
 text = "EXIT"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

@@ -44,9 +44,14 @@ size_flags_vertical = 4
 keep_pressed_outside = true
 text = "START BEATING PIGS"
 
+[node name="exit" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "EXIT (NOT RECOMENDED)"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(564, 284)
 scale = Vector2(7.55037, 15.75)
 texture = ExtResource("2_scr1n")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/exit" to="." method="_on_exit_pressed"]
