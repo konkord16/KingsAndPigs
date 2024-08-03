@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://45o0mb0cg1e2"]
+[gd_scene load_steps=20 format=3 uid="uid://45o0mb0cg1e2"]
 
 [ext_resource type="TileSet" uid="uid://b7ybl8r184ub7" path="res://tileset.tres" id="1_j3f5b"]
 [ext_resource type="PackedScene" uid="uid://dkdst64ub354v" path="res://Scenes/secret_map.tscn" id="2_hvr6b"]
+[ext_resource type="Script" path="res://Scripts/cutscene.gd" id="3_ht3th"]
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="3_wbkqt"]
 [ext_resource type="PackedScene" uid="uid://cun3g41hjlqs7" path="res://Scenes/pig.tscn" id="3_wjkpd"]
 [ext_resource type="PackedScene" uid="uid://ohdiln5ileer" path="res://Scenes/player.tscn" id="4_iidi2"]
 [ext_resource type="Texture2D" uid="uid://bf4ynkhuwwgs" path="res://Sprites/09-Bomb/Bomb Off.png" id="5_qc43f"]
-[ext_resource type="Texture2D" uid="uid://cpvhupfh34hh3" path="res://Sprites/02-King Pig/Idle (38x28).png" id="7_0ajsp"]
-[ext_resource type="Texture2D" uid="uid://w5a3oipbwofi" path="res://Sprites/11-Door/Idle.png" id="8_gnmru"]
 [ext_resource type="Script" path="res://Scripts/camera_trigger.gd" id="9_f1sgj"]
+[ext_resource type="PackedScene" uid="uid://tkts4exkdquw" path="res://Scenes/door.tscn" id="10_fngvf"]
+[ext_resource type="PackedScene" uid="uid://dsbagqgcg064l" path="res://Scenes/king_pig.tscn" id="10_r60x4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p58ex"]
 size = Vector2(411, 152.007)
@@ -41,6 +42,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door2/AnimatedSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Door2/AnimatedSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KingPig:current_state")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_fsa2u"]
@@ -126,6 +163,69 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_8bwf2"]
 resource_name = "start_boss"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door2/AnimatedSprite")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"opening", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:taking_input")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutscenePlayer:pigs_leaving")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KingPig:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(287.005, -75.9826)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KingPig:current_state")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fvhic"]
 _data = {
@@ -139,6 +239,9 @@ size = Vector2(84.004, 71.9999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_immhu"]
 size = Vector2(474.999, 92.0288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgxo8"]
+size = Vector2(613.619, 107.276)
 
 [node name="TileMap" type="TileMap"]
 rotation = -6.04942e-05
@@ -172,6 +275,8 @@ libraries = {
 "": SubResource("AnimationLibrary_fvhic")
 }
 autoplay = "cutscene"
+script = ExtResource("3_ht3th")
+pigs_leaving = true
 
 [node name="Shopkeeper" parent="." instance=ExtResource("3_wjkpd")]
 unique_name_in_owner = true
@@ -184,6 +289,7 @@ scale = Vector2(-1, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_iidi2")]
 position = Vector2(557.02, -335.966)
+taking_input = false
 current_state = 3
 
 [node name="ShopArea" type="Area2D" parent="."]
@@ -201,12 +307,6 @@ unique_name_in_owner = true
 position = Vector2(-20.998, -33.0013)
 texture = ExtResource("5_qc43f")
 
-[node name="King" type="Sprite2D" parent="."]
-position = Vector2(273.005, -77.9835)
-texture = ExtResource("7_0ajsp")
-flip_h = true
-hframes = 12
-
 [node name="CameraTrigger" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -221,43 +321,60 @@ position = Vector2(484.516, -304.971)
 shape = SubResource("RectangleShape2D_immhu")
 
 [node name="MarchinPigs" type="Node" parent="."]
+unique_name_in_owner = true
 
 [node name="Pig" parent="MarchinPigs" instance=ExtResource("3_wjkpd")]
 position = Vector2(420, -8)
 rotation = -6.04942e-05
-current_state = 3
+aggressive = false
 
 [node name="Pig2" parent="MarchinPigs" instance=ExtResource("3_wjkpd")]
 position = Vector2(490, -8)
 rotation = -6.04942e-05
-current_state = 3
+aggressive = false
 
 [node name="Pig3" parent="MarchinPigs" instance=ExtResource("3_wjkpd")]
 position = Vector2(560, -8)
 rotation = -6.04942e-05
-current_state = 3
+aggressive = false
 
 [node name="Pig4" parent="MarchinPigs" instance=ExtResource("3_wjkpd")]
 position = Vector2(630, -8)
 rotation = -6.04942e-05
-current_state = 3
+aggressive = false
 
 [node name="Pig5" parent="MarchinPigs" instance=ExtResource("3_wjkpd")]
 position = Vector2(700, -8)
 rotation = -6.04942e-05
-current_state = 3
+aggressive = false
 
-[node name="ExitDoor" type="Sprite2D" parent="."]
-position = Vector2(799.002, -27.9517)
-texture = ExtResource("8_gnmru")
+[node name="BossTrigger" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossTrigger"]
+position = Vector2(528.815, -34.3485)
+shape = SubResource("RectangleShape2D_sgxo8")
+
+[node name="KingPig" parent="." instance=ExtResource("10_r60x4")]
+position = Vector2(287.005, -75.9826)
+scale = Vector2(-1.5, 1.5)
+
+[node name="Door2" parent="." instance=ExtResource("10_fngvf")]
+position = Vector2(790.001, -14.9522)
+
+[node name="AnimatedSprite" parent="Door2" index="1"]
+animation = &"idle"
 
 [connection signal="body_entered" from="ShopArea" to="ShopArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="ShopArea" method="_on_body_exited"]
 [connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="CameraTrigger" to="CameraTrigger" method="_on_body_exited"]
+[connection signal="body_entered" from="BossTrigger" to="CutscenePlayer" method="_on_boss_trigger_body_entered"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
 
 [editable path="Secrets"]
 [editable path="Shopkeeper"]
 [editable path="Player"]
+[editable path="Door2"]

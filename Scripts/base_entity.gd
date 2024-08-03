@@ -56,8 +56,8 @@ func animate() -> void:
 			animator.play("fall")
 
 	if is_on_floor() and not grounded:
-		animator.play("ground")	
-	grounded = is_on_floor()	
+		animator.play("ground")
+	grounded = is_on_floor()
 
 	
 func take_damage(amount : int) -> void:

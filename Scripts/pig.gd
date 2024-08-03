@@ -1,32 +1,34 @@
 extends BaseEntity
 
+@export var aggressive := true
 var speed := 50.0
 const JUMP_VELOCITY = -280.0
 const SEARCH_RANGE = Vector2(50, 50)
 var direction := 1
 var player : CharacterBody2D
 
-func _ready() -> void:	
+func _ready() -> void:
 	await get_tree().physics_frame
-	player = get_tree().get_first_node_in_group("player")
-
+	player = get_tree().get_first_node_in_group("player")	
+	animator.play("idle")
+	
 
 func _process(_delta : float) -> void:
-	if current_state == State.MOVE:
+	if current_state == State.MOVE and aggressive:
 		if %WallRay.is_colliding() and not %WallRay.get_collider() is BaseEntity : # Turn around if sees wall
-			direction *= -1	
+			direction *= -1
 		elif %WallRay.get_collider() == player and player.hp > 0: # Attack if sees player
-			current_state = State.ATTACK			
+			current_state = State.ATTACK
 
-		if to_local(player.global_position).length() < SEARCH_RANGE.length(): # Turn toward player if he's close
-			direction = sign(to_local(player.global_position).x + player.sprite.scale.x * 15)			
-			if abs(to_local(player.global_position).y) > 23 and is_on_floor():
+		if to_local(player.global_position).length() < SEARCH_RANGE.length(): 
+			direction = sign(to_local(player.global_position).x + player.sprite.scale.x * 15) # Turn toward player if he's close
+			if abs(to_local(player.global_position).y) > 23 and is_on_floor(): # Go up or down a layer
 				if to_local(player.global_position).y > 0:
 					global_position.y += 1
-					
+
 				else:
-					velocity.y = JUMP_VELOCITY		
-		
+					velocity.y = JUMP_VELOCITY
+
 		velocity.x = direction * speed
 
 
