@@ -52,7 +52,6 @@ func _process(delta: float) -> void:
 				var inst_bomb : CharacterBody2D = BOMB.instantiate()
 				inst_bomb.global_position = global_position + Vector2(0, 9)
 				call_deferred("add_sibling", inst_bomb)
-	
 
 func _on_hitbox_body_entered(body : Node2D) -> void:
 		if body.has_method("take_damage"):

@@ -4,6 +4,7 @@ var rng := RandomNumberGenerator.new()
 const collectible := preload("res://Scenes/collectible.tscn")
 
 func take_damage(amount : int) -> void:
+	$AudioStreamPlayer2D._play()
 	$Sprite2D.visible = false
 	set_collision_layer_value(1, false)
 	set_collision_layer_value(3, false)

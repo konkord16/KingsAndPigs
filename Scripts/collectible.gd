@@ -24,6 +24,7 @@ func _on_body_entered(body : Node2D) -> void:
 		elif types[type] == types.diamond:
 			body.diamonds += 1
 		body.ui.update()
+		$AudioStreamPlayer2D._play()
 		$AnimatedSprite2D.play(str(type) + "_hit")
 		$CollisionShape2D.set_deferred("disabled", true)
 		await $AnimatedSprite2D.animation_finished

@@ -8,6 +8,7 @@ enum State{
 	ATTACK,
 	DEAD,
 	CUTSCENE,
+	LANDING,
 }
 const GRAVITY = 20
 var grounded := true
@@ -31,11 +32,6 @@ func _physics_process(_delta : float) -> void:
 			await animator.animation_finished
 			current_state = State.MOVE
 
-		State.DEAD:
-			animator.play("dead")
-			await animator.animation_finished
-			if self is Player and is_inside_tree():
-				get_tree().change_scene_to_file("res://Levels/death_menu.tscn")
 	velocity.x = 0
 
 func animate() -> void:
@@ -67,7 +63,8 @@ func take_damage(amount : int) -> void:
 		animator.play("hit")
 		await animator.animation_finished	
 		if hp <= 0:
-			current_state = State.DEAD
+			current_state = State.CUTSCENE
+			animator.play("dead")
 		else:
 			current_state = State.MOVE
 

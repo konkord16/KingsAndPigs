@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://my5d3gww0jpu"]
+[gd_scene load_steps=20 format=3 uid="uid://my5d3gww0jpu"]
 
 [ext_resource type="Script" path="res://Scripts/pig_and_cannon.gd" id="1_irhvt"]
 [ext_resource type="Texture2D" uid="uid://chexplfvb6ukn" path="res://Sprites/10-Cannon and Pig.png" id="2_t2u1f"]
+[ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://sound/steam.mp3" id="2_uuydn"]
 [ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="3_nri4o"]
-[ext_resource type="AudioStream" uid="uid://johfncomiyjq" path="res://sound/vyistrel-pushki-36073 (mp3cut.net).mp3" id="4_5l7hf"]
+[ext_resource type="AudioStream" uid="uid://johfncomiyjq" path="res://sound/cannon_shot.mp3" id="4_7u3jd"]
+[ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="4_h1d83"]
 
 [sub_resource type="Animation" id="Animation_2c7ob"]
 length = 0.001
@@ -103,22 +105,10 @@ tracks/7/keys = {
 "update": 1,
 "values": [4]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("cannon:playing")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_xghgs"]
 resource_name = "dead"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -179,6 +169,32 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioPlayer:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_uuydn")]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"_play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dhq2s"]
 resource_name = "hit"
@@ -194,6 +210,32 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [42, 43]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioPlayer:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_7u3jd")]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"_play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_pvtl8"]
@@ -265,17 +307,31 @@ tracks/2/keys = {
 "method": &"shoot"
 }]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("cannon:playing")
+tracks/3/path = NodePath("AudioPlayer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"_play"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [ExtResource("4_7u3jd")]
 }
 
 [sub_resource type="Animation" id="Animation_2hw51"]
@@ -469,6 +525,5 @@ z_index = 1
 position = Vector2(0, 7.75)
 shape = SubResource("RectangleShape2D_r6flb")
 
-[node name="cannon" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_5l7hf")
-volume_db = -10.306
+[node name="AudioPlayer" parent="." instance=ExtResource("4_h1d83")]
+stream = ExtResource("2_uuydn")

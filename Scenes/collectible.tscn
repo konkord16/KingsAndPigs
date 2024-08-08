@@ -1,10 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://bdhkjan1j27vj"]
+[gd_scene load_steps=32 format=3 uid="uid://bdhkjan1j27vj"]
 
 [ext_resource type="Script" path="res://Scripts/collectible.gd" id="1_mw70f"]
 [ext_resource type="Texture2D" uid="uid://v1cp76hmol5a" path="res://Sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="2_widn7"]
 [ext_resource type="Texture2D" uid="uid://dic5d2pj125j2" path="res://Sprites/12-Live and Coins/Big Diamond Hit (18x14).png" id="3_mrq5m"]
 [ext_resource type="Texture2D" uid="uid://b15cmo64aqmsx" path="res://Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="4_a83kd"]
 [ext_resource type="Texture2D" uid="uid://dujw1gmjbuv6m" path="res://Sprites/12-Live and Coins/Big Heart Hit (18x14).png" id="5_hwc2w"]
+[ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="6_7ilw0"]
+[ext_resource type="AudioStream" uid="uid://dtmqd0wtyarcc" path="res://sound/pickup.mp3" id="7_0syq4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j1jv7"]
 radius = 5.0
@@ -198,5 +200,9 @@ shape = SubResource("CircleShape2D_j1jv7")
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_do4kc")
 animation = &"heart"
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("6_7ilw0")]
+stream = ExtResource("7_0syq4")
+volume_db = -3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
