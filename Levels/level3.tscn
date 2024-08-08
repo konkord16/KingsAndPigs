@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bf4ynkhuwwgs" path="res://Sprites/09-Bomb/Bomb Off.png" id="5_qc43f"]
 [ext_resource type="Script" path="res://Scripts/camera_trigger.gd" id="9_f1sgj"]
 [ext_resource type="PackedScene" uid="uid://tkts4exkdquw" path="res://Scenes/door.tscn" id="10_fngvf"]
-[ext_resource type="PackedScene" uid="uid://dsbagqgcg064l" path="res://Scenes/king_pig.tscn" id="10_r60x4"]
+[ext_resource type="PackedScene" uid="uid://073rrfu3rj2a" path="res://Scenes/king_pig.tscn" id="10_r60x4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p58ex"]
 size = Vector2(411, 152.007)
@@ -371,8 +371,6 @@ animation = &"idle"
 [connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="CameraTrigger" to="CameraTrigger" method="_on_body_exited"]
 [connection signal="body_entered" from="BossTrigger" to="CutscenePlayer" method="_on_boss_trigger_body_entered"]
-[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
 
 [editable path="Secrets"]
 [editable path="Shopkeeper"]
