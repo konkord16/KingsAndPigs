@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qbg0q03sj0v0" path="res://Sprites/08-Box/Idle.png" id="1_cp6bc"]
 [ext_resource type="Texture2D" uid="uid://chhfdk4xsn1no" path="res://Sprites/08-Box/Box Pieces 1-sheet.png" id="3_eoog0"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="4_c0lj7"]
-[ext_resource type="AudioStream" uid="uid://cf4jn50fapof3" path="res://sound/wood-break.mp3" id="5_467b6"]
+[ext_resource type="AudioStream" uid="uid://cf4jn50fapof3" path="res://Sounds/wood-break.mp3" id="5_yr1a6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8e2aq"]
 size = Vector2(19, 14)
@@ -53,5 +53,5 @@ one_shot = true
 explosiveness = 1.0
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("4_c0lj7")]
-stream = ExtResource("5_467b6")
+stream = ExtResource("5_yr1a6")
 volume_db = -15.0

@@ -28,14 +28,4 @@ layer_0/tile_data = PackedInt32Array(-65554, 65536, 2, -131090, 65536, 2, -13108
 position = Vector2(-408, -193.5)
 shape = SubResource("RectangleShape2D_8ekb6")
 
-[connection signal="body_entered" from="TileMap/Door" to="TileMap/Door" method="_on_body_entered"]
-[connection signal="body_exited" from="TileMap/Door" to="TileMap/Door" method="_on_body_exited"]
-[connection signal="body_entered" from="TileMap/@Area2D@187320" to="TileMap/@Area2D@187320" method="_on_body_entered"]
-[connection signal="body_exited" from="TileMap/@Area2D@187320" to="TileMap/@Area2D@187320" method="_on_body_exited"]
-[connection signal="body_entered" from="TileMap/Collectible" to="TileMap/Collectible" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@187330" to="TileMap/@Area2D@187330" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@187333" to="TileMap/@Area2D@187333" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@187334" to="TileMap/@Area2D@187334" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@187335" to="TileMap/@Area2D@187335" method="_on_body_entered"]
-
 [editable path="TileMap/Secrets"]

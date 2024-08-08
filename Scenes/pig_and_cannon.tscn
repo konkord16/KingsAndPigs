@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://my5d3gww0jpu"]
+[gd_scene load_steps=21 format=3 uid="uid://my5d3gww0jpu"]
 
 [ext_resource type="Script" path="res://Scripts/pig_and_cannon.gd" id="1_irhvt"]
+[ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://Sounds/steam.mp3" id="2_31vuf"]
 [ext_resource type="Texture2D" uid="uid://chexplfvb6ukn" path="res://Sprites/10-Cannon and Pig.png" id="2_t2u1f"]
-[ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://sound/steam.mp3" id="2_uuydn"]
+[ext_resource type="AudioStream" uid="uid://johfncomiyjq" path="res://Sounds/explosion.mp3" id="3_0ia5g"]
 [ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="3_nri4o"]
-[ext_resource type="AudioStream" uid="uid://johfncomiyjq" path="res://sound/cannon_shot.mp3" id="4_7u3jd"]
+[ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://Sounds/hit.mp3" id="3_uevvw"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="4_h1d83"]
 
 [sub_resource type="Animation" id="Animation_2c7ob"]
@@ -179,7 +180,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_uuydn")]
+"values": [ExtResource("2_31vuf")]
 }
 tracks/6/type = "method"
 tracks/6/imported = false
@@ -221,7 +222,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_7u3jd")]
+"values": [ExtResource("3_uevvw")]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -331,7 +332,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_7u3jd")]
+"values": [ExtResource("3_0ia5g")]
 }
 
 [sub_resource type="Animation" id="Animation_2hw51"]
@@ -526,4 +527,4 @@ position = Vector2(0, 7.75)
 shape = SubResource("RectangleShape2D_r6flb")
 
 [node name="AudioPlayer" parent="." instance=ExtResource("4_h1d83")]
-stream = ExtResource("2_uuydn")
+stream = ExtResource("3_0ia5g")

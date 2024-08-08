@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/pig.gd" id="1_nxdjc"]
 [ext_resource type="Texture2D" uid="uid://b20ikg73yopid" path="res://Sprites/03-Pig.png" id="2_055hd"]
 [ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="3_2wevc"]
-[ext_resource type="AudioStream" uid="uid://btfkj1lfix3ij" path="res://sound/swing.mp3" id="3_a5e2c"]
-[ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://sound/steam.mp3" id="4_lq5od"]
+[ext_resource type="AudioStream" uid="uid://btfkj1lfix3ij" path="res://Sounds/swing.mp3" id="3_mrbfk"]
+[ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://Sounds/steam.mp3" id="4_f11nn"]
 [ext_resource type="Texture2D" uid="uid://blmsubldwwif1" path="res://Sprites/13-Dialogue Boxes/13-Dialogue.png" id="4_q44bj"]
-[ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://sound/footstep.mp3" id="5_8bsvq"]
-[ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://sound/hit.mp3" id="5_siqmp"]
+[ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://Sounds/footstep.mp3" id="5_fsaxl"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="6_85jnt"]
+[ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://Sounds/hit.mp3" id="6_ra4sa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b53f"]
 size = Vector2(10, 14)
@@ -142,7 +142,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_a5e2c")]
+"values": [ExtResource("3_mrbfk")]
 }
 
 [sub_resource type="Animation" id="Animation_tey3m"]
@@ -244,7 +244,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_lq5od")]
+"values": [ExtResource("4_f11nn")]
 }
 tracks/8/type = "method"
 tracks/8/imported = false
@@ -315,7 +315,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_8bsvq")]
+"values": [ExtResource("5_fsaxl")]
 }
 
 [sub_resource type="Animation" id="Animation_ghy5t"]
@@ -343,7 +343,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_siqmp")]
+"values": [ExtResource("6_ra4sa")]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -434,7 +434,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_8bsvq")]
+"values": [ExtResource("5_fsaxl")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1d38k"]
@@ -810,7 +810,6 @@ sprite_frames = SubResource("SpriteFrames_6fweb")
 animation = &"surprise"
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("6_85jnt")]
-stream = ExtResource("4_lq5od")
-bus = &"Enemies"
+stream = ExtResource("4_f11nn")
 
 [connection signal="body_entered" from="Sprite2D/Attack range" to="." method="_on_attack_range_body_entered"]

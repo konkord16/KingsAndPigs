@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://ct5ek15q0e3a4" path="res://Sprites/02-KingHuman.png" id="2_k7t6g"]
 [ext_resource type="PackedScene" uid="uid://cjw45eq3jqrkd" path="res://Scenes/ui.tscn" id="2_ljdp2"]
 [ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="3_3r6od"]
-[ext_resource type="AudioStream" uid="uid://btfkj1lfix3ij" path="res://sound/swing.mp3" id="3_sqc67"]
-[ext_resource type="AudioStream" uid="uid://deovjjad07u7i" path="res://sound/death.mp3" id="4_053v8"]
+[ext_resource type="AudioStream" uid="uid://btfkj1lfix3ij" path="res://Sounds/swing.mp3" id="3_7dfcv"]
+[ext_resource type="AudioStream" uid="uid://deovjjad07u7i" path="res://Sounds/death.mp3" id="4_7m8ut"]
+[ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://Sounds/footstep.mp3" id="5_2crrf"]
 [ext_resource type="Texture2D" uid="uid://blmsubldwwif1" path="res://Sprites/13-Dialogue Boxes/13-Dialogue.png" id="5_6n5vc"]
-[ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://sound/hit.mp3" id="6_5e1kn"]
-[ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://sound/footstep.mp3" id="7_4x42x"]
+[ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://Sounds/hit.mp3" id="6_gccrb"]
 [ext_resource type="PackedScene" uid="uid://c0ky1iuj7vj72" path="res://Levels/death_menu.tscn" id="7_in8k0"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="7_v6sjq"]
 
@@ -102,7 +102,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_sqc67")]
+"values": [ExtResource("3_7dfcv")]
 }
 
 [sub_resource type="Animation" id="Animation_5ffld"]
@@ -156,7 +156,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_sqc67")]
+"values": [ExtResource("3_7dfcv")]
 }
 
 [sub_resource type="Animation" id="Animation_rghpn"]
@@ -244,7 +244,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_053v8")]
+"values": [ExtResource("4_7m8ut")]
 }
 tracks/7/type = "method"
 tracks/7/imported = false
@@ -286,7 +286,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_4x42x")]
+"values": [ExtResource("5_2crrf")]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -334,7 +334,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_4x42x")]
+"values": [ExtResource("5_2crrf")]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -411,7 +411,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_4x42x")]
+"values": [ExtResource("5_2crrf")]
 }
 
 [sub_resource type="Animation" id="Animation_vncot"]
@@ -479,7 +479,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_5e1kn")]
+"values": [ExtResource("6_gccrb")]
 }
 
 [sub_resource type="Animation" id="Animation_4jqop"]
@@ -556,7 +556,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_4x42x")]
+"values": [ExtResource("5_2crrf")]
 }
 
 [sub_resource type="Animation" id="Animation_2vbur"]
@@ -950,6 +950,6 @@ sprite_frames = SubResource("SpriteFrames_olf28")
 animation = &"surprise"
 
 [node name="AudioPlayer" parent="." instance=ExtResource("7_v6sjq")]
-stream = ExtResource("3_sqc67")
+stream = ExtResource("3_7dfcv")
 
 [connection signal="body_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]

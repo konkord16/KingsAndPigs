@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b15cmo64aqmsx" path="res://Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="4_a83kd"]
 [ext_resource type="Texture2D" uid="uid://dujw1gmjbuv6m" path="res://Sprites/12-Live and Coins/Big Heart Hit (18x14).png" id="5_hwc2w"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="6_7ilw0"]
-[ext_resource type="AudioStream" uid="uid://dtmqd0wtyarcc" path="res://sound/pickup.mp3" id="7_0syq4"]
+[ext_resource type="AudioStream" uid="uid://dtmqd0wtyarcc" path="res://Sounds/pickup.mp3" id="7_b0cx0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j1jv7"]
 radius = 5.0
@@ -202,7 +202,7 @@ sprite_frames = SubResource("SpriteFrames_do4kc")
 animation = &"heart"
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("6_7ilw0")]
-stream = ExtResource("7_0syq4")
+stream = ExtResource("7_b0cx0")
 volume_db = -3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

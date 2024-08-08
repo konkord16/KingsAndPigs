@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp7pol08k0i4n"]
+[gd_scene load_steps=11 format=3 uid="uid://bp7pol08k0i4n"]
 
 [ext_resource type="Texture2D" uid="uid://0vcs2ayypaf3" path="res://Sprites/09-Bomb/08-Bomb.png" id="1_gfrdc"]
 [ext_resource type="Script" path="res://Scripts/bomb.gd" id="1_lgcv8"]
+[ext_resource type="AudioStream" uid="uid://c60shxdd3g63l" path="res://Sounds/fuse.mp3" id="3_7m4e2"]
+[ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="3_811sb"]
+[ext_resource type="AudioStream" uid="uid://johfncomiyjq" path="res://Sounds/explosion.mp3" id="4_d34sc"]
 
 [sub_resource type="Animation" id="Animation_rlgif"]
 length = 0.001
@@ -71,6 +74,35 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"_play"
+}, {
+"args": [0.0],
+"method": &"_play"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_7m4e2"), ExtResource("4_d34sc")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b4tia"]
 _data = {
@@ -111,5 +143,8 @@ debug_color = Color(0.960784, 0, 0.509804, 0.0588235)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
 shape = SubResource("CircleShape2D_8167h")
+
+[node name="AudioPlayer" parent="." instance=ExtResource("3_811sb")]
+stream = ExtResource("4_d34sc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
