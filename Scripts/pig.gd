@@ -5,7 +5,7 @@ var speed := 50.0
 const JUMP_VELOCITY = -280.0
 const SEARCH_RANGE = Vector2(50, 50)
 var direction := 1
-var player : CharacterBody2D
+var player : Player
 
 func _ready() -> void:
 	await get_tree().physics_frame
@@ -24,7 +24,7 @@ func _process(_delta : float) -> void:
 			direction = sign(to_local(player.global_position).x) # Turn toward player if he's close
 			if abs(to_local(player.global_position).y) > 23 and is_on_floor(): # Go up or down a layer
 				if to_local(player.global_position).y > 0:
-					if %RayCast2D.get_collider():
+					if %FloorRay.get_collider():
 						global_position.y += 1
 
 				else:

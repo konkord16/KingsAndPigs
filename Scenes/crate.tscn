@@ -54,4 +54,4 @@ explosiveness = 1.0
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("4_c0lj7")]
 stream = ExtResource("5_yr1a6")
-volume_db = -15.0
+volume_db = -18.0

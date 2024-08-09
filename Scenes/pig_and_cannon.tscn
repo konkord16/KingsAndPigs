@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://my5d3gww0jpu"]
+[gd_scene load_steps=22 format=3 uid="uid://my5d3gww0jpu"]
 
 [ext_resource type="Script" path="res://Scripts/pig_and_cannon.gd" id="1_irhvt"]
 [ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://Sounds/steam.mp3" id="2_31vuf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="3_nri4o"]
 [ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://Sounds/hit.mp3" id="3_uevvw"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="4_h1d83"]
+[ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://Sounds/footstep.mp3" id="5_issud"]
 
 [sub_resource type="Animation" id="Animation_2c7ob"]
 length = 0.001
@@ -385,6 +386,38 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-24, 7), Vector2(24, 7)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"_play"
+}, {
+"args": [0.0],
+"method": &"_play"
+}, {
+"args": [0.0],
+"method": &"_play"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioPlayer:stream")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_issud")]
+}
 
 [sub_resource type="Animation" id="Animation_7hdeh"]
 resource_name = "turn_right"
@@ -435,6 +468,38 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(24, 7), Vector2(-24, 7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_issud")]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"_play"
+}, {
+"args": [0.0],
+"method": &"_play"
+}, {
+"args": [0.0],
+"method": &"_play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0j3rl"]
@@ -527,4 +592,4 @@ position = Vector2(0, 7.75)
 shape = SubResource("RectangleShape2D_r6flb")
 
 [node name="AudioPlayer" parent="." instance=ExtResource("4_h1d83")]
-stream = ExtResource("3_0ia5g")
+stream = ExtResource("5_issud")

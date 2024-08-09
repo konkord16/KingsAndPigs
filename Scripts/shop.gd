@@ -21,5 +21,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			Player.diamonds -= 10
 			Player.bombs += 1
 			shopping_player.ui.update()
+			%Shopkeeper/AudioPlayer.stream = load("res://Sounds/pickup.mp3")
+			%Shopkeeper/AudioPlayer._play()
 			%BombDisplay.visible = false
 			has_bomb = false

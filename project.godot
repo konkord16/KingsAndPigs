@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout=""
 
+[autoload]
+
+Music="*res://Scenes/music.tscn"
+
 [debug]
 
 gdscript/warnings/unused_parameter=0
@@ -80,6 +84,11 @@ bomb={
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="OneWayPlatforms"
 2d_physics/layer_5="Collectibles"
+
+[physics]
+
+2d/default_linear_damp=0.0
+2d/default_angular_damp=0.0
 
 [rendering]
 

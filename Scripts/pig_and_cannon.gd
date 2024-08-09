@@ -18,6 +18,7 @@ var hp : int = 1
 
 func _ready() -> void:
 	await get_tree().physics_frame
+	await get_tree().physics_frame
 	player = get_tree().get_first_node_in_group("player")	
 	
 
