@@ -59,7 +59,7 @@ func shoot() -> void:
 	
 
 func take_damage(amount : int) -> void:
-	if current_state != State.DEAD:			
+	if current_state != State.DEAD:
 		current_state = State.HIT
 		hp -= 1
 		animator.play("hit")

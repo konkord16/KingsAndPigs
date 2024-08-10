@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bomi2ilwbjm8p"
-path="res://.godot/imported/Box Pieces 1.png-e9c1750851e00ed04a59802afa111993.ctex"
+uid="uid://blmsubldwwif1"
+path="res://.godot/imported/13-Dialogue.png-edcd617d4e5e5ff318b0e09056980d79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/08-Box/Box Pieces 1.png"
-dest_files=["res://.godot/imported/Box Pieces 1.png-e9c1750851e00ed04a59802afa111993.ctex"]
+source_file="res://Sprites/13-Dialogue.png"
+dest_files=["res://.godot/imported/13-Dialogue.png-edcd617d4e5e5ff318b0e09056980d79.ctex"]
 
 [params]
 

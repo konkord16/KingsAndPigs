@@ -13,6 +13,7 @@ enum State{
 const GRAVITY = 20
 var grounded := true
 var hp := 3
+var invincible := false
 @onready var animator : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var particles : GPUParticles2D = $GPUParticles2D
@@ -57,19 +58,21 @@ func animate() -> void:
 
 	
 func take_damage(amount : int) -> void:
-	if not current_state in [State.DEAD, State.CUTSCENE]:			
+	if not invincible:
+		invincible = true
 		current_state = State.CUTSCENE
 		hp -= amount
 		animator.play("hit")
-		await animator.animation_finished	
+		await animator.animation_finished
 		if hp <= 0:
-			current_state = State.CUTSCENE
 			animator.play("dead")
 		else:
+			invincible = false
 			current_state = State.MOVE
 
-func say(phrase : String) -> void:	
+func say(phrase : String) -> void:
 	speech.visible = true
 	speech.play(phrase)
+	$Speaking._play()
 	await speech.animation_finished
 	speech.visible = false

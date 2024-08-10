@@ -5,8 +5,8 @@ extends BaseEntity
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 const BOMB = preload("res://Scenes/bomb.tscn")
-static var diamonds := 10
-static var bombs := 5
+static var diamonds := 0
+static var bombs := 1
 var enterable_door : Area2D = null
 @onready var camera : Camera2D = $Camera2D
 @onready var ui : Control = $Camera2D/CanvasLayer/UI
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("attack") and is_on_floor():
 			current_state = State.ATTACK
 			
-		if Input.is_action_just_pressed("up") and enterable_door and enterable_door.destination:
+		if Input.is_action_just_pressed("up") and enterable_door and enterable_door.destination and enterable_door.enterable:
 			enterable_door.enter()
 			current_state = State.CUTSCENE
 			velocity = Vector2.ZERO

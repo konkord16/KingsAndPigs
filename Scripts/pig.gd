@@ -35,6 +35,5 @@ func _process(_delta : float) -> void:
 		if player.current_state != State.CUTSCENE:
 			velocity.x = direction * speed
 
-
 func _on_attack_range_body_entered(body : Node2D) -> void:
 		body.take_damage(1)

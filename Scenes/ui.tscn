@@ -1,19 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://cjw45eq3jqrkd"]
+[gd_scene load_steps=12 format=3 uid="uid://cjw45eq3jqrkd"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_skwlp"]
 [ext_resource type="Texture2D" uid="uid://4hwpyklvhoyb" path="res://Sprites/12-Live and Coins/Live Bar.png" id="2_dut1r"]
 [ext_resource type="Texture2D" uid="uid://drlje0rdsldy4" path="res://Sprites/12-Live and Coins/Sprite-0001.png" id="3_xgvyb"]
-[ext_resource type="Texture2D" uid="uid://dmcewompk4736" path="res://Sprites/12-Live and Coins/Sprite-0004.png" id="4_i7oyk"]
-[ext_resource type="Texture2D" uid="uid://7ypycn72w3s4" path="res://Sprites/12-Live and Coins/Sprite-0005.png" id="5_nnr7m"]
 [ext_resource type="Texture2D" uid="uid://c2g34r4hedcx4" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)1.png" id="5_qxs38"]
-[ext_resource type="Texture2D" uid="uid://b40cdcs8r4efl" path="res://Sprites/12-Live and Coins/Sprite-0006.png" id="6_ckkd7"]
 [ext_resource type="FontFile" uid="uid://vpi6n22xejoq" path="res://Sprites/12-Live and Coins/Numbers (6x8).png" id="6_p0ene"]
-[ext_resource type="Texture2D" uid="uid://sng48mhd8vkw" path="res://Sprites/12-Live and Coins/Sprite-0007.png" id="7_2fm5w"]
-[ext_resource type="Texture2D" uid="uid://bvl7fyuxgg0a4" path="res://Sprites/12-Live and Coins/Sprite-0008.png" id="8_ubtmf"]
 [ext_resource type="Texture2D" uid="uid://c836k42xlytw1" path="res://Sprites/12-Live and Coins/Small Heart Hit (18x14).png" id="9_wcsso"]
-[ext_resource type="Texture2D" uid="uid://dhvvmqb3ia4js" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)6.png" id="11_hs88l"]
-[ext_resource type="Texture2D" uid="uid://ckcu4h45gm2xw" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)7.png" id="12_2y6w6"]
-[ext_resource type="Texture2D" uid="uid://ce7eghdv2ahfe" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)8.png" id="13_ypc8f"]
 [ext_resource type="Texture2D" uid="uid://bf4ynkhuwwgs" path="res://Sprites/09-Bomb/Bomb Off.png" id="15_4h1kl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ar7y6"]
@@ -37,67 +29,6 @@ animations = [{
 "name": &"break",
 "speed": 5.0
 }]
-
-[sub_resource type="Animation" id="Animation_08afc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureProgressBar:texture_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_xgvyb")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Diamonds:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_qxs38")]
-}
-
-[sub_resource type="Animation" id="Animation_r0idk"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureProgressBar:texture_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("3_xgvyb"), ExtResource("4_i7oyk"), ExtResource("5_nnr7m"), ExtResource("6_ckkd7"), ExtResource("7_2fm5w"), ExtResource("8_ubtmf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Diamonds:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("5_qxs38"), ExtResource("11_hs88l"), ExtResource("12_2y6w6"), ExtResource("13_ypc8f"), ExtResource("5_qxs38")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmi8x"]
-_data = {
-"RESET": SubResource("Animation_08afc"),
-"idle": SubResource("Animation_r0idk")
-}
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_drpvy"]
 particles_animation = true
@@ -159,19 +90,12 @@ theme_override_fonts/font = ExtResource("6_p0ene")
 theme_override_font_sizes/font_size = 8
 text = "0"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Healthbar")
-libraries = {
-"": SubResource("AnimationLibrary_gmi8x")
-}
-autoplay = "idle"
-
 [node name="Bomb" type="TextureRect" parent="."]
 material = SubResource("CanvasItemMaterial_drpvy")
 layout_mode = 0
-offset_left = 100.333
-offset_top = -4.66667
-offset_right = 175.333
-offset_bottom = 76.3333
-scale = Vector2(0.5, 0.5)
+offset_left = 98.3333
+offset_top = -1.0
+offset_right = 173.333
+offset_bottom = 80.0
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("15_4h1kl")

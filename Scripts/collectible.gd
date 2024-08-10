@@ -10,7 +10,7 @@ var type : String
 
 func _ready() -> void:
 	rng.randomize()
-	if rng.randf() >= 0.75:
+	if rng.randf() >= 0.80:
 		type = "heart"
 	else:
 		type = "diamond"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb6opg86p6h47"]
+
+[ext_resource type="TileSet" uid="uid://b7ybl8r184ub7" path="res://tileset.tres" id="1_racm8"]
+
+[node name="TileMap" type="TileMap"]
+rotation = -6.04942e-05
+tile_set = ExtResource("1_racm8")
+rendering_quadrant_size = 32
+format = 2
+layer_0/name = "Walls"
+layer_0/tile_data = PackedInt32Array(131069, 327680, 5, 131070, 327680, 5, 131071, 327680, 5, 65536, 327680, 5, 65537, 327680, 5, 65538, 327680, 5, 65539, 327680, 5, 65540, 327680, 5, 65541, 327680, 5, 65542, 327680, 5, 131068, 327680, 5, 131067, 327680, 5, 131066, 327680, 5, 131065, 327680, 5)
+layer_1/name = "Decorations"
+layer_1/tile_data = PackedInt32Array(65535, 2, 327680)
+layer_2/name = "Scenes"
+layer_2/tile_data = PackedInt32Array(65535, 2, 65536)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -67.9967
+offset_top = -55.0041
+offset_right = 40.0033
+offset_bottom = -32.0041
+text = "WP YOU WON"
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]

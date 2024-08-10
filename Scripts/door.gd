@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var enterable := true
 var destination : int
 @onready var sprite : AnimatedSprite2D= $AnimatedSprite
 
