@@ -5,7 +5,12 @@ extends BaseEntity
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 const BOMB = preload("res://Scenes/bomb.tscn")
-static var diamonds := 0
+static var diamonds := 0:
+	set(value):
+		if value > diamonds:
+			overall_diamonds += value - diamonds
+		diamonds = value
+static var overall_diamonds := 0
 static var bombs := 1
 var enterable_door : Area2D = null
 @onready var camera : Camera2D = $Camera2D

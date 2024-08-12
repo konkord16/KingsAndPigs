@@ -92,18 +92,6 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioPlayer:stream")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_7dfcv")]
-}
 
 [sub_resource type="Animation" id="Animation_5ffld"]
 resource_name = "attack"
@@ -892,16 +880,18 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 5
+position = Vector2(0, 4)
 collision_layer = 2
 collision_mask = 9
 platform_floor_layers = 4294967041
 script = ExtResource("1_xmujv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.875)
+position = Vector2(0, -0.125)
 shape = SubResource("RectangleShape2D_nawam")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
 texture = ExtResource("2_k7t6g")
 hframes = 11
 vframes = 10
@@ -922,6 +912,7 @@ libraries = {
 autoplay = "door_out"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -4)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_tq7p3")
 texture = ExtResource("3_3r6od")
@@ -929,7 +920,7 @@ one_shot = true
 explosiveness = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -20)
+position = Vector2(0, -24)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
@@ -950,6 +941,7 @@ sprite_frames = SubResource("SpriteFrames_olf28")
 animation = &"surprise"
 
 [node name="AudioPlayer" parent="." instance=ExtResource("7_v6sjq")]
+position = Vector2(0, -4)
 stream = ExtResource("3_7dfcv")
 
 [connection signal="body_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]

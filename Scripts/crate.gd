@@ -12,7 +12,7 @@ func take_damage(amount : int) -> void:
 	drop_item()
 	await $GPUParticles2D.finished
 	queue_free()
-	
+
 
 func drop_item() -> void:
 	rng.randomize()

@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * MOVE_SPEED
 
 	if hp == 0:
-		Music.change_music("victory")
+		Manager.change_music("victory")
 		$"../Door".enterable = true
 
 

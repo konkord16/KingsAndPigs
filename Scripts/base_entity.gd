@@ -6,7 +6,6 @@ extends CharacterBody2D
 enum State{
 	MOVE,
 	ATTACK,
-	DEAD,
 	CUTSCENE,
 	LANDING,
 }
@@ -31,7 +30,10 @@ func _physics_process(_delta : float) -> void:
 			velocity.x = 0
 			animator.play("attack")
 			await animator.animation_finished
-			current_state = State.MOVE
+			if hp <= 0:
+				animator.play("dead")
+			else:
+				current_state = State.MOVE
 
 	velocity.x = 0
 

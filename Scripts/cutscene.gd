@@ -20,5 +20,5 @@ func _physics_process(delta: float) -> void:
 func _on_boss_trigger_body_entered(body: Node2D) -> void:
 	get_tree().call_group("enemy", "say", "surprise")
 	play("start_boss")
-	Music.change_music("boss_music")
+	Manager.change_music("boss_music")
 	$"../BossTrigger".set_deferred("monitoring", false)

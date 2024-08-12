@@ -13,7 +13,6 @@ var target : Vector2
 var hp : int = 1
 @onready var animator : AnimationPlayer = $AnimationPlayer
 @onready var cannon_ball : PackedScene = preload("res://Scenes/cannon_ball.tscn")
-@onready var ray_cast : RayCast2D = $RayCast
 @onready var direction : int
 
 func _ready() -> void:
@@ -24,18 +23,18 @@ func _ready() -> void:
 
 func _physics_process(delta : float) -> void:
 	direction = -$Cannon/CannonSprite.scale.x
-	if player:				
-		target = to_local(player.global_position)
-		ray_cast.target_position = target.normalized() * 200
+	if player:
+		target = $Cannon.to_local(player.global_position) - %RayCast.position
+		%RayCast.target_position = target.normalized() * 200
 		
 	match current_state:
 		State.IDLE:
 			animator.play("idle")			
-			if ray_cast.is_colliding() and ray_cast.get_collider().is_in_group("player"):
-				if sign(target.x) != direction:
-					current_state =  State.TURN
-				elif player.hp > 0 and target.y >= -10:
+			if %RayCast.is_colliding() and %RayCast.get_collider().is_in_group("player"):
+				if player.hp > 0 and target.y >= -10:
 					current_state =  State.SHOOT
+			if sign(target.x) != direction:
+				current_state =  State.TURN
 
 		State.SHOOT:
 			animator.play("shoot")			
