@@ -1,20 +1,20 @@
 extends Area2D
 
+@export var type : String
 var rng := RandomNumberGenerator.new()
 enum types{
 	heart,
 	diamond,
+	bomb,
 }
 
-var type : String
-
 func _ready() -> void:
-	rng.randomize()
-	if rng.randf() >= 0.80:
-		type = "heart"
-	else:
-		type = "diamond"
-	$AnimatedSprite2D.play(str(type))	
+	if not type:
+		if rng.randf() >= 0.80:
+			type = "heart"
+		else:
+			type = "diamond"
+	$AnimatedSprite2D.play(str(type))
 
 
 func _on_body_entered(body : Node2D) -> void:

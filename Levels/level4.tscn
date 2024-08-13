@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cun3g41hjlqs7" path="res://Scenes/pig.tscn" id="3_wjkpd"]
 [ext_resource type="PackedScene" uid="uid://ohdiln5ileer" path="res://Scenes/player.tscn" id="4_iidi2"]
 [ext_resource type="AudioStream" uid="uid://johfncomiyjq" path="res://Sounds/explosion.mp3" id="5_mff86"]
-[ext_resource type="Texture2D" uid="uid://bf4ynkhuwwgs" path="res://Sprites/09-Bomb/Bomb Off.png" id="5_qc43f"]
+[ext_resource type="PackedScene" uid="uid://bdhkjan1j27vj" path="res://Scenes/collectible.tscn" id="8_dy5qj"]
 [ext_resource type="Script" path="res://Scripts/camera_trigger.gd" id="9_f1sgj"]
 [ext_resource type="PackedScene" uid="uid://tkts4exkdquw" path="res://Scenes/door.tscn" id="10_fngvf"]
 [ext_resource type="PackedScene" uid="uid://073rrfu3rj2a" path="res://Scenes/king_pig.tscn" id="10_r60x4"]
@@ -263,7 +263,6 @@ layer_2/tile_data = PackedInt32Array(-851961, 2, 196608, -851955, 2, 131072, -72
 metadata/_edit_horizontal_guides_ = [-323.0]
 
 [node name="Secrets" parent="." instance=ExtResource("2_hvr6b")]
-visible = false
 z_index = 2
 layer_0/name = "walls"
 layer_0/tile_data = PackedInt32Array(-2, 131072, 1, -1, 131072, 1, -65536, 131072, 1, -65535, 131072, 1, -65534, 131072, 1, -65533, 131072, 1, -65532, 131072, 1, -65531, 131072, 1, 6, 131072, 2, 5, 131072, 2, 4, 131072, 2, 3, 131072, 2, 2, 131072, 2, 1, 131072, 2, 0, 131072, 2, 65535, 131072, 2, 65534, 131072, 2, 65533, 131072, 2, 131069, 131072, 2, 131068, 131072, 2, 196604, 131072, 2, 196603, 131072, 2, 196602, 131072, 2, 262139, 131072, 2, 262140, 131072, 2, 262141, 131072, 2, 196605, 131072, 2, 196606, 131072, 2, 131070, 131072, 2, 131071, 131072, 2, 196607, 131072, 2, 262143, 131072, 2, 262142, 131072, 2, 327678, 131072, 2, 327677, 131072, 2, 327679, 131072, 2, 262144, 131072, 2, 196608, 131072, 2, 131072, 131072, 2, 65536, 131072, 2, 65537, 131072, 2, 131073, 131072, 2, 196609, 131072, 2, 262145, 131072, 2, 262146, 131072, 2, 196610, 131072, 2, 131074, 131072, 2, 65538, 131072, 2, 65539, 131072, 2, 131075, 131072, 2, 196611, 131072, 2, 262147, 131072, 2, 262148, 131072, 2, 196612, 131072, 2, 131076, 131072, 2, 65540, 131072, 2, 65541, 131072, 2, 131077, 131072, 2, 196613, 131072, 2, 262149, 131072, 2, 262150, 131072, 2, 196614, 131072, 2, 131078, 131072, 2, 65542, 131072, 2, 131079, 131072, 2, 196615, 131072, 2, 262151, 131072, 2, 262152, 131072, 2, 196616, 131072, 2, 65545, 131072, 2, 131081, 131072, 2, 196617, 131072, 2, 262153, 131072, 2, 262154, 131072, 2, 196618, 131072, 2, 131082, 131072, 2, 65546, 131072, 2, 65547, 131072, 2, 131083, 131072, 2, 196619, 131072, 2, 262155, 131072, 2, 262156, 131072, 2, 196620, 131072, 2, 131084, 131072, 2, 65548, 131072, 2, 65549, 131072, 2, 131085, 131072, 2, 196621, 131072, 2, 196622, 131072, 2, 131086, 131072, 2, 65543, 131072, 2, 65544, 131072, 2, 131080, 131072, 2, -131066, 65536, 2, -65530, 524288, 2, -589816, 131072, 3, -589815, 131072, 3, -589814, 131072, 3, -589813, 131072, 3, -589812, 131072, 3, -589811, 131072, 3, -589810, 131072, 3, -589809, 131072, 3, -589808, 131072, 3, -589807, 131072, 3, -589805, 131072, 3, -589804, 131072, 3, -589803, 131072, 3, -589802, 458752, 5, -589801, 131072, 5, -589817, 655360, 4, -524280, 65536, 7, -524279, 131072, 7, -524278, 131072, 7, -524277, 131072, 7, -524276, 131072, 7, -524275, 131072, 7, -524274, 131072, 7, -524273, 131072, 7, -524272, 131072, 7, -524271, 131072, 7, -524269, 131072, 7, -524268, 131072, 7, -524267, 131072, 7, -524266, 131072, 7, -524265, 131072, 7, -720889, 524288, 1, -720888, 131072, 2, -720887, 131072, 2, -720886, 131072, 2, -720885, 131072, 2, -720884, 131072, 2, -720883, 131072, 2, -720882, 131072, 2, -720881, 131072, 2, -720879, 131072, 2, -720878, 131072, 2, -720877, 131072, 2, -720876, 131072, 2, -720875, 131072, 2, -720874, 196608, 2, -786425, 131072, 1, -786424, 131072, 1, -786423, 524288, 2, -786422, 458752, 2, -786421, 131072, 1, -786420, 131072, 1, -786419, 131072, 1, -786418, 131072, 1, -786417, 131072, 1, -786416, 524288, 2, -786415, 458752, 2, -786414, 131072, 1, -786413, 131072, 1, -786412, 131072, 1, -786411, 131072, 1, -786410, 196608, 1, -589806, 131072, 3, -524270, 131072, 7, -720880, 131072, 2, -655344, 131072, 2, -655343, 131072, 2, -655342, 131072, 2, -655341, 131072, 2, -655340, 131072, 2, -655339, 131072, 2, -655345, 131072, 2, -655346, 131072, 2, -655347, 131072, 2, -655348, 131072, 2, -655349, 131072, 2, -655350, 131072, 2, -655351, 131072, 2, -655352, 131072, 2, -655353, 65536, 2, -655338, 196608, 2, -589800, 131072, 5, -589799, 655360, 1, -524264, 196608, 7)
@@ -311,10 +310,10 @@ script = ExtResource("3_wbkqt")
 position = Vector2(2.00109, -21.0024)
 shape = SubResource("RectangleShape2D_sg2rl")
 
-[node name="BombDisplay" type="Sprite2D" parent="ShopArea"]
-unique_name_in_owner = true
-position = Vector2(-20.998, -33.0013)
-texture = ExtResource("5_qc43f")
+[node name="BombDisplay" parent="ShopArea" instance=ExtResource("8_dy5qj")]
+position = Vector2(-18.9982, -29.0012)
+monitoring = false
+type = "bomb"
 
 [node name="CameraTrigger" type="Area2D" parent="."]
 collision_layer = 0
@@ -381,12 +380,13 @@ enterable = false
 [node name="AnimatedSprite" parent="Door" index="1"]
 animation = &"idle"
 
-[connection signal="died" from="Shopkeeper" to="ShopArea" method="_on_shopkeeper_died"]
 [connection signal="body_entered" from="ShopArea" to="ShopArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="ShopArea" method="_on_body_exited"]
 [connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="CameraTrigger" to="CameraTrigger" method="_on_body_exited"]
 [connection signal="body_entered" from="BossTrigger" to="CutscenePlayer" method="_on_boss_trigger_body_entered"]
+[connection signal="body_entered" from="@Area2D@63403" to="@Area2D@63403" method="_on_body_entered"]
+[connection signal="body_exited" from="@Area2D@63403" to="@Area2D@63403" method="_on_body_exited"]
 
 [editable path="Secrets"]
 [editable path="Shopkeeper"]

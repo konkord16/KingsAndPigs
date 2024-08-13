@@ -15,7 +15,6 @@ func take_damage(amount : int) -> void:
 
 
 func drop_item() -> void:
-	rng.randomize()
 	if rng.randf() > 0.5:
 		var inst_collectible := collectible.instantiate()
 		inst_collectible.global_position = global_position + Vector2(0, -9)

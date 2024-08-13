@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf4ynkhuwwgs"
-path="res://.godot/imported/Bomb Off.png-52a3948f76a4a2bfdee162a0820a3e18.ctex"
+uid="uid://da1fdtgj10q8k"
+path="res://.godot/imported/Bomb Off1.png-b1bd8d0979b4eedcbf53c10c6e521bd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/09-Bomb/Bomb Off.png"
-dest_files=["res://.godot/imported/Bomb Off.png-52a3948f76a4a2bfdee162a0820a3e18.ctex"]
+source_file="res://Sprites/09-Bomb/Bomb Off1.png"
+dest_files=["res://.godot/imported/Bomb Off1.png-b1bd8d0979b4eedcbf53c10c6e521bd6.ctex"]
 
 [params]
 

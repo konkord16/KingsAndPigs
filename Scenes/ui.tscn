@@ -1,12 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjw45eq3jqrkd"]
+[gd_scene load_steps=26 format=3 uid="uid://cjw45eq3jqrkd"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_skwlp"]
 [ext_resource type="Texture2D" uid="uid://4hwpyklvhoyb" path="res://Sprites/12-Live and Coins/Live Bar.png" id="2_dut1r"]
 [ext_resource type="Texture2D" uid="uid://drlje0rdsldy4" path="res://Sprites/12-Live and Coins/Sprite-0001.png" id="3_xgvyb"]
 [ext_resource type="Texture2D" uid="uid://c2g34r4hedcx4" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)1.png" id="5_qxs38"]
 [ext_resource type="FontFile" uid="uid://vpi6n22xejoq" path="res://Sprites/12-Live and Coins/Numbers (6x8).png" id="6_p0ene"]
+[ext_resource type="Texture2D" uid="uid://da1fdtgj10q8k" path="res://Sprites/09-Bomb/Bomb Off1.png" id="7_cw20t"]
+[ext_resource type="Texture2D" uid="uid://dmcewompk4736" path="res://Sprites/12-Live and Coins/Sprite-0004.png" id="8_mqp4g"]
 [ext_resource type="Texture2D" uid="uid://c836k42xlytw1" path="res://Sprites/12-Live and Coins/Small Heart Hit (18x14).png" id="9_wcsso"]
-[ext_resource type="Texture2D" uid="uid://bf4ynkhuwwgs" path="res://Sprites/09-Bomb/Bomb Off.png" id="15_4h1kl"]
+[ext_resource type="Texture2D" uid="uid://7ypycn72w3s4" path="res://Sprites/12-Live and Coins/Sprite-0005.png" id="9_wqmfo"]
+[ext_resource type="Texture2D" uid="uid://b40cdcs8r4efl" path="res://Sprites/12-Live and Coins/Sprite-0006.png" id="10_07dci"]
+[ext_resource type="Texture2D" uid="uid://sng48mhd8vkw" path="res://Sprites/12-Live and Coins/Sprite-0007.png" id="11_3x62f"]
+[ext_resource type="Texture2D" uid="uid://bvl7fyuxgg0a4" path="res://Sprites/12-Live and Coins/Sprite-0008.png" id="12_377v3"]
+[ext_resource type="Texture2D" uid="uid://dhvvmqb3ia4js" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)6.png" id="13_o71y7"]
+[ext_resource type="Texture2D" uid="uid://ckcu4h45gm2xw" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)7.png" id="14_w4k8e"]
+[ext_resource type="Texture2D" uid="uid://ce7eghdv2ahfe" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)8.png" id="15_uuson"]
+[ext_resource type="Texture2D" uid="uid://fhjq8m5nwfco" path="res://Sprites/09-Bomb/Bomb Off2.png" id="16_0x4wi"]
+[ext_resource type="Texture2D" uid="uid://br2dajbpgchay" path="res://Sprites/09-Bomb/Bomb Off3.png" id="17_b0mri"]
+[ext_resource type="Texture2D" uid="uid://c7biluli57ii3" path="res://Sprites/09-Bomb/Bomb Off4.png" id="18_p31e4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ar7y6"]
 atlas = ExtResource("9_wcsso")
@@ -35,6 +46,67 @@ particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
+
+[sub_resource type="Animation" id="Animation_x1ugd"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Healthbar/TextureProgressBar:texture_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_xgvyb"), ExtResource("8_mqp4g"), ExtResource("9_wqmfo"), ExtResource("10_07dci"), ExtResource("11_3x62f"), ExtResource("12_377v3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Diamonds:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_qxs38"), ExtResource("13_o71y7"), ExtResource("14_w4k8e"), ExtResource("15_uuson")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bomb:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_cw20t"), ExtResource("16_0x4wi"), ExtResource("17_b0mri"), ExtResource("18_p31e4")]
+}
+
+[sub_resource type="Animation" id="Animation_n1t6e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Healthbar/TextureProgressBar:texture_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_xgvyb")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ma610"]
+_data = {
+"RESET": SubResource("Animation_n1t6e"),
+"idle": SubResource("Animation_x1ugd")
+}
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -98,4 +170,10 @@ offset_top = -1.0
 offset_right = 173.333
 offset_bottom = 80.0
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("15_4h1kl")
+texture = ExtResource("7_cw20t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ma610")
+}
+autoplay = "idle"

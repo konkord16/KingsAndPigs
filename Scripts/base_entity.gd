@@ -1,7 +1,6 @@
 class_name BaseEntity
 extends CharacterBody2D
 
-signal died
 @export var flipped : bool # For if the asset is drawn the wrong way
 @export var current_state : = State.MOVE
 enum State{
