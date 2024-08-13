@@ -15,9 +15,9 @@ gravity = Vector3(0, -10, 0)
 scale_min = 0.75
 scale_max = 0.75
 
-[node name="CannonBall" type="CharacterBody2D"]
+[node name="Cannonball" type="Area2D"]
 z_index = -1
-position = Vector2(0, 6)
+position = Vector2(0, 4)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_yr27w")
@@ -38,3 +38,5 @@ process_material = SubResource("ParticleProcessMaterial_t1ui5")
 texture = ExtResource("3_r4mgr")
 one_shot = true
 explosiveness = 0.9
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -25,6 +25,7 @@ func _ready() -> void:
 	await animator.animation_finished
 	current_state = State.MOVE
 
+
 func _process(delta: float) -> void:
 	# Taking input
 	if current_state == State.MOVE and taking_input == true:
@@ -58,6 +59,10 @@ func _process(delta: float) -> void:
 				inst_bomb.global_position = global_position + Vector2(0, 9)
 				call_deferred("add_sibling", inst_bomb)
 
+
 func _on_hitbox_body_entered(body : Node2D) -> void:
 		if body.has_method("take_damage"):
 			body.take_damage(1)
+
+func trashtalk() -> void:
+	get_tree().call_group("enemy","say","trashtalk")

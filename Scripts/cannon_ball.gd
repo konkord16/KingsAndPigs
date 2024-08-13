@@ -1,7 +1,8 @@
-extends CharacterBody2D
+extends Area2D
 
 const GRAVITY = 0.1
 var force : float
+var velocity := Vector2.ZERO
 
 func _ready() -> void:
 	velocity.x = clamp(force, -8 , 8)
@@ -9,22 +10,23 @@ func _ready() -> void:
 
 func _physics_process(delta : float) -> void:
 	velocity.y += GRAVITY
-	var collision := move_and_collide(velocity)
-	if collision:
-		var collider : Node2D = collision.get_collider() 
-		if not collider is TileMap:
-			collider.take_damage(1)
-		await despawn()
-
+	global_position += velocity
+	
 
 func take_damage(amount : int) -> void:
 	velocity = velocity.rotated(PI)
 
 
 func despawn() -> void:
-	set_physics_process(false)	
-	set_collision_layer_value(3, false)
+	set_physics_process(false)
+	set_collision_mask(0)
 	$Sprite2D.visible = false
 	$GPUParticles2D.emitting = true
-	await $GPUParticles2D.finished		
+	await $GPUParticles2D.finished
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if not body is TileMap:
+			body.take_damage(1)
+	despawn()

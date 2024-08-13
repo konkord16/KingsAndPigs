@@ -31,19 +31,4 @@ shape = SubResource("RectangleShape2D_8ekb6")
 position = Vector2(-764.5, -287.5)
 shape = SubResource("RectangleShape2D_4o678")
 
-[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
-[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
-[connection signal="body_entered" from="@Area2D@31150" to="@Area2D@31150" method="_on_body_entered"]
-[connection signal="body_exited" from="@Area2D@31150" to="@Area2D@31150" method="_on_body_exited"]
-[connection signal="body_entered" from="Collectible" to="Collectible" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area2D@31157" to="@Area2D@31157" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area2D@31160" to="@Area2D@31160" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area2D@31163" to="@Area2D@31163" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area2D@31164" to="@Area2D@31164" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area2D@31165" to="@Area2D@31165" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area2D@31166" to="@Area2D@31166" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area2D@31167" to="@Area2D@31167" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area2D@31176" to="@Area2D@31176" method="_on_body_entered"]
-[connection signal="body_entered" from="@Area2D@31180" to="@Area2D@31180" method="_on_body_entered"]
-
 [editable path="Secrets"]

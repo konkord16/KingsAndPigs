@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb6opg86p6h47"]
+[gd_scene load_steps=4 format=3 uid="uid://bb6opg86p6h47"]
 
 [ext_resource type="TileSet" uid="uid://b7ybl8r184ub7" path="res://tileset.tres" id="1_racm8"]
 [ext_resource type="Script" path="res://Scripts/end_score.gd" id="2_2whnd"]
+[ext_resource type="FontFile" uid="uid://bvlp1afgcsbtp" path="res://Sprites/joystix monospace.otf" id="3_ld1rw"]
 
 [node name="TileMap" type="TileMap"]
 rotation = -6.04942e-05
@@ -17,26 +18,37 @@ layer_2/tile_data = PackedInt32Array(65535, 2, 65536)
 script = ExtResource("2_2whnd")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -67.9967
-offset_top = -55.0041
-offset_right = 40.0033
-offset_bottom = -32.0041
+offset_left = -70.9966
+offset_top = -57.0043
+offset_right = 509.003
+offset_bottom = 26.9957
+scale = Vector2(0.18, 0.18)
+theme_override_fonts/font = ExtResource("3_ld1rw")
+theme_override_font_sizes/font_size = 70
 text = "WP YOU WON"
 
 [node name="DiamondsCollected" type="Label" parent="."]
-offset_left = 17.0013
-offset_top = -20.999
-offset_right = 131.001
-offset_bottom = 28.001
-theme_override_font_sizes/font_size = 10
-text = "You collected x diamonds"
+offset_left = 1.00254
+offset_top = -41.9999
+offset_right = 736.003
+offset_bottom = 303.0
+scale = Vector2(0.18, 0.18)
+theme_override_fonts/font = ExtResource("3_ld1rw")
+theme_override_font_sizes/font_size = 70
+text = "You collected
+ x 
+diamonds"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="TimeTook" type="Label" parent="."]
-offset_left = -99.9989
-offset_top = -18.0061
-offset_right = -41.9989
-offset_bottom = 30.9939
-theme_override_font_sizes/font_size = 10
+offset_left = -167.999
+offset_top = -20.0102
+offset_right = 590.001
+offset_bottom = 324.99
+scale = Vector2(0.18, 0.18)
+theme_override_fonts/font = ExtResource("3_ld1rw")
+theme_override_font_sizes/font_size = 70
 text = "It took you x "
+horizontal_alignment = 1
 autowrap_mode = 2
