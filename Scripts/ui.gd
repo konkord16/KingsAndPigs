@@ -3,18 +3,21 @@ extends Control
 @onready var bar : TextureProgressBar= $Healthbar/TextureProgressBar
 @onready var heart : AnimatedSprite2D = $Healthbar/Heart
 @onready var player : BaseEntity = owner
+@onready var label : Label = $Diamonds/Amount
 
 func _ready() -> void:
-	await owner.ready
 	visible = true
-	update(true)
+	update()
 
-func update(start := false) -> void:
-	if bar.value > player.hp and not start:
+func update() -> void:
+	if bar.value > player.hp:
 		heartbreak()
 	bar.value = player.hp
-	%DiamondAmount.text = str(player.diamonds)
-	%BombAmount.text = str(player.bombs)
+	label.text = str(player.diamonds)
+	if player.bombs:
+		$Bomb.visible = true
+	else:
+		$Bomb.visible = false
 	
 func heartbreak() -> void:
 	heart.position.x = (66 + bar.value * 33) / 4

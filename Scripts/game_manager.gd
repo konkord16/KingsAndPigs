@@ -3,10 +3,6 @@ extends Node
 var shake_strength := 0.0
 var shake_fade := 0.3
 var time := 0.0
-var hp := 3 # To save stuff when resetting to checkpoint
-var bombs := 0
-var current_diamonds := 0
-var overall_diamonds := 0
 
 func _ready() -> void:
 	set_process(false)

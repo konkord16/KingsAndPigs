@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://b7ybl8r184ub7"]
+[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://b7ybl8r184ub7"]
 
 [ext_resource type="Texture2D" uid="uid://dpu1jb32s17q2" path="res://Sprites/14-TileSets/Terrain (32x32).png" id="1_hbfsf"]
 [ext_resource type="Texture2D" uid="uid://dryry1se4xi51" path="res://Sprites/14-TileSets/Decorations (32x32).png" id="2_vgtcd"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://my5d3gww0jpu" path="res://Scenes/pig_and_cannon.tscn" id="6_oouy7"]
 [ext_resource type="PackedScene" uid="uid://tkts4exkdquw" path="res://Scenes/door.tscn" id="7_ypiin"]
 [ext_resource type="PackedScene" uid="uid://bdhkjan1j27vj" path="res://Scenes/collectible.tscn" id="8_xgtxs"]
-[ext_resource type="PackedScene" uid="uid://c3k83j5r6w0gr" path="res://Scenes/pig_with_bomb.tscn" id="9_inn3v"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1moba"]
 tile_data = PackedInt32Array(0, 458754, 1, 65536, 196610, 2, 1, 131074, 3)
@@ -642,7 +641,6 @@ scenes/3/scene = ExtResource("5_1fqgw")
 scenes/4/scene = ExtResource("6_oouy7")
 scenes/5/scene = ExtResource("7_ypiin")
 scenes/6/scene = ExtResource("8_xgtxs")
-scenes/7/scene = ExtResource("9_inn3v")
 
 [resource]
 tile_size = Vector2i(32, 32)
