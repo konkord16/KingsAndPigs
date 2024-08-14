@@ -1,9 +1,8 @@
 extends AnimationPlayer
 
+@export var pigs_leaving := false
 var pigs_on_scene := 5
 var pigs_on_standby := 0
-
-@export var pigs_leaving := false
 
 func _physics_process(delta: float) -> void:
 	if pigs_leaving and pigs_on_scene:
@@ -17,10 +16,15 @@ func _physics_process(delta: float) -> void:
 				pigs_on_scene -= 1
 				pigs_on_standby += 1
 				pig.queue_free()
-				
+
 
 func _on_boss_trigger_body_entered(body: Node2D) -> void:
 	get_tree().call_group("enemy", "say", "surprise")
 	play("start_boss")
 	Manager.change_music("boss_music")
 	$"../BossTrigger".set_deferred("monitoring", false)
+
+
+func victory() -> void:
+	Manager.change_music("victory")
+	$"../Door".enterable = true

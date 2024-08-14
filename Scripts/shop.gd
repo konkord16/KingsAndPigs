@@ -1,13 +1,13 @@
 extends Area2D
 
-var open := true
 var has_bomb := true
 var shopping_player : Player = null
 @onready var shopkeeper: BaseEntity = %Shopkeeper
 
 func _physics_process(delta: float) -> void:
-	if shopkeeper.hp != 3 and open:
-		open = false
+	if shopkeeper.hp != 3: 
+		set_physics_process(false)
+		set_process_input(false)
 		set_deferred("monitoring", false)
 		$BombDisplay.monitoring = true
 
@@ -26,7 +26,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("up") and shopping_player and open:
+	if event.is_action_pressed("up") and shopping_player:
 		if Player.diamonds >= 10:
 			Player.diamonds -= 10
 			Player.bombs += 1
