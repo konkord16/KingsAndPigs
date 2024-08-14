@@ -11,12 +11,13 @@ static var diamonds := 0:
 			overall_diamonds += value - diamonds
 		diamonds = value
 static var overall_diamonds := 0
-static var bombs := 1
+static var bombs := 10
 var enterable_door : Area2D = null
 @onready var camera : Camera2D = $Camera2D
 @onready var ui : Control = $Camera2D/CanvasLayer/UI
 
 func _ready() -> void:
+	hp = Manager.hp
 	current_state = State.CUTSCENE
 	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
 		animator.play("wake_up")
@@ -35,7 +36,7 @@ func _process(delta: float) -> void:
 			elif Input.is_action_pressed("down"):
 				global_position.y += 1
 
-		var direction := Input.get_axis("left", "right")
+		direction = Input.get_axis("left", "right")
 		if direction:
 			velocity.x = direction * SPEED
 		else:
@@ -50,19 +51,30 @@ func _process(delta: float) -> void:
 			velocity = Vector2.ZERO
 			global_position = enterable_door.global_position
 			animator.play("door_in")
-			
+			Manager.hp = hp
+			Manager.bombs = bombs
+			Manager.current_diamonds = diamonds
+			Manager.overall_diamonds = overall_diamonds
+
 		if Input.is_action_just_pressed("bomb"):
 			if bombs > 0:
 				bombs -= 1
 				ui.update()
 				var inst_bomb : CharacterBody2D = BOMB.instantiate()
-				inst_bomb.global_position = global_position + Vector2(0, 9)
+				inst_bomb.global_position = global_position
 				call_deferred("add_sibling", inst_bomb)
 
 
 func _on_hitbox_body_entered(body : Node2D) -> void:
 		if body.has_method("take_damage"):
-			body.take_damage(1)
+			body.take_damage(1, global_position)
 
+<<<<<<< Updated upstream
+=======
+func _on_hitbox_area_entered(area: Area2D) -> void:
+		if area.has_method("take_damage"):
+			area.take_damage(1, global_position)
+
+>>>>>>> Stashed changes
 func trashtalk() -> void:
 	get_tree().call_group("enemy","say","trashtalk")

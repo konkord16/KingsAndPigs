@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbx0klhh0k2vj"]
+
+[ext_resource type="TileSet" uid="uid://b7ybl8r184ub7" path="res://tileset.tres" id="1_m8641"]
+
+[node name="TileMap" type="TileMap"]
+rotation = -6.04942e-05
+tile_set = ExtResource("1_m8641")
+rendering_quadrant_size = 32
+format = 2
+layer_0/name = "Walls"
+layer_0/tile_data = PackedInt32Array(0, 327680, 5, 1, 327680, 5, 2, 327680, 5, 3, 327680, 5, 65535, 327680, 5, 4, 327680, 5, 5, 327680, 5, 6, 327680, 5, 7, 327680, 5, 8, 327680, 5, 9, 327680, 5, 10, 327680, 5, 11, 327680, 5, 12, 327680, 5, 13, 327680, 5, 65534, 327680, 5, 65533, 327680, 5, 65532, 327680, 5, 65531, 327680, 5, 65530, 327680, 5, 65529, 327680, 5, 65528, 327680, 5, 65527, 327680, 5, 65526, 327680, 5, -10, 327680, 5, -65546, 327680, 5, -131082, 327680, 5, -196618, 327680, 5, -262154, 327680, 5, -327690, 327680, 5)
+layer_1/name = "Decorations"
+layer_1/tile_data = PackedInt32Array(-65536, 2, 327680)
+layer_2/name = "Scenes"
+layer_2/tile_data = PackedInt32Array(-65528, 2, 458752, -65536, 2, 65536, -7, 2, 458752)
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]

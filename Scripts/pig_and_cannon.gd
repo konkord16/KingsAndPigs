@@ -26,9 +26,15 @@ func _ready() -> void:
 func _physics_process(delta : float) -> void:
 	direction = -$Cannon/CannonSprite.scale.x
 	if player:
+<<<<<<< Updated upstream
 		target = $Cannon.to_local(player.global_position) - %RayCast.position
 		%RayCast.target_position = target.normalized() * 200
 
+=======
+		target = to_local(player.global_position)
+		%RayCast.target_position = (target - %RayCast.position).normalized() * 200
+		
+>>>>>>> Stashed changes
 	match current_state:
 		State.IDLE:
 			animator.play("idle")			
@@ -61,7 +67,7 @@ func shoot() -> void:
 	add_child(ball_inst)
 
 
-func take_damage(amount : int) -> void:
+func take_damage(amount : int, origin : Vector2) -> void:
 	if current_state != State.DEAD:
 		current_state = State.HIT
 		hp -= 1
@@ -75,6 +81,11 @@ func take_damage(amount : int) -> void:
 
 
 func say(phrase : String) -> void:
+<<<<<<< Updated upstream
+=======
+	if target.length() > 170:
+		return
+>>>>>>> Stashed changes
 	if phrase == "trashtalk":
 		var chance := rng.randf()
 		if chance > 0.5:
