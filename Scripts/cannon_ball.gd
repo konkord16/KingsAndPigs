@@ -5,7 +5,8 @@ var force : float
 var velocity := Vector2.ZERO
 
 func _ready() -> void:
-	velocity.x = clamp(force, -8 , 8)
+	var direction : int = sign(force)
+	velocity.x = clamp(abs(force), 1 , 8) * direction
 
 
 func _physics_process(delta : float) -> void:

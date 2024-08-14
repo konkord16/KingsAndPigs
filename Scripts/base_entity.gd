@@ -1,6 +1,7 @@
 class_name BaseEntity
 extends CharacterBody2D
 
+signal landed
 @export var flipped : bool # For if the asset is drawn the wrong way
 @export var current_state : = State.MOVE
 enum State{
@@ -10,14 +11,19 @@ enum State{
 	HURT,
 }
 const GRAVITY = 20
+var player : Player
 var rng := RandomNumberGenerator.new()
 var grounded := true
-var hp := 3
 var invincible := false
+var hp := 3
 @onready var animator : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var particles : GPUParticles2D = $GPUParticles2D
 @onready var speech: AnimatedSprite2D = $Speech
+
+
+func _ready() -> void:
+		player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(_delta : float) -> void:	
 	if not is_on_floor():
@@ -56,27 +62,31 @@ func animate() -> void:
 			animator.play("fall")
 
 	if is_on_floor() and not grounded:
-		animator.play("ground")
+		emit_signal("landed")
 	grounded = is_on_floor()
 
 
 func take_damage(amount : int) -> void:
-	if not invincible:
-		if self is Player:
-			Manager.shake_strength = 10
-		invincible = true
-		current_state = State.HURT
-		hp -= amount
-		animator.play("hit")
-		await animator.animation_finished
-		if hp <= 0:
-			animator.play("dead")
-			current_state = State.CUTSCENE
-		else:
-			invincible = false
-			current_state = State.MOVE
+	if invincible:
+		return
+	if self is Player:
+		Manager.shake_strength = 10
+	invincible = true
+	current_state = State.HURT
+	hp -= amount
+	animator.play("hit")
+	await animator.animation_finished
+	if hp <= 0:
+		animator.play("dead")
+		current_state = State.CUTSCENE
+	else:
+		invincible = false
+		current_state = State.MOVE
+		
 
 func say(phrase : String) -> void:
+	if global_position.distance_to(player.global_position) > 170:
+		return
 	if phrase == "trashtalk":
 		var chance := rng.randf()
 		if chance > 0.5:
