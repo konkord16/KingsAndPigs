@@ -23,6 +23,8 @@ func _on_body_entered(body : Node2D) -> void:
 			body.hp = clamp(body.hp + 1, 0, 3)
 		elif types[type] == types.diamond:
 			body.diamonds += 1
+		elif types[type] == types.bomb:
+			body.bombs += 1
 		body.ui.update()
 		$AudioStreamPlayer2D._play()
 		$AnimatedSprite2D.play(str(type) + "_hit")

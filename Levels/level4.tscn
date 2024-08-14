@@ -297,7 +297,8 @@ scale = Vector2(-1, 1)
 stream = ExtResource("5_mff86")
 
 [node name="Player" parent="." instance=ExtResource("4_iidi2")]
-position = Vector2(145.003, -43.9912)
+position = Vector2(444.019, -315.973)
+taking_input = false
 current_state = 3
 
 [node name="ShopArea" type="Area2D" parent="."]
@@ -385,8 +386,8 @@ animation = &"idle"
 [connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="CameraTrigger" to="CameraTrigger" method="_on_body_exited"]
 [connection signal="body_entered" from="BossTrigger" to="CutscenePlayer" method="_on_boss_trigger_body_entered"]
-[connection signal="body_entered" from="@Area2D@63403" to="@Area2D@63403" method="_on_body_entered"]
-[connection signal="body_exited" from="@Area2D@63403" to="@Area2D@63403" method="_on_body_exited"]
+[connection signal="body_entered" from="@Area2D@52870" to="@Area2D@52870" method="_on_body_entered"]
+[connection signal="body_exited" from="@Area2D@52870" to="@Area2D@52870" method="_on_body_exited"]
 
 [editable path="Secrets"]
 [editable path="Shopkeeper"]

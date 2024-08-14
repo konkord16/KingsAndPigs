@@ -2,16 +2,14 @@ extends BaseEntity
 
 const JUMP_VELOCITY = -500.0
 const MOVE_SPEED = 50.0
-
-var player : Player
 var direction : int
 var jumping_destination : float
 var queued_jump := false
 
 func _ready() -> void:
 	hp = 10
-	player = get_tree().get_first_node_in_group("player")
 	animator.play("idle")
+	super()
 
 
 func _physics_process(delta: float) -> void:
@@ -33,12 +31,8 @@ func _physics_process(delta: float) -> void:
 		Manager.change_music("victory")
 		$"../Door".enterable = true
 
-	if not grounded and hp > 0: # Move to target if jumping
+	if not is_on_floor() and hp > 0: # Move to target if jumping
 		velocity.x = jumping_destination * 2.5
-	
-	if is_on_floor() and not grounded:
-		Manager.shake_strength = 30
-
 	super(delta)
 
 
@@ -57,3 +51,7 @@ func _on_hit_box_body_entered(body: Player) -> void:
 
 func _on_jump_cooldown_timeout() -> void:
 	queued_jump = true
+
+func _on_landed() -> void:
+	Manager.shake_strength = 30
+	player.set_collision_mask_value(4, false)

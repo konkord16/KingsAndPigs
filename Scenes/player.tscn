@@ -9,9 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://Sounds/steam.mp3" id="5_1ucqe"]
 [ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://Sounds/footstep.mp3" id="5_2crrf"]
 [ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://Sounds/hit.mp3" id="6_gccrb"]
-[ext_resource type="PackedScene" uid="uid://c0ky1iuj7vj72" path="res://Levels/death_menu.tscn" id="7_in8k0"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player.tscn" id="7_v6sjq"]
 [ext_resource type="Texture2D" uid="uid://blmsubldwwif1" path="res://Sprites/13-Dialogue.png" id="10_l72io"]
+[ext_resource type="PackedScene" uid="uid://c0ky1iuj7vj72" path="res://Scenes/death_menu.tscn" id="10_wmyfv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nawam"]
 size = Vector2(20, 24.25)
@@ -953,7 +953,7 @@ layer = 10
 [node name="UI" parent="Camera2D/CanvasLayer" instance=ExtResource("2_ljdp2")]
 visible = false
 
-[node name="DeathMenu" parent="Camera2D/CanvasLayer" instance=ExtResource("7_in8k0")]
+[node name="DeathMenu" parent="Camera2D/CanvasLayer" instance=ExtResource("10_wmyfv")]
 visible = false
 
 [node name="Speech" type="AnimatedSprite2D" parent="."]
@@ -966,4 +966,5 @@ animation = &"surprise"
 position = Vector2(0, -4)
 stream = ExtResource("4_7m8ut")
 
+[connection signal="area_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]

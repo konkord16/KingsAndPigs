@@ -5,13 +5,12 @@ var speed := 50.0
 const JUMP_VELOCITY = -280.0
 const SEARCH_RANGE = Vector2(50, 50)
 var direction := 1
-var player : Player
 
 func _ready() -> void:
 	await get_tree().physics_frame
-	player = get_tree().get_first_node_in_group("player")	
 	animator.play("idle")
-	
+	super()
+
 
 func _process(_delta : float) -> void:
 	if current_state == State.MOVE and aggressive:
@@ -34,6 +33,7 @@ func _process(_delta : float) -> void:
 
 		if player.current_state != State.CUTSCENE:
 			velocity.x = direction * speed
+
 
 func _on_attack_range_body_entered(body : Node2D) -> void:
 		body.take_damage(1)

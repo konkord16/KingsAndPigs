@@ -8,7 +8,7 @@ enum State {
 	HIT,
 }
 var current_state : State = State.IDLE
-var player : BaseEntity
+var player : Player
 var target : Vector2
 var hp : int = 1
 var rng := RandomNumberGenerator.new()
@@ -24,17 +24,19 @@ func _ready() -> void:
 
 
 func _physics_process(delta : float) -> void:
-	direction = -$Cannon/CannonSprite.scale.x
+	direction = -%CannonSprite.scale.x
 	if player:
-		target = $Cannon.to_local(player.global_position) - %RayCast.position
-		%RayCast.target_position = target.normalized() * 200
-
+		target = to_local(player.global_position)
+		%RayCast.target_position = (target - %RayCast.position).normalized() * 200
+		print("playerpos", target)
+		print("raycasttarget", %RayCast.target_position)
 	match current_state:
 		State.IDLE:
 			animator.play("idle")			
 			if %RayCast.is_colliding() and %RayCast.get_collider().is_in_group("player"):
 				if player.hp > 0 and target.y >= -10:
 					current_state =  State.SHOOT
+					print("shoot")
 			if sign(target.x) != direction:
 				current_state =  State.TURN
 
@@ -54,8 +56,10 @@ func shoot() -> void:
 	if rng.randf() > 0.8:
 		say("boom")
 	var force : float = target.x / sqrt(2 * abs(target.y) / 0.1)
-	if target.y < -5 or sign(target.x) != direction:
+	if target.y < -5:
 		force = 10 * direction
+	elif sign(target.x) != direction:
+		force = 1 * direction
 	var ball_inst := cannon_ball.instantiate()
 	ball_inst.force = force
 	add_child(ball_inst)
@@ -75,6 +79,8 @@ func take_damage(amount : int) -> void:
 
 
 func say(phrase : String) -> void:
+	if global_position.distance_to(player.global_position) > 170:
+		return
 	if phrase == "trashtalk":
 		var chance := rng.randf()
 		if chance > 0.5:

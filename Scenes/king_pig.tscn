@@ -180,7 +180,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(4.1),
+"times": PackedFloat32Array(3.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -836,7 +836,7 @@ sprite_frames = SubResource("SpriteFrames_j345w")
 animation = &"surprise"
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("8_yceej")]
-stream = ExtResource("4_efkvn")
+stream = ExtResource("4_fhaq0")
 volume_db = 3.0
 min_pitch = 0.7
 max_pitch = 0.9
@@ -844,6 +844,7 @@ max_pitch = 0.9
 [node name="Speaking" parent="." instance=ExtResource("8_yceej")]
 stream = ExtResource("10_y51n1")
 
+[connection signal="landed" from="." to="." method="_on_landed"]
 [connection signal="body_entered" from="Sprite2D/HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="JumpingHitBox" to="." method="_on_jumping_hit_box_body_entered"]
 [connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]

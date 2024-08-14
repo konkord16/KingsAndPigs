@@ -24,6 +24,7 @@ func _ready() -> void:
 		animator.play("door_out")
 	await animator.animation_finished
 	current_state = State.MOVE
+	
 
 
 func _process(delta: float) -> void:
@@ -63,6 +64,10 @@ func _process(delta: float) -> void:
 func _on_hitbox_body_entered(body : Node2D) -> void:
 		if body.has_method("take_damage"):
 			body.take_damage(1)
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+		if area.has_method("take_damage"):
+			area.take_damage(1)
 
 func trashtalk() -> void:
 	get_tree().call_group("enemy","say","trashtalk")
