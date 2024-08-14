@@ -13,6 +13,8 @@ enum State{
 const GRAVITY = 20
 var player : Player
 var rng := RandomNumberGenerator.new()
+var direction := 1.0
+var target : Vector2
 var grounded := true
 var invincible := false
 var hp := 3
@@ -23,7 +25,8 @@ var hp := 3
 
 
 func _ready() -> void:
-		player = get_tree().get_first_node_in_group("player")
+	await get_tree().physics_frame
+	player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(_delta : float) -> void:	
 	if not is_on_floor():
@@ -49,7 +52,7 @@ func animate() -> void:
 		sprite.scale.x = -1 if flipped else 1
 	elif velocity.x < 0:                                                        
 		sprite.scale.x = 1 if flipped else -1
-		
+
 	if not velocity:
 		animator.play("idle")
 	elif not velocity.y:
@@ -66,7 +69,7 @@ func animate() -> void:
 	grounded = is_on_floor()
 
 
-func take_damage(amount : int) -> void:
+func take_damage(amount : int, origin : Vector2) -> void:
 	if invincible:
 		return
 	if self is Player:
@@ -82,10 +85,10 @@ func take_damage(amount : int) -> void:
 	else:
 		invincible = false
 		current_state = State.MOVE
-		
+
 
 func say(phrase : String) -> void:
-	if global_position.distance_to(player.global_position) > 170:
+	if global_position.distance_to(player.global_position) > 170 or hp <= 0:
 		return
 	if phrase == "trashtalk":
 		var chance := rng.randf()
@@ -100,3 +103,6 @@ func say(phrase : String) -> void:
 	$Speaking._play()
 	await speech.animation_finished
 	speech.visible = false
+
+func get_target() -> Vector2:
+	return to_local(player.global_position)

@@ -19,7 +19,7 @@ scale_max = 0.75
 z_index = -1
 position = Vector2(0, 4)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_yr27w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
