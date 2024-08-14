@@ -28,8 +28,7 @@ func _physics_process(delta : float) -> void:
 	if player:
 		target = to_local(player.global_position)
 		%RayCast.target_position = (target - %RayCast.position).normalized() * 200
-		print("playerpos", target)
-		print("raycasttarget", %RayCast.target_position)
+		
 	match current_state:
 		State.IDLE:
 			animator.play("idle")			
@@ -65,7 +64,7 @@ func shoot() -> void:
 	add_child(ball_inst)
 
 
-func take_damage(amount : int) -> void:
+func take_damage(amount : int, origin : Vector2) -> void:
 	if current_state != State.DEAD:
 		current_state = State.HIT
 		hp -= 1
@@ -79,7 +78,7 @@ func take_damage(amount : int) -> void:
 
 
 func say(phrase : String) -> void:
-	if global_position.distance_to(player.global_position) > 170:
+	if target.length() > 170:
 		return
 	if phrase == "trashtalk":
 		var chance := rng.randf()
