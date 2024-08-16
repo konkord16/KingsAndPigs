@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2kup1ikh5sob"]
+
+[ext_resource type="Script" path="res://Scenes/crate/crate.gd" id="1_41ukx"]
+[ext_resource type="PackedScene" uid="uid://bdhkjan1j27vj" path="res://Scenes/collectible/collectible.tscn" id="2_y3j0i"]
+[ext_resource type="Texture2D" uid="uid://qbg0q03sj0v0" path="res://Sprites/08-Box/Idle.png" id="3_t4y3u"]
+[ext_resource type="Texture2D" uid="uid://chhfdk4xsn1no" path="res://Sprites/08-Box/Box Pieces 1-sheet.png" id="4_qw61e"]
+[ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player/audio_player.tscn" id="5_ae100"]
+[ext_resource type="AudioStream" uid="uid://cf4jn50fapof3" path="res://Sounds/wood-break.mp3" id="6_2vds4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8e2aq"]
+size = Vector2(19, 14)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sef1n"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4a3r7"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 0)
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 75.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+gravity = Vector3(0, 98, 0)
+
+[node name="Crate" type="RigidBody2D"]
+z_index = 2
+position = Vector2(1, 8)
+collision_layer = 5
+collision_mask = 9
+mass = 0.5
+gravity_scale = 0.75
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 8)
+script = ExtResource("1_41ukx")
+collectible = ExtResource("2_y3j0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_t4y3u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_8e2aq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_sef1n")
+emitting = false
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_4a3r7")
+texture = ExtResource("4_qw61e")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("5_ae100")]
+stream = ExtResource("6_2vds4")
+volume_db = -18.0

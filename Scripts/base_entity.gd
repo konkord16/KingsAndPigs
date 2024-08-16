@@ -13,7 +13,7 @@ enum State{
 const GRAVITY = 20
 var player : Player
 var rng := RandomNumberGenerator.new()
-var direction := 1.0
+var direction := 1
 var target : Vector2
 var grounded := true
 var invincible := false
@@ -27,6 +27,7 @@ var hp := 3
 func _ready() -> void:
 	await get_tree().physics_frame
 	player = get_tree().get_first_node_in_group("player")
+
 
 func _physics_process(_delta : float) -> void:	
 	if not is_on_floor():
@@ -46,6 +47,7 @@ func _physics_process(_delta : float) -> void:
 				current_state = State.MOVE
 
 	velocity.x = 0
+
 
 func animate() -> void:
 	if velocity.x > 0:
@@ -69,7 +71,7 @@ func animate() -> void:
 	grounded = is_on_floor()
 
 
-func take_damage(amount : int, origin : Vector2) -> void:
+func take_damage(amount : int, dir : int ) -> void:
 	if invincible:
 		return
 	if self is Player:
@@ -87,8 +89,8 @@ func take_damage(amount : int, origin : Vector2) -> void:
 		current_state = State.MOVE
 
 
-func say(phrase : String) -> void:
-	if global_position.distance_to(player.global_position) > 170 or hp <= 0:
+func say(phrase : String, global := false) -> void:
+	if (global_position.distance_to(player.global_position) > 170 or hp <= 0) and not global:
 		return
 	if phrase == "trashtalk":
 		var chance := rng.randf()

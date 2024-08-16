@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tutorial 2"
-run/main_scene="res://Levels/menu.tscn"
+run/main_scene="res://Scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -22,7 +22,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-Manager="*res://Scenes/manager.tscn"
+Manager="*res://Scenes/manager/manager.tscn"
 
 [debug]
 
@@ -84,6 +84,7 @@ bomb={
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="OneWayPlatforms"
 2d_physics/layer_5="Collectibles"
+2d_physics/layer_6="Bombs"
 
 [physics]
 

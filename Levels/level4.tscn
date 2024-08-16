@@ -1,16 +1,16 @@
 [gd_scene load_steps=21 format=3 uid="uid://45o0mb0cg1e2"]
 
 [ext_resource type="TileSet" uid="uid://b7ybl8r184ub7" path="res://tileset.tres" id="1_j3f5b"]
-[ext_resource type="PackedScene" uid="uid://dkdst64ub354v" path="res://Scenes/secret_map.tscn" id="2_hvr6b"]
+[ext_resource type="PackedScene" uid="uid://dkdst64ub354v" path="res://Scenes/secret_map/secret_map.tscn" id="2_hvr6b"]
 [ext_resource type="Script" path="res://Scripts/cutscene.gd" id="3_ht3th"]
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="3_wbkqt"]
-[ext_resource type="PackedScene" uid="uid://cun3g41hjlqs7" path="res://Scenes/pig.tscn" id="3_wjkpd"]
-[ext_resource type="PackedScene" uid="uid://ohdiln5ileer" path="res://Scenes/player.tscn" id="4_iidi2"]
+[ext_resource type="PackedScene" uid="uid://cun3g41hjlqs7" path="res://Scenes/pig/pig.tscn" id="3_wjkpd"]
+[ext_resource type="PackedScene" uid="uid://ohdiln5ileer" path="res://Scenes/player/player.tscn" id="4_iidi2"]
 [ext_resource type="AudioStream" uid="uid://johfncomiyjq" path="res://Sounds/explosion.mp3" id="5_mff86"]
-[ext_resource type="PackedScene" uid="uid://bdhkjan1j27vj" path="res://Scenes/collectible.tscn" id="8_dy5qj"]
+[ext_resource type="PackedScene" uid="uid://bdhkjan1j27vj" path="res://Scenes/collectible/collectible.tscn" id="8_dy5qj"]
 [ext_resource type="Script" path="res://Scripts/camera_trigger.gd" id="9_f1sgj"]
-[ext_resource type="PackedScene" uid="uid://tkts4exkdquw" path="res://Scenes/door.tscn" id="10_fngvf"]
-[ext_resource type="PackedScene" uid="uid://073rrfu3rj2a" path="res://Scenes/king_pig.tscn" id="10_r60x4"]
+[ext_resource type="PackedScene" uid="uid://tkts4exkdquw" path="res://Scenes/door/door.tscn" id="10_fngvf"]
+[ext_resource type="PackedScene" uid="uid://073rrfu3rj2a" path="res://Scenes/king_pig/king_pig.tscn" id="10_r60x4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p58ex"]
 size = Vector2(411, 152.007)
@@ -296,7 +296,7 @@ scale = Vector2(-1, 1)
 stream = ExtResource("5_mff86")
 
 [node name="Player" parent="." instance=ExtResource("4_iidi2")]
-position = Vector2(470.019, -311.972)
+position = Vector2(145.003, -43.9912)
 taking_input = false
 current_state = 3
 
@@ -359,7 +359,7 @@ aggressive = false
 
 [node name="BossTrigger" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 18
+collision_mask = 34
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossTrigger"]
 position = Vector2(530.005, -80.9679)
