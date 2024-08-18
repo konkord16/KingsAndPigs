@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -280.0
 const SEARCH_RANGE = Vector2(50, 50)
 
 func _process(_delta : float) -> void:
-	if not (current_state == State.MOVE and aggressive):
+	if not (current_state == State.MOVE and aggressive) or not player:
 		return
 	target = to_local(player.global_position)
 	if %WallRay.is_colliding() and not %WallRay.get_collider() is Player : # Turn around if sees wall

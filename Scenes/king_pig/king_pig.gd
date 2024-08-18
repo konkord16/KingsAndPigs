@@ -1,17 +1,25 @@
 extends BaseEntity
 
+signal phase_change
+@export var attacking := true
 const JUMP_VELOCITY = -500.0
 const MOVE_SPEED = 50.0
 var jumping_destination : float
+var prev_hp := 15
 
 func _ready() -> void:
-	hp = 10
+	hp = 15
 	super()
 
 
 func _physics_process(delta: float) -> void:
 	target = get_target()
-	if current_state == State.MOVE and grounded:
+	%JumpCooldown.paused = not attacking
+	if prev_hp != hp:
+		if hp == 10 or hp == 5:
+			emit_signal("phase_change")
+	prev_hp = hp
+	if current_state == State.MOVE and grounded and attacking:
 		if hp <= 5: # Second phase
 			jump()
 
@@ -19,6 +27,7 @@ func _physics_process(delta: float) -> void:
 			current_state = State.ATTACK
 
 		direction = sign(target.x)
+		
 		if player.current_state != State.CUTSCENE:
 			velocity.x = direction * MOVE_SPEED
 
@@ -27,9 +36,13 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 
 
-func jump(destination : Vector2 = target) -> void:
+func jump(destination : Vector2 = target, global := false) -> void:
+	if hp <= 0:
+		return
+	if global:
+		destination = to_local(destination)
 	jumping_destination = destination.x
-	velocity.y = JUMP_VELOCITY
+	velocity.y = JUMP_VELOCITY + 2 * to_local(destination).y
 	%JumpCooldown.start()
 
 func victory() -> void:
@@ -43,5 +56,6 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	body.take_damage(1, direction)
 
 func _on_landed() -> void:
-	Manager.shake_strength = 30
-	player.set_collision_mask_value(4, false)
+	if player.global_position.x > 200:
+		Manager.shake_strength += 30
+		player.set_collision_mask_value(4, false)

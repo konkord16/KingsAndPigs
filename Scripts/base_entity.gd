@@ -2,6 +2,7 @@ class_name BaseEntity
 extends CharacterBody2D
 
 signal landed
+signal died
 @export var flipped : bool # For if the asset is drawn the wrong way
 @export var current_state : = State.MOVE
 enum State{
@@ -32,6 +33,10 @@ func _ready() -> void:
 func _physics_process(_delta : float) -> void:	
 	if not is_on_floor():
 		velocity.y += GRAVITY
+	elif not grounded:
+		emit_signal("landed")
+	grounded = is_on_floor()
+	
 	move_and_slide()
 	match current_state:
 		State.MOVE:
@@ -66,16 +71,12 @@ func animate() -> void:
 		elif velocity.y >= 0:
 			animator.play("fall")
 
-	if is_on_floor() and not grounded:
-		emit_signal("landed")
-	grounded = is_on_floor()
-
 
 func take_damage(amount : int, dir : int ) -> void:
 	if invincible:
 		return
 	if self is Player:
-		Manager.shake_strength = 10
+		Manager.shake_strength += 10
 	invincible = true
 	current_state = State.HURT
 	hp -= amount
@@ -84,6 +85,7 @@ func take_damage(amount : int, dir : int ) -> void:
 	if hp <= 0:
 		animator.play("dead")
 		current_state = State.CUTSCENE
+		emit_signal("died")
 	else:
 		invincible = false
 		current_state = State.MOVE

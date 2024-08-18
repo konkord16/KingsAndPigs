@@ -51,6 +51,7 @@ func _physics_process(delta : float) -> void:
 
 
 func shoot() -> void:
+	Manager.shake_strength += 3
 	if rng.randf() > 0.8:
 		say("boom")
 	var force : float = target.x / sqrt(2 * abs(target.y) / 0.1)

@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 				call_deferred("add_sibling", inst_bomb)
 		
 		if Input.is_action_just_pressed("test"):
-			get_tree().call_group("enemy", "say", "swear")
+			pass
 
 
 func _on_hitbox_body_entered(body : Node2D) -> void:
