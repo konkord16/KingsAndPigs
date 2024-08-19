@@ -10,7 +10,7 @@ enum types{
 
 func _ready() -> void:
 	if not type:
-		if rng.randf() >= 0.80:
+		if rng.randf() <= 0.20:
 			type = "heart"
 		else:
 			type = "diamond"

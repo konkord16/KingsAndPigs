@@ -6,7 +6,6 @@ extends Control
 
 func _ready() -> void:
 	await owner.ready
-	visible = true
 	update(true)
 
 func update(start := false) -> void:

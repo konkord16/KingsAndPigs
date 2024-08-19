@@ -6,6 +6,8 @@ var hp := 3
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY
+	if is_on_wall():
+		destination = 0
 	if destination and not is_on_floor():
 			velocity.x = destination / 0.5
 	else:
@@ -23,3 +25,6 @@ func take_damage(amount : int, dir : int ) -> void:
 		%AnimationPlayer.seek(1)
 	velocity.y = -250
 	destination = dir * 150
+
+func shake() -> void:
+	Manager.shake_strength += 2

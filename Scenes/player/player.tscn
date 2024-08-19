@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ohdiln5ileer"]
+[gd_scene load_steps=33 format=3 uid="uid://ohdiln5ileer"]
 
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_kt7cr"]
 [ext_resource type="Texture2D" uid="uid://ct5ek15q0e3a4" path="res://Sprites/02-KingHuman.png" id="2_enp40"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c0ky1iuj7vj72" path="res://Scenes/death_menu/death_menu.tscn" id="10_ybbe4"]
 [ext_resource type="PackedScene" uid="uid://0lwmnmhtyxjq" path="res://Scenes/speech.tscn" id="11_uooio"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player/audio_player.tscn" id="12_moyck"]
+[ext_resource type="PackedScene" uid="uid://dluxd21pu0rs3" path="res://Scenes/menu/menu.tscn" id="12_w87nq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nawam"]
 size = Vector2(14, 21)
@@ -73,7 +74,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera2D/CanvasLayer/DeathMenu:visible")
+tracks/4/path = NodePath("CanvasLayer/DeathMenu:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -93,6 +94,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:collision_layer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_5ffld"]
@@ -203,7 +216,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera2D/CanvasLayer/DeathMenu:visible")
+tracks/4/path = NodePath("CanvasLayer/DeathMenu:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -266,6 +279,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:collision_layer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.0001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
 }
 
 [sub_resource type="Animation" id="Animation_36giv"]
@@ -451,7 +476,7 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera2D/CanvasLayer/UI")
+tracks/2/path = NodePath("CanvasLayer/UI")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -626,6 +651,7 @@ collision_mask = 9
 platform_floor_layers = 4294967041
 script = ExtResource("1_kt7cr")
 BOMB = ExtResource("2_ikyp0")
+current_state = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
@@ -651,7 +677,6 @@ shape = SubResource("RectangleShape2D_oilh6")
 libraries = {
 "": SubResource("AnimationLibrary_c0qbv")
 }
-autoplay = "door_out"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, -4)
@@ -667,21 +692,27 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-layer = 10
-
-[node name="UI" parent="Camera2D/CanvasLayer" instance=ExtResource("9_j24v6")]
-visible = false
-
-[node name="DeathMenu" parent="Camera2D/CanvasLayer" instance=ExtResource("10_ybbe4")]
-visible = false
-
 [node name="Speech" parent="." instance=ExtResource("11_uooio")]
 animation = &"dead"
 
 [node name="AudioPlayer" parent="." instance=ExtResource("12_moyck")]
 position = Vector2(0, -4)
-stream = ExtResource("3_buqda")
+stream = ExtResource("4_1ediw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("9_j24v6")]
+unique_name_in_owner = true
+visible = false
+
+[node name="DeathMenu" parent="CanvasLayer" instance=ExtResource("10_ybbe4")]
+visible = false
+anchors_preset = 15
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("12_w87nq")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="area_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]

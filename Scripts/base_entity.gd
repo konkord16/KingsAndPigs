@@ -96,9 +96,9 @@ func say(phrase : String, global := false) -> void:
 		return
 	if phrase == "trashtalk":
 		var chance := rng.randf()
-		if chance > 0.5:
+		if chance <= 0.25:
 			phrase = "dead"
-		elif chance > 0.75:
+		elif chance <= 0.5:
 			phrase = "loser"
 		else:
 			return

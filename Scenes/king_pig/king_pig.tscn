@@ -527,6 +527,7 @@ hit_from_inside = true
 libraries = {
 "": SubResource("AnimationLibrary_rqgns")
 }
+autoplay = "idle"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

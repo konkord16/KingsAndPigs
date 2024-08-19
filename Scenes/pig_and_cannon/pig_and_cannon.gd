@@ -31,7 +31,7 @@ func _physics_process(delta : float) -> void:
 		
 	match current_state:
 		State.IDLE:
-			animator.play("idle")			
+			animator.play("idle")
 			if %RayCast.is_colliding() and %RayCast.get_collider().is_in_group("player"):
 				if player.hp > 0 and target.y >= -10:
 					current_state =  State.SHOOT
@@ -51,8 +51,8 @@ func _physics_process(delta : float) -> void:
 
 
 func shoot() -> void:
-	Manager.shake_strength += 3
-	if rng.randf() > 0.8:
+	Manager.shake_strength += 2
+	if rng.randf() <= 0.2:
 		say("boom")
 	var force : float = target.x / sqrt(2 * abs(target.y) / 0.1)
 	if target.y < -5:

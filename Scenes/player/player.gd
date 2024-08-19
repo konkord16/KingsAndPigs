@@ -5,7 +5,7 @@ extends BaseEntity
 @export var BOMB : PackedScene
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
-static var diamonds := 0:
+static var diamonds := 10:
 	set(value):
 		if value > diamonds:
 			overall_diamonds += value - diamonds
@@ -14,15 +14,20 @@ static var overall_diamonds := 0
 static var bombs := 0
 var enterable_door : Area2D = null
 var move_dir : float 
-@onready var ui: Control = $Camera2D/CanvasLayer/UI
+@onready var ui: Control = %UI
 
 func _ready() -> void:
+	#set_physics_process(false)
 	hp = Manager.hp
-	current_state = State.CUTSCENE
 	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
+		%Sprite2D.frame = 80
+		%Menu.visible = true
+		await %Menu.started
 		animator.play("wake_up")
+		#set_physics_process(true)
 	else:
 		animator.play("door_out")
+	ui.visible = true
 	await animator.animation_finished
 	current_state = State.MOVE
 

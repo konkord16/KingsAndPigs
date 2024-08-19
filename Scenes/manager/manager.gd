@@ -1,5 +1,6 @@
 extends AudioStreamPlayer
 
+var shake_multiplier := 1.0
 var shake_strength := 0.0
 var shake_fade := 0.3
 var time := 0.0
@@ -27,3 +28,6 @@ func change_music(new_music_name : String) -> void:
 	if new_music != stream:
 		stream = new_music
 		play()
+
+func shake(strength : float) -> void:
+	shake_strength = strength * shake_multiplier

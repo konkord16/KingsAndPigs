@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			current_state = State.ATTACK
 			%Sprite2D.scale.x = -sign(target.x)
+			direction = sign(target.x)
 	elif wall_ray_hit == direction:
 		direction *= -1
 
@@ -29,6 +30,8 @@ func _physics_process(delta: float) -> void:
 
 
 func throw_bomb() -> void:
+	if rng.randf() <= 0.2:
+		say("boom")
 	var bomb_inst := bomb.instantiate()
 	bomb_inst.velocity.y = UP_VEL + 2 * target.y
 	bomb_inst.destination = max(30, abs(target.x)) * -%Sprite2D.scale.x
