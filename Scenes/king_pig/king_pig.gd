@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 
 
 func jump(destination : Vector2 = target, global := false) -> void:
-	if hp <= 0:
+	if hp <= 0 or player.hp <= 0:
 		return
 	if global:
 		destination = to_local(destination)
@@ -56,6 +56,9 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	body.take_damage(1, direction)
 
 func _on_landed() -> void:
+	if player.global_position.y < -75:
+		attacking = true
 	if player.global_position.x > 200:
 		Manager.shake(30)
 		player.set_collision_mask_value(4, false)
+		get_tree().call_group("crate", "take_damage", 1, 1)

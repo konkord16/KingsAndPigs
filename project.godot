@@ -27,7 +27,7 @@ gdscript/warnings/untyped_declaration=1
 
 [display]
 
-window/size/always_on_top=true
+window/size/mode=4
 window/stretch/mode="viewport"
 
 [input]

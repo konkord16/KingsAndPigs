@@ -19,7 +19,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(3, sign(to_local(body.global_position).x))
 
-func take_damage(amount : int, dir : int ) -> void:
+func take_damage(amount : int = 1, dir : int = 1) -> void:
 	hp -= amount
 	if hp <= 0 and %AnimationPlayer.current_animation_position < 1:
 		%AnimationPlayer.seek(1)

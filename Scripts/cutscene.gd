@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 func reinforcement() -> void:
 	if not pigs_on_standby:
 		await get_tree().create_timer(1).timeout
-		$"../KingPig".say("swear", true)
+		%KingPig.say("swear", true)
 		play("jump_back")
 		$"../Door/AnimatedSprite".play("closing")
 		return
@@ -53,7 +53,6 @@ func _on_king_pig_phase_change() -> void:
 	play("reinforcement")
 
 func _on_reinforcement_death() -> void:
-	print("died")
 	pigs_on_scene -= 1
-	if pigs_on_scene == 0:
+	if pigs_on_scene == 0 and not %KingPig.attacking:
 		play("jump_back")

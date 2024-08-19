@@ -7,12 +7,9 @@ func _ready() -> void:
 	
 func _on_music_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(1, linear_to_db(value))
-	print(linear_to_db(value))
 
 func _on_sfx_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(2, linear_to_db(value))
-	print("changed")
-	print(%TestSFX.global_position)
 	%TestSFX.play()
 
 func _on_shake_value_changed(value: float) -> void:
