@@ -57,5 +57,5 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 
 func _on_landed() -> void:
 	if player.global_position.x > 200:
-		Manager.shake_strength += 30
+		Manager.shake(30)
 		player.set_collision_mask_value(4, false)

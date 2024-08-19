@@ -188,6 +188,7 @@ sprite_frames = SubResource("SpriteFrames_do4kc")
 animation = &"bomb"
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("12_r2gp0")]
+scale = Vector2(1.05358, 0.308735)
 stream = ExtResource("13_58f6e")
 volume_db = -9.0
 

@@ -27,4 +27,4 @@ func take_damage(amount : int, dir : int ) -> void:
 	destination = dir * 150
 
 func shake() -> void:
-	Manager.shake_strength += 2
+	Manager.shake(2)

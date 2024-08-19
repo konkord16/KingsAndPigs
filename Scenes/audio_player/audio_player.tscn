@@ -5,6 +5,7 @@
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
 max_distance = 300.0
 attenuation = 2.0
+bus = &"SFX"
 script = ExtResource("1_52567")
 min_pitch = 0.9
 max_pitch = 1.1

@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://b7ybl8r184ub7" path="res://tileset.tres" id="1_ybkbq"]
 
 [node name="TileMap" type="TileMap"]
+position = Vector2(1894, 525)
 rotation = -6.04942e-05
 tile_set = ExtResource("1_ybkbq")
 rendering_quadrant_size = 32

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ohdiln5ileer"]
+[gd_scene load_steps=34 format=3 uid="uid://ohdiln5ileer"]
 
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_kt7cr"]
 [ext_resource type="Texture2D" uid="uid://ct5ek15q0e3a4" path="res://Sprites/02-KingHuman.png" id="2_enp40"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://0lwmnmhtyxjq" path="res://Scenes/speech.tscn" id="11_uooio"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player/audio_player.tscn" id="12_moyck"]
 [ext_resource type="PackedScene" uid="uid://dluxd21pu0rs3" path="res://Scenes/menu/menu.tscn" id="12_w87nq"]
+[ext_resource type="PackedScene" uid="uid://b40ig28y4g55m" path="res://Scenes/settings/settings.tscn" id="15_f2k53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nawam"]
 size = Vector2(14, 21)
@@ -708,11 +709,43 @@ visible = false
 
 [node name="DeathMenu" parent="CanvasLayer" instance=ExtResource("10_ybbe4")]
 visible = false
-anchors_preset = 15
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("12_w87nq")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Settings" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.470588)
+
+[node name="Settings" parent="CanvasLayer/Settings" instance=ExtResource("15_f2k53")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = -73.0
+offset_right = 187.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="area_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -5,7 +5,7 @@ extends BaseEntity
 @export var BOMB : PackedScene
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
-static var diamonds := 10:
+static var diamonds := 0:
 	set(value):
 		if value > diamonds:
 			overall_diamonds += value - diamonds
@@ -15,6 +15,7 @@ static var bombs := 0
 var enterable_door : Area2D = null
 var move_dir : float 
 @onready var ui: Control = %UI
+
 
 func _ready() -> void:
 	#set_physics_process(false)
@@ -56,7 +57,7 @@ func _process(delta: float) -> void:
 			current_state = State.CUTSCENE
 			invincible = true
 			velocity = Vector2.ZERO
-			global_position = enterable_door.global_position
+			global_position = enterable_door.global_position + Vector2(0, 5)
 			animator.play("door_in")
 			Manager.hp = hp
 			Manager.bombs = bombs
@@ -70,10 +71,14 @@ func _process(delta: float) -> void:
 				var inst_bomb : CharacterBody2D = BOMB.instantiate()
 				inst_bomb.global_position = global_position
 				call_deferred("add_sibling", inst_bomb)
-		
-		if Input.is_action_just_pressed("test"):
-			pass
-
+				
+	if Input.is_action_just_pressed("esc"):
+		if (not %Settings.visible) and (not %Menu.visible):
+			taking_input = false
+			%Settings.visible = true
+		else:
+			taking_input = true
+			%Settings.visible = false
 
 func _on_hitbox_body_entered(body : Node2D) -> void:
 		if body.has_method("take_damage"):

@@ -22,8 +22,8 @@ var hp := 3
 @onready var animator : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var particles : GPUParticles2D = $GPUParticles2D
-@onready var speech: AnimatedSprite2D = $Speech
-
+@onready var speech : AnimatedSprite2D = $Speech
+@onready var audio : AudioStreamPlayer2D = $AudioPlayer
 
 func _ready() -> void:
 	await get_tree().physics_frame
@@ -34,6 +34,9 @@ func _physics_process(_delta : float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY
 	elif not grounded:
+		if current_state != State.CUTSCENE:
+			audio.stream = load("res://Sounds/footstep.mp3")
+			audio.play()
 		emit_signal("landed")
 	grounded = is_on_floor()
 	
@@ -76,7 +79,7 @@ func take_damage(amount : int, dir : int ) -> void:
 	if invincible:
 		return
 	if self is Player:
-		Manager.shake_strength += 10
+		Manager.shake(10)
 	invincible = true
 	current_state = State.HURT
 	hp -= amount

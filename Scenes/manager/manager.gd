@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if shake_strength > 0: # Shaking the camera 
 		shake_strength = lerpf(shake_strength, 0, shake_fade)
-		if shake_strength < 1:
+		if shake_strength < 0.5:
 			shake_strength = 0
 		var offset := Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
 		get_viewport().get_camera_2d().offset = offset

@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://b40ig28y4g55m"]
+
+[ext_resource type="Script" path="res://Scenes/settings/settings.gd" id="1_pf26h"]
+[ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player/audio_player.tscn" id="2_0byb7"]
+[ext_resource type="FontFile" uid="uid://bvlp1afgcsbtp" path="res://Sprites/joystix monospace.otf" id="2_o3t1i"]
+[ext_resource type="AudioStream" uid="uid://cno6426knldfc" path="res://Sounds/oink.mp3" id="3_sa3nq"]
+
+[node name="Settings" type="VBoxContainer"]
+offset_right = 227.0
+offset_bottom = 137.0
+script = ExtResource("1_pf26h")
+
+[node name="MusicLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o3t1i")
+theme_override_font_sizes/font_size = 21
+text = "Music"
+
+[node name="Music" type="HSlider" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="SFXLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o3t1i")
+theme_override_font_sizes/font_size = 21
+text = "SFX"
+
+[node name="SFX" type="HSlider" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="ShakeLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_o3t1i")
+theme_override_font_sizes/font_size = 21
+text = "Screen shake intensity"
+
+[node name="Shake" type="HSlider" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 5.0
+step = 0.5
+value = 1.0
+
+[node name="TestSFX" parent="." instance=ExtResource("2_0byb7")]
+unique_name_in_owner = true
+stream = ExtResource("3_sa3nq")
+
+[connection signal="value_changed" from="Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="Shake" to="." method="_on_shake_value_changed"]

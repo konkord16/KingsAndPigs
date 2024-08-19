@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dluxd21pu0rs3"]
+[gd_scene load_steps=5 format=3 uid="uid://dluxd21pu0rs3"]
 
 [ext_resource type="Script" path="res://Scenes/menu/menu.gd" id="1_rag6m"]
 [ext_resource type="Texture2D" uid="uid://c1xyiegoqbr8o" path="res://Sprites/Kings and Pigs.png" id="2_iu7ws"]
 [ext_resource type="FontFile" uid="uid://bvlp1afgcsbtp" path="res://Sprites/joystix monospace.otf" id="2_w0nwh"]
+[ext_resource type="PackedScene" uid="uid://b40ig28y4g55m" path="res://Scenes/settings/settings.tscn" id="4_qswmj"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -28,33 +29,24 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.235294)
+color = Color(0, 0, 0, 0.470588)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.007
-anchor_top = 0.133
-anchor_right = 0.973
-anchor_bottom = 0.349
-offset_left = -0.0640001
-offset_top = -0.183998
-offset_right = 0.104004
-offset_bottom = -0.152008
-mouse_filter = 2
-texture = ExtResource("2_iu7ws")
-stretch_mode = 4
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 7.972
+offset_top = 87.729
+offset_right = 47.972
+offset_bottom = 127.729
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.546
-anchor_right = 0.458
-anchor_bottom = 0.818
-offset_left = -3.0
-offset_top = 80.094
-offset_right = -0.46405
-offset_bottom = 79.838
+anchor_left = -0.00522648
+anchor_top = 0.670197
+anchor_right = 0.449477
+anchor_bottom = 0.945537
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 alignment = 1
 
@@ -77,29 +69,59 @@ action_mode = 0
 text = "EXIT (NOT RECOMENDED)"
 alignment = 2
 
-[node name="Settings" type="Button" parent="."]
-layout_mode = 0
-offset_left = 727.0
-offset_top = 563.0
-offset_right = 1148.0
-offset_bottom = 621.0
+[node name="SettingsButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.852
+anchor_right = 1.0
+anchor_bottom = 0.939
+offset_left = 0.315979
+offset_top = -0.172058
+offset_bottom = 0.320984
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_w0nwh")
 theme_override_font_sizes/font_size = 35
 text = "settings"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.043
+anchor_top = 0.103
+anchor_right = 0.917
+anchor_bottom = 0.298
+offset_left = 18.636
+offset_top = -0.0830078
+offset_right = 19.2839
+offset_bottom = 0.0219879
+mouse_filter = 2
+texture = ExtResource("2_iu7ws")
+stretch_mode = 4
+
 [node name="FadeBlack" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.502
 anchor_top = 0.515
 anchor_right = 0.502
 anchor_bottom = 0.515
-offset_left = -585.296
-offset_top = -328.415
-offset_right = 568.704
-offset_bottom = 326.585
+offset_left = -582.296
+offset_top = -330.415
+offset_right = 571.704
+offset_bottom = 324.585
 mouse_filter = 2
-color = Color(0, 0, 0, 0)
+color = Color(0.203922, 0.203922, 0.203922, 0)
+
+[node name="Settings" parent="." instance=ExtResource("4_qswmj")]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 400.0
+offset_right = 1119.0
+offset_bottom = 570.0
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
