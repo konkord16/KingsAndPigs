@@ -1,16 +1,16 @@
 [gd_scene load_steps=31 format=3 uid="uid://bdhkjan1j27vj"]
 
 [ext_resource type="Script" path="res://Scenes/collectible/collectible.gd" id="1_v8c1m"]
-[ext_resource type="Texture2D" uid="uid://da1fdtgj10q8k" path="res://Sprites/09-Bomb/Bomb Off1.png" id="2_27rsj"]
-[ext_resource type="Texture2D" uid="uid://fhjq8m5nwfco" path="res://Sprites/09-Bomb/Bomb Off2.png" id="3_2p2ht"]
-[ext_resource type="Texture2D" uid="uid://br2dajbpgchay" path="res://Sprites/09-Bomb/Bomb Off3.png" id="4_h1r8c"]
-[ext_resource type="Texture2D" uid="uid://c7biluli57ii3" path="res://Sprites/09-Bomb/Bomb Off4.png" id="5_p60le"]
-[ext_resource type="Texture2D" uid="uid://bxab4hirlnmix" path="res://Sprites/09-Bomb/Bomb Off5.png" id="6_laly3"]
-[ext_resource type="Texture2D" uid="uid://bj13klywxdfmd" path="res://Sprites/09-Bomb/Bomb Off6.png" id="7_gx3ny"]
-[ext_resource type="Texture2D" uid="uid://v1cp76hmol5a" path="res://Sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="8_t40r0"]
-[ext_resource type="Texture2D" uid="uid://dic5d2pj125j2" path="res://Sprites/12-Live and Coins/Big Diamond Hit (18x14).png" id="9_rmmqt"]
-[ext_resource type="Texture2D" uid="uid://b15cmo64aqmsx" path="res://Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="10_8wpyf"]
-[ext_resource type="Texture2D" uid="uid://dujw1gmjbuv6m" path="res://Sprites/12-Live and Coins/Big Heart Hit (18x14).png" id="11_j28ed"]
+[ext_resource type="Texture2D" uid="uid://da1fdtgj10q8k" path="res://Sprites/09-Bomb/Bomb Off1.png" id="2_ey26b"]
+[ext_resource type="Texture2D" uid="uid://fhjq8m5nwfco" path="res://Sprites/09-Bomb/Bomb Off2.png" id="3_oeet1"]
+[ext_resource type="Texture2D" uid="uid://br2dajbpgchay" path="res://Sprites/09-Bomb/Bomb Off3.png" id="4_d2xdm"]
+[ext_resource type="Texture2D" uid="uid://c7biluli57ii3" path="res://Sprites/09-Bomb/Bomb Off4.png" id="5_p0bbj"]
+[ext_resource type="Texture2D" uid="uid://bxab4hirlnmix" path="res://Sprites/09-Bomb/Bomb Off5.png" id="6_kx77p"]
+[ext_resource type="Texture2D" uid="uid://bj13klywxdfmd" path="res://Sprites/09-Bomb/Bomb Off6.png" id="7_1x4cj"]
+[ext_resource type="Texture2D" uid="uid://v1cp76hmol5a" path="res://Sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="8_37hvo"]
+[ext_resource type="Texture2D" uid="uid://dic5d2pj125j2" path="res://Sprites/12-Live and Coins/Big Diamond Hit (18x14).png" id="9_katsp"]
+[ext_resource type="Texture2D" uid="uid://b15cmo64aqmsx" path="res://Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="10_smfyl"]
+[ext_resource type="Texture2D" uid="uid://dujw1gmjbuv6m" path="res://Sprites/12-Live and Coins/Big Heart Hit (18x14).png" id="11_qdu16"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player/audio_player.tscn" id="12_r2gp0"]
 [ext_resource type="AudioStream" uid="uid://dtmqd0wtyarcc" path="res://Sounds/pickup.mp3" id="13_58f6e"]
 
@@ -18,79 +18,79 @@
 radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7wr6"]
-atlas = ExtResource("8_t40r0")
+atlas = ExtResource("8_37hvo")
 region = Rect2(0, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_it7bo"]
-atlas = ExtResource("8_t40r0")
+atlas = ExtResource("8_37hvo")
 region = Rect2(90, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6k0xn"]
-atlas = ExtResource("8_t40r0")
+atlas = ExtResource("8_37hvo")
 region = Rect2(108, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_anwve"]
-atlas = ExtResource("8_t40r0")
+atlas = ExtResource("8_37hvo")
 region = Rect2(126, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxktb"]
-atlas = ExtResource("8_t40r0")
+atlas = ExtResource("8_37hvo")
 region = Rect2(144, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkn4c"]
-atlas = ExtResource("8_t40r0")
+atlas = ExtResource("8_37hvo")
 region = Rect2(162, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gfpy"]
-atlas = ExtResource("9_rmmqt")
+atlas = ExtResource("9_katsp")
 region = Rect2(0, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5i86"]
-atlas = ExtResource("9_rmmqt")
+atlas = ExtResource("9_katsp")
 region = Rect2(18, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylsgk"]
-atlas = ExtResource("10_8wpyf")
+atlas = ExtResource("10_smfyl")
 region = Rect2(54, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8uno"]
-atlas = ExtResource("10_8wpyf")
+atlas = ExtResource("10_smfyl")
 region = Rect2(72, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41sgf"]
-atlas = ExtResource("10_8wpyf")
+atlas = ExtResource("10_smfyl")
 region = Rect2(90, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhtjp"]
-atlas = ExtResource("10_8wpyf")
+atlas = ExtResource("10_smfyl")
 region = Rect2(108, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hcil0"]
-atlas = ExtResource("10_8wpyf")
+atlas = ExtResource("10_smfyl")
 region = Rect2(126, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ayd6"]
-atlas = ExtResource("11_j28ed")
+atlas = ExtResource("11_qdu16")
 region = Rect2(0, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn66u"]
-atlas = ExtResource("11_j28ed")
+atlas = ExtResource("11_qdu16")
 region = Rect2(18, 0, 18, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_do4kc"]
 animations = [{
 "frames": [{
 "duration": 5.0,
-"texture": ExtResource("2_27rsj")
+"texture": ExtResource("2_ey26b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_2p2ht")
+"texture": ExtResource("3_oeet1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_h1r8c")
+"texture": ExtResource("4_d2xdm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_p60le")
+"texture": ExtResource("5_p0bbj")
 }],
 "loop": true,
 "name": &"bomb",
@@ -98,10 +98,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_laly3")
+"texture": ExtResource("6_kx77p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_gx3ny")
+"texture": ExtResource("7_1x4cj")
 }],
 "loop": false,
 "name": &"bomb_hit",
@@ -190,6 +190,6 @@ animation = &"bomb"
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("12_r2gp0")]
 scale = Vector2(1.05358, 0.308735)
 stream = ExtResource("13_58f6e")
-volume_db = -9.0
+volume_db = -12.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

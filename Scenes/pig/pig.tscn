@@ -1,12 +1,12 @@
 [gd_scene load_steps=26 format=3 uid="uid://cun3g41hjlqs7"]
 
 [ext_resource type="Script" path="res://Scenes/pig/pig.gd" id="1_fjvjv"]
-[ext_resource type="Texture2D" uid="uid://b20ikg73yopid" path="res://Sprites/03-Pig.png" id="2_mrpjx"]
+[ext_resource type="Texture2D" uid="uid://b20ikg73yopid" path="res://Sprites/03-Pig.png" id="2_r1bct"]
 [ext_resource type="AudioStream" uid="uid://btfkj1lfix3ij" path="res://Sounds/swing.mp3" id="3_3eehd"]
 [ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://Sounds/steam.mp3" id="4_3h6p2"]
 [ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://Sounds/footstep.mp3" id="5_scm7t"]
 [ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://Sounds/hit.mp3" id="6_k6gol"]
-[ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="7_vorl7"]
+[ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="7_7odpf"]
 [ext_resource type="PackedScene" uid="uid://0lwmnmhtyxjq" path="res://Scenes/speech.tscn" id="8_m85u2"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player/audio_player.tscn" id="9_eq0s8"]
 [ext_resource type="AudioStream" uid="uid://cno6426knldfc" path="res://Sounds/oink.mp3" id="10_5rdco"]
@@ -466,7 +466,7 @@ target_position = Vector2(0, 10)
 collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_mrpjx")
+texture = ExtResource("2_r1bct")
 hframes = 11
 vframes = 8
 
@@ -495,7 +495,7 @@ autoplay = "idle"
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_rnod4")
-texture = ExtResource("7_vorl7")
+texture = ExtResource("7_7odpf")
 one_shot = true
 explosiveness = 0.5
 

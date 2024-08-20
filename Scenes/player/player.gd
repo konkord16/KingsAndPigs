@@ -20,7 +20,7 @@ var move_dir : float
 func _ready() -> void:
 	#set_physics_process(false)
 	hp = Manager.hp
-	if get_tree().current_scene.scene_file_path == "res://Levels/level0.tscn":
+	if get_tree().current_scene.scene_file_path == "res://Levels/level1.tscn":
 		%Sprite2D.frame = 80
 		%Menu.visible = true
 		await %Menu.started
@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 		if is_on_floor():
 			if Input.is_action_pressed("jump"):
 				velocity.y = JUMP_VELOCITY
-			elif Input.is_action_pressed("down"):
+			elif Input.is_action_pressed("down") and %RayCast2D.is_colliding():
 				global_position.y += 1
 
 		move_dir = Input.get_axis("left", "right")
@@ -73,9 +73,10 @@ func _process(delta: float) -> void:
 				call_deferred("add_sibling", inst_bomb)
 				
 	if Input.is_action_just_pressed("esc"):
-		if (not %Settings.visible) and (not %Menu.visible):
+		if (not %Settings.visible) and (not %Menu.visible) and (not %DeathMenu.visible):
 			taking_input = false
 			%Settings.visible = true
+			$CanvasLayer/Settings/Settings._ready()
 		else:
 			taking_input = true
 			%Settings.visible = false

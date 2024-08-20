@@ -1,31 +1,31 @@
 [gd_scene load_steps=27 format=3 uid="uid://cjw45eq3jqrkd"]
 
 [ext_resource type="Script" path="res://Scenes/ui/ui.gd" id="1_g0p21"]
-[ext_resource type="Texture2D" uid="uid://4hwpyklvhoyb" path="res://Sprites/12-Live and Coins/Live Bar.png" id="2_34wls"]
-[ext_resource type="Texture2D" uid="uid://drlje0rdsldy4" path="res://Sprites/12-Live and Coins/Sprite-0001.png" id="3_1fbpr"]
-[ext_resource type="Texture2D" uid="uid://c836k42xlytw1" path="res://Sprites/12-Live and Coins/Small Heart Hit (18x14).png" id="4_5cj1x"]
-[ext_resource type="Texture2D" uid="uid://c2g34r4hedcx4" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)1.png" id="5_k8do4"]
-[ext_resource type="FontFile" uid="uid://vpi6n22xejoq" path="res://Sprites/12-Live and Coins/Numbers (6x8).png" id="6_y8nrc"]
-[ext_resource type="Texture2D" uid="uid://da1fdtgj10q8k" path="res://Sprites/09-Bomb/Bomb Off1.png" id="7_nxqj4"]
-[ext_resource type="Texture2D" uid="uid://ctqogarmcoxsc" path="res://Sprites/09-Bomb/x.png" id="8_qmh30"]
-[ext_resource type="Texture2D" uid="uid://dmcewompk4736" path="res://Sprites/12-Live and Coins/Sprite-0004.png" id="9_npxwh"]
-[ext_resource type="Texture2D" uid="uid://7ypycn72w3s4" path="res://Sprites/12-Live and Coins/Sprite-0005.png" id="10_3ov16"]
-[ext_resource type="Texture2D" uid="uid://b40cdcs8r4efl" path="res://Sprites/12-Live and Coins/Sprite-0006.png" id="11_e71rt"]
-[ext_resource type="Texture2D" uid="uid://sng48mhd8vkw" path="res://Sprites/12-Live and Coins/Sprite-0007.png" id="12_kh256"]
-[ext_resource type="Texture2D" uid="uid://bvl7fyuxgg0a4" path="res://Sprites/12-Live and Coins/Sprite-0008.png" id="13_xevaj"]
-[ext_resource type="Texture2D" uid="uid://dhvvmqb3ia4js" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)6.png" id="14_qwtbu"]
-[ext_resource type="Texture2D" uid="uid://ckcu4h45gm2xw" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)7.png" id="15_lnucn"]
-[ext_resource type="Texture2D" uid="uid://ce7eghdv2ahfe" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)8.png" id="16_phktw"]
-[ext_resource type="Texture2D" uid="uid://fhjq8m5nwfco" path="res://Sprites/09-Bomb/Bomb Off2.png" id="17_jevwj"]
-[ext_resource type="Texture2D" uid="uid://br2dajbpgchay" path="res://Sprites/09-Bomb/Bomb Off3.png" id="18_nswl2"]
-[ext_resource type="Texture2D" uid="uid://c7biluli57ii3" path="res://Sprites/09-Bomb/Bomb Off4.png" id="19_fqakn"]
+[ext_resource type="Texture2D" uid="uid://4hwpyklvhoyb" path="res://Sprites/12-Live and Coins/Live Bar.png" id="2_clf0c"]
+[ext_resource type="Texture2D" uid="uid://drlje0rdsldy4" path="res://Sprites/12-Live and Coins/Sprite-0001.png" id="3_uj6fk"]
+[ext_resource type="Texture2D" uid="uid://c836k42xlytw1" path="res://Sprites/12-Live and Coins/Small Heart Hit (18x14).png" id="4_cd5r1"]
+[ext_resource type="Texture2D" uid="uid://c2g34r4hedcx4" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)1.png" id="5_7gw4l"]
+[ext_resource type="FontFile" uid="uid://vpi6n22xejoq" path="res://Sprites/12-Live and Coins/Numbers (6x8).png" id="6_lgy4a"]
+[ext_resource type="Texture2D" uid="uid://da1fdtgj10q8k" path="res://Sprites/09-Bomb/Bomb Off1.png" id="7_jror3"]
+[ext_resource type="Texture2D" uid="uid://ctqogarmcoxsc" path="res://Sprites/09-Bomb/x.png" id="8_6fkpk"]
+[ext_resource type="Texture2D" uid="uid://dmcewompk4736" path="res://Sprites/12-Live and Coins/Sprite-0004.png" id="9_4kjpx"]
+[ext_resource type="Texture2D" uid="uid://7ypycn72w3s4" path="res://Sprites/12-Live and Coins/Sprite-0005.png" id="10_khpdn"]
+[ext_resource type="Texture2D" uid="uid://b40cdcs8r4efl" path="res://Sprites/12-Live and Coins/Sprite-0006.png" id="11_vat0a"]
+[ext_resource type="Texture2D" uid="uid://sng48mhd8vkw" path="res://Sprites/12-Live and Coins/Sprite-0007.png" id="12_sfx84"]
+[ext_resource type="Texture2D" uid="uid://bvl7fyuxgg0a4" path="res://Sprites/12-Live and Coins/Sprite-0008.png" id="13_46fsm"]
+[ext_resource type="Texture2D" uid="uid://dhvvmqb3ia4js" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)6.png" id="14_7vdh6"]
+[ext_resource type="Texture2D" uid="uid://ckcu4h45gm2xw" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)7.png" id="15_2xhao"]
+[ext_resource type="Texture2D" uid="uid://ce7eghdv2ahfe" path="res://Sprites/12-Live and Coins/Small Diamond (18x14)8.png" id="16_647f6"]
+[ext_resource type="Texture2D" uid="uid://fhjq8m5nwfco" path="res://Sprites/09-Bomb/Bomb Off2.png" id="17_d2swv"]
+[ext_resource type="Texture2D" uid="uid://br2dajbpgchay" path="res://Sprites/09-Bomb/Bomb Off3.png" id="18_t614y"]
+[ext_resource type="Texture2D" uid="uid://c7biluli57ii3" path="res://Sprites/09-Bomb/Bomb Off4.png" id="19_shbl8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ar7y6"]
-atlas = ExtResource("4_5cj1x")
+atlas = ExtResource("4_cd5r1")
 region = Rect2(0, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26hfm"]
-atlas = ExtResource("4_5cj1x")
+atlas = ExtResource("4_cd5r1")
 region = Rect2(18, 0, 18, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rngme"]
@@ -60,7 +60,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_1fbpr")]
+"values": [ExtResource("3_uj6fk")]
 }
 
 [sub_resource type="Animation" id="Animation_x1ugd"]
@@ -76,7 +76,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_1fbpr"), ExtResource("9_npxwh"), ExtResource("10_3ov16"), ExtResource("11_e71rt"), ExtResource("12_kh256"), ExtResource("13_xevaj")]
+"values": [ExtResource("3_uj6fk"), ExtResource("9_4kjpx"), ExtResource("10_khpdn"), ExtResource("11_vat0a"), ExtResource("12_sfx84"), ExtResource("13_46fsm")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -88,7 +88,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("5_k8do4"), ExtResource("14_qwtbu"), ExtResource("15_lnucn"), ExtResource("16_phktw")]
+"values": [ExtResource("5_7gw4l"), ExtResource("14_7vdh6"), ExtResource("15_2xhao"), ExtResource("16_647f6")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -100,7 +100,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("7_nxqj4"), ExtResource("17_jevwj"), ExtResource("18_nswl2"), ExtResource("19_fqakn")]
+"values": [ExtResource("7_jror3"), ExtResource("17_d2swv"), ExtResource("18_t614y"), ExtResource("19_shbl8")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ma610"]
@@ -119,7 +119,7 @@ script = ExtResource("1_g0p21")
 layout_mode = 0
 offset_right = 66.0
 offset_bottom = 34.0
-texture = ExtResource("2_34wls")
+texture = ExtResource("2_clf0c")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Healthbar"]
 layout_mode = 0
@@ -129,7 +129,7 @@ offset_right = 54.0
 offset_bottom = 24.0
 max_value = 3.0
 value = 3.0
-texture_progress = ExtResource("3_1fbpr")
+texture_progress = ExtResource("3_uj6fk")
 
 [node name="Heart" type="AnimatedSprite2D" parent="Healthbar"]
 visible = false
@@ -151,7 +151,7 @@ offset_right = 131.0
 offset_bottom = 64.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("5_k8do4")
+texture = ExtResource("5_7gw4l")
 
 [node name="DiamondAmount" type="Label" parent="Diamonds"]
 unique_name_in_owner = true
@@ -160,7 +160,7 @@ offset_left = 55.6667
 offset_top = 43.3333
 offset_right = 73.6667
 offset_bottom = 53.3333
-theme_override_fonts/font = ExtResource("6_y8nrc")
+theme_override_fonts/font = ExtResource("6_lgy4a")
 theme_override_font_sizes/font_size = 8
 text = "0"
 
@@ -172,12 +172,12 @@ offset_top = -1.66667
 offset_right = 173.333
 offset_bottom = 79.3333
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_nxqj4")
+texture = ExtResource("7_jror3")
 
 [node name="X" type="Sprite2D" parent="Bomb"]
 position = Vector2(61.667, 43.5)
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("8_qmh30")
+texture = ExtResource("8_6fkpk")
 
 [node name="BombAmount" type="Label" parent="Bomb"]
 unique_name_in_owner = true
@@ -186,7 +186,7 @@ offset_left = 74.167
 offset_top = 33.0
 offset_right = 92.167
 offset_bottom = 53.0
-theme_override_fonts/font = ExtResource("6_y8nrc")
+theme_override_fonts/font = ExtResource("6_lgy4a")
 theme_override_font_sizes/font_size = 20
 text = "0"
 

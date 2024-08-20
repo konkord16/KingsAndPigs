@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0ky1iuj7vj72"]
 
 [ext_resource type="Script" path="res://Scenes/death_menu/death_menu.gd" id="1_td83f"]
-[ext_resource type="FontFile" uid="uid://bvlp1afgcsbtp" path="res://Sprites/joystix monospace.otf" id="2_da4x7"]
+[ext_resource type="FontFile" uid="uid://bvlp1afgcsbtp" path="res://Sprites/joystix monospace.otf" id="2_0bwlp"]
 
 [node name="DeathMenu" type="Control"]
 layout_mode = 3
@@ -34,21 +34,23 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_da4x7")
+theme_override_fonts/font = ExtResource("2_0bwlp")
 theme_override_font_sizes/font_size = 81
 text = "You are dead"
 
 [node name="Restart" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_da4x7")
+theme_override_fonts/font = ExtResource("2_0bwlp")
 theme_override_font_sizes/font_size = 36
+action_mode = 0
 text = "RESTART
 "
 
 [node name="ToMenu" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_da4x7")
+theme_override_fonts/font = ExtResource("2_0bwlp")
 theme_override_font_sizes/font_size = 38
+action_mode = 0
 text = "TO MENU"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

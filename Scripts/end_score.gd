@@ -1,7 +1,6 @@
 extends TileMap
 
 
-
 func _ready() -> void:
 	var minutes := fmod(Manager.time, 3600) / 60
 	var seconds := fmod(Manager.time, 60)

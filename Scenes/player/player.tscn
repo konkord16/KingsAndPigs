@@ -1,20 +1,21 @@
-[gd_scene load_steps=34 format=3 uid="uid://ohdiln5ileer"]
+[gd_scene load_steps=35 format=3 uid="uid://ohdiln5ileer"]
 
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_kt7cr"]
-[ext_resource type="Texture2D" uid="uid://ct5ek15q0e3a4" path="res://Sprites/02-KingHuman.png" id="2_enp40"]
 [ext_resource type="PackedScene" uid="uid://bp7pol08k0i4n" path="res://Scenes/bomb/bomb.tscn" id="2_ikyp0"]
 [ext_resource type="AudioStream" uid="uid://btfkj1lfix3ij" path="res://Sounds/swing.mp3" id="3_buqda"]
+[ext_resource type="Texture2D" uid="uid://ct5ek15q0e3a4" path="res://Sprites/02-KingHuman.png" id="3_gohmv"]
 [ext_resource type="AudioStream" uid="uid://deovjjad07u7i" path="res://Sounds/death.mp3" id="4_1ediw"]
 [ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://Sounds/steam.mp3" id="5_h2kqv"]
 [ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://Sounds/footstep.mp3" id="6_goi6i"]
 [ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://Sounds/hit.mp3" id="7_xuaag"]
-[ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="8_v2bpl"]
+[ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="9_6u2pr"]
 [ext_resource type="PackedScene" uid="uid://cjw45eq3jqrkd" path="res://Scenes/ui/ui.tscn" id="9_j24v6"]
 [ext_resource type="PackedScene" uid="uid://c0ky1iuj7vj72" path="res://Scenes/death_menu/death_menu.tscn" id="10_ybbe4"]
 [ext_resource type="PackedScene" uid="uid://0lwmnmhtyxjq" path="res://Scenes/speech.tscn" id="11_uooio"]
 [ext_resource type="PackedScene" uid="uid://dli8vme1h824a" path="res://Scenes/audio_player/audio_player.tscn" id="12_moyck"]
 [ext_resource type="PackedScene" uid="uid://dluxd21pu0rs3" path="res://Scenes/menu/menu.tscn" id="12_w87nq"]
 [ext_resource type="PackedScene" uid="uid://b40ig28y4g55m" path="res://Scenes/settings/settings.tscn" id="15_f2k53"]
+[ext_resource type="FontFile" uid="uid://bvlp1afgcsbtp" path="res://Sprites/joystix monospace.otf" id="16_tgvj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nawam"]
 size = Vector2(14, 21)
@@ -229,22 +230,34 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AudioPlayer:stream")
+tracks/5/path = NodePath("CanvasLayer/Settings:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(1.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioPlayer:stream")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("4_1ediw"), ExtResource("5_h2kqv")]
 }
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioPlayer")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -255,13 +268,13 @@ tracks/6/keys = {
 "method": &"_play"
 }]
 }
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -269,25 +282,25 @@ tracks/7/keys = {
 "method": &"trashtalk"
 }]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Sprite2D:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite2D:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(1, 1.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath(".:collision_layer")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:collision_layer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
 "times": PackedFloat32Array(0, 0.0001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -654,6 +667,11 @@ script = ExtResource("1_kt7cr")
 BOMB = ExtResource("2_ikyp0")
 current_state = 2
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 20)
+collision_mask = 8
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_nawam")
@@ -661,7 +679,7 @@ shape = SubResource("RectangleShape2D_nawam")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -4)
-texture = ExtResource("2_enp40")
+texture = ExtResource("3_gohmv")
 hframes = 11
 vframes = 10
 
@@ -683,7 +701,7 @@ libraries = {
 position = Vector2(0, -4)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_tq7p3")
-texture = ExtResource("8_v2bpl")
+texture = ExtResource("9_6u2pr")
 one_shot = true
 explosiveness = 0.5
 
@@ -708,6 +726,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="DeathMenu" parent="CanvasLayer" instance=ExtResource("10_ybbe4")]
+unique_name_in_owner = true
 visible = false
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("12_w87nq")]
@@ -747,5 +766,24 @@ offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ToMenu" type="Button" parent="CanvasLayer/Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = 128.0
+offset_right = 112.5
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("16_tgvj6")
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+text = "TO MENU"
+
 [connection signal="area_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="pressed" from="CanvasLayer/Settings/ToMenu" to="CanvasLayer/DeathMenu" method="_on_to_menu_pressed"]

@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var enterable := true
-var destination : int
+@export var destination : int
 @onready var sprite : AnimatedSprite2D= $AnimatedSprite
 
 func _ready() -> void:
@@ -11,7 +11,7 @@ func _ready() -> void:
 		for body in get_overlapping_bodies():
 			if body.is_in_group("player"):		
 				sprite.play("closing")
-	else:
+	elif not destination:
 		destination = get_tree().current_scene.scene_file_path.to_int() + 1
 
 

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scenes/pig_and_cannon/pig_and_cannon.gd" id="1_dlx5v"]
 [ext_resource type="PackedScene" uid="uid://bf4kve4htblho" path="res://Scenes/cannon_ball/cannon_ball.tscn" id="2_35b7s"]
-[ext_resource type="Texture2D" uid="uid://chexplfvb6ukn" path="res://Sprites/10-Cannon and Pig.png" id="2_m262m"]
 [ext_resource type="PackedScene" uid="uid://0lwmnmhtyxjq" path="res://Scenes/speech.tscn" id="3_da4jp"]
-[ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="4_06cuj"]
+[ext_resource type="Texture2D" uid="uid://chexplfvb6ukn" path="res://Sprites/10-Cannon and Pig.png" id="3_snfqd"]
 [ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://Sounds/steam.mp3" id="5_d3ww0"]
+[ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="5_wv436"]
 [ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://Sounds/hit.mp3" id="6_e6mgv"]
 [ext_resource type="AudioStream" uid="uid://johfncomiyjq" path="res://Sounds/explosion.mp3" id="7_350pp"]
 [ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://Sounds/footstep.mp3" id="8_qsiuk"]
@@ -201,7 +201,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioPlayer:stream")
+tracks/4/path = NodePath("PigAudioPlayer:stream")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -213,7 +213,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AudioPlayer")
+tracks/5/path = NodePath("PigAudioPlayer")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -255,7 +255,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioPlayer:stream")
+tracks/1/path = NodePath("PigAudioPlayer:stream")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -267,7 +267,7 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AudioPlayer")
+tracks/2/path = NodePath("PigAudioPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -351,7 +351,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AudioPlayer")
+tracks/3/path = NodePath("CannonAudioPlayer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -361,18 +361,6 @@ tracks/3/keys = {
 "args": [0.0],
 "method": &"_play"
 }]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AudioPlayer:stream")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_350pp")]
 }
 
 [sub_resource type="Animation" id="Animation_2hw51"]
@@ -416,7 +404,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AudioPlayer")
+tracks/3/path = NodePath("PigAudioPlayer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -436,7 +424,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioPlayer:stream")
+tracks/4/path = NodePath("PigAudioPlayer:stream")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -511,7 +499,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AudioPlayer:stream")
+tracks/3/path = NodePath("PigAudioPlayer:stream")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -523,7 +511,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioPlayer")
+tracks/4/path = NodePath("PigAudioPlayer")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -599,7 +587,7 @@ position = Vector2(24, 7)
 shape = SubResource("RectangleShape2D_ses3h")
 
 [node name="PigSprite" type="Sprite2D" parent="Pig"]
-texture = ExtResource("2_m262m")
+texture = ExtResource("3_snfqd")
 flip_h = true
 hframes = 6
 vframes = 10
@@ -614,7 +602,7 @@ frame_progress = 0.755867
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Pig"]
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_4uj0j")
-texture = ExtResource("4_06cuj")
+texture = ExtResource("5_wv436")
 one_shot = true
 explosiveness = 0.5
 
@@ -630,7 +618,7 @@ collision_mask = 0
 [node name="CannonSprite" type="Sprite2D" parent="Cannon"]
 unique_name_in_owner = true
 position = Vector2(0, 7)
-texture = ExtResource("2_m262m")
+texture = ExtResource("3_snfqd")
 hframes = 6
 vframes = 10
 
@@ -639,8 +627,11 @@ z_index = 1
 position = Vector2(0, 7.75)
 shape = SubResource("RectangleShape2D_r6flb")
 
-[node name="AudioPlayer" parent="." instance=ExtResource("9_8vffa")]
-stream = ExtResource("8_qsiuk")
+[node name="PigAudioPlayer" parent="." instance=ExtResource("9_8vffa")]
+stream = ExtResource("7_350pp")
+
+[node name="CannonAudioPlayer" parent="." instance=ExtResource("9_8vffa")]
+stream = ExtResource("7_350pp")
 
 [node name="Speaking" parent="." instance=ExtResource("9_8vffa")]
 stream = ExtResource("10_1gxpt")

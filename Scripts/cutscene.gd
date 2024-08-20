@@ -1,6 +1,7 @@
 extends AnimationPlayer
 
 @export var pig_scene : PackedScene
+@export var bomb_pig : PackedScene
 @export var pigs_leaving := false
 var pigs_on_scene := 0
 var pigs_on_standby := 0
@@ -29,7 +30,11 @@ func reinforcement() -> void:
 		$"../Door/AnimatedSprite".play("closing")
 		return
 	for i in range(min(pigs_on_standby, 2)):
-		var pig_inst := pig_scene.instantiate() 
+		var pig_inst : BaseEntity
+		if i == 0:
+			pig_inst = bomb_pig.instantiate() 
+		else:
+			pig_inst = pig_scene.instantiate() 
 		pig_inst.modulate = Color(1,1,1,0.25)
 		pig_inst.global_position = Vector2(740, -40)
 		pig_inst.direction = -1

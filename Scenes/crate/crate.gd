@@ -4,6 +4,8 @@ extends RigidBody2D
 var rng := RandomNumberGenerator.new()
 
 func take_damage(amount : int, dir : int ) -> void:
+	if not $VisibleOnScreenNotifier2D.is_on_screen():
+		queue_free()
 	$AudioStreamPlayer2D._play()
 	$Sprite2D.visible = false
 	set_collision_layer_value(1, false)
@@ -19,7 +21,3 @@ func drop_item() -> void:
 		var inst_collectible := collectible.instantiate()
 		inst_collectible.global_position = global_position + Vector2(0, -9)
 		call_deferred("add_sibling", inst_collectible)
-
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	queue_free()

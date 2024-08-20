@@ -17,7 +17,7 @@ func _physics_process(delta : float) -> void:
 
 func take_damage(amount : int, dir : int ) -> void:
 	if dir == direction:
-		velocity = velocity.rotated(-PI/2)
+		velocity = velocity.rotated(-PI/2 * dir)
 	else:
 		velocity = velocity.rotated(PI)
 

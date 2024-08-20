@@ -1,9 +1,9 @@
 [gd_scene load_steps=23 format=3 uid="uid://c3k83j5r6w0gr"]
 
 [ext_resource type="Script" path="res://Scenes/pig_with_bomb/pig_with_bomb.gd" id="1_7fkoo"]
-[ext_resource type="Texture2D" uid="uid://cbt05dtt82g8q" path="res://Sprites/05-BombPig/05-PigBoom.png" id="2_3jisn"]
 [ext_resource type="PackedScene" uid="uid://bp7pol08k0i4n" path="res://Scenes/bomb/bomb.tscn" id="2_8rp3f"]
-[ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="3_h6rrv"]
+[ext_resource type="Texture2D" uid="uid://cbt05dtt82g8q" path="res://Sprites/05-BombPig/05-PigBoom.png" id="3_c0rsv"]
+[ext_resource type="Texture2D" uid="uid://cxfnk6yo07g4e" path="res://Sprites/Smoke.png" id="4_14ari"]
 [ext_resource type="AudioStream" uid="uid://4adgc7r4udke" path="res://Sounds/steam.mp3" id="4_bugjn"]
 [ext_resource type="AudioStream" uid="uid://clrxlj6wixqqy" path="res://Sounds/hit.mp3" id="5_eho3k"]
 [ext_resource type="AudioStream" uid="uid://dri3acuueftnl" path="res://Sounds/footstep.mp3" id="6_2k4qg"]
@@ -355,7 +355,7 @@ shape = SubResource("RectangleShape2D_2b53f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("2_3jisn")
+texture = ExtResource("3_c0rsv")
 hframes = 6
 vframes = 6
 frame = 6
@@ -364,18 +364,16 @@ frame = 6
 unique_name_in_owner = true
 position = Vector2(-1, 0)
 target_position = Vector2(-13, 0)
-collision_mask = 7
 
 [node name="WallRayRight" type="RayCast2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-1, 0)
 target_position = Vector2(13, 0)
-collision_mask = 7
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_rnod4")
-texture = ExtResource("3_h6rrv")
+texture = ExtResource("4_14ari")
 one_shot = true
 explosiveness = 0.5
 

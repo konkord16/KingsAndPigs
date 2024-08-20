@@ -35,8 +35,8 @@ func _physics_process(_delta : float) -> void:
 		velocity.y += GRAVITY
 	elif not grounded:
 		if current_state != State.CUTSCENE:
-			audio.play()
 			audio.stream = load("res://Sounds/footstep.mp3")
+			audio._play()
 		emit_signal("landed")
 	grounded = is_on_floor()
 	

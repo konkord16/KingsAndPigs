@@ -1,7 +1,8 @@
+class_name DeathMenu
 extends Control
 
 func _on_to_menu_pressed() -> void: 
-	get_tree().change_scene_to_file("res://Levels/level0.tscn")
+	get_tree().change_scene_to_file("res://Levels/level1.tscn")
 	Player.bombs = 0
 	Player.diamonds = 0
 	Player.overall_diamonds = 0
